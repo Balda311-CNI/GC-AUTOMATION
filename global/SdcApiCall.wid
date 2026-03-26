@@ -1,0 +1,28 @@
+[
+        [
+            "name" : "SdcApiCall",
+            "displayName" : "SdcApiCall",
+            "category" : "sdc-jbpm",
+            "description" : "",
+            "defaultHandler" : "mvel: new cz.sykora.SdcApiWorkItemHandler()",
+            "documentation" : "sdc-jbpm/index.html",
+
+            "parameters" : [
+                                "apiUrl" : new StringDataType()
+                ,"dataMap.inputToBeChanged" : new StringDataType()
+                ,"routeMap.domain" : new StringDataType()
+
+            ],
+            "results" : [
+                                "resultToBeChanged" : new StringDataType()
+
+            ],
+            "mavenDependencies" : [
+                                 "cz.sykora:sdc-jbpm:1.0.0-SNAPSHOT"
+
+            ],
+            "icon" : "SdcApiCall.png"
+
+        ]
+
+]
