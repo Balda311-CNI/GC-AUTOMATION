@@ -8,7 +8,14 @@
     <marshalling-strategies/>
     <event-listeners/>
     <task-event-listeners/>
-    <globals/>
+    <globals>
+        <global>
+            <resolver>mvel</resolver>
+            <identifier>http://gc-demo.cross-ni.com:8085/api/jbpm/apiCall</identifier>
+            <parameters/>
+            <name>_apiCallUrl</name>
+        </global>
+    </globals>
     <work-item-handlers>
         <work-item-handler>
             <resolver>mvel</resolver>
