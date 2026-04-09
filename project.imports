@@ -28,6 +28,12 @@
       <import>
         <type>java.lang.Long</type>
       </import>
+      <import>
+        <type>java.util.Map</type>
+      </import>
+      <import>
+        <type>java.util.LinkedHashMap</type>
+      </import>
     </imports>
   </imports>
   <version>1.0</version>
