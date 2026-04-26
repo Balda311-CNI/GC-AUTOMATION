@@ -4,7 +4,7 @@
   <bpmn2:itemDefinition id="__orderItem" structureRef="String"/>
   <bpmn2:itemDefinition id="_versionItem" structureRef="String"/>
   <bpmn2:itemDefinition id="_odinRequestIdItem" structureRef="String"/>
-  <bpmn2:itemDefinition id="_addressMasterIdItem" structureRef="String"/>
+  <bpmn2:itemDefinition id="_globalReferenceIdItem" structureRef="String"/>
   <bpmn2:itemDefinition id="_distanceItem" structureRef="Integer"/>
   <bpmn2:itemDefinition id="_equipmentTypesItem" structureRef="java.util.List"/>
   <bpmn2:itemDefinition id="_nodeIdItem" structureRef="Integer"/>
@@ -21,14 +21,14 @@
   <bpmn2:itemDefinition id="__8D857E7A-9534-477A-8E8D-AF508CF19986_dataMap.versionInputXItem" structureRef="String"/>
   <bpmn2:itemDefinition id="__8D857E7A-9534-477A-8E8D-AF508CF19986_dataMap.odinRequestIdInputXItem" structureRef="String"/>
   <bpmn2:itemDefinition id="__8D857E7A-9534-477A-8E8D-AF508CF19986_dataMap.statusInputXItem" structureRef="String"/>
-  <bpmn2:itemDefinition id="__8D857E7A-9534-477A-8E8D-AF508CF19986_dataMap.addressMasterIdInputXItem" structureRef="String"/>
+  <bpmn2:itemDefinition id="__8D857E7A-9534-477A-8E8D-AF508CF19986_dataMap.globalReferenceIdInputXItem" structureRef="String"/>
   <bpmn2:itemDefinition id="__8D857E7A-9534-477A-8E8D-AF508CF19986_dataMap.addressLatitudeInputXItem" structureRef="java.lang.Double"/>
   <bpmn2:itemDefinition id="__8D857E7A-9534-477A-8E8D-AF508CF19986_dataMap.addressLongitudeInputXItem" structureRef="java.lang.Double"/>
   <bpmn2:itemDefinition id="__8D857E7A-9534-477A-8E8D-AF508CF19986_dataMap.equipmentListInputXItem" structureRef="java.util.List"/>
   <bpmn2:itemDefinition id="__CA09AB50-A6C1-43DA-97F7-F3D92BC8EC85_apiUrlInputXItem" structureRef="String"/>
   <bpmn2:itemDefinition id="__CA09AB50-A6C1-43DA-97F7-F3D92BC8EC85_routeMap.domainInputXItem" structureRef="String"/>
   <bpmn2:itemDefinition id="__CA09AB50-A6C1-43DA-97F7-F3D92BC8EC85_routeMap.sourceInputXItem" structureRef="String"/>
-  <bpmn2:itemDefinition id="__CA09AB50-A6C1-43DA-97F7-F3D92BC8EC85_dataMap.addressMasterIdInputXItem" structureRef="String"/>
+  <bpmn2:itemDefinition id="__CA09AB50-A6C1-43DA-97F7-F3D92BC8EC85_dataMap.globalReferenceIdInputXItem" structureRef="String"/>
   <bpmn2:itemDefinition id="__CA09AB50-A6C1-43DA-97F7-F3D92BC8EC85_addressListOutputXItem" structureRef="java.util.List"/>
   <bpmn2:itemDefinition id="__762FDAA2-F5AE-4703-A797-3E4F32217D69_apiUrlInputXItem" structureRef="String"/>
   <bpmn2:itemDefinition id="__762FDAA2-F5AE-4703-A797-3E4F32217D69_routeMap.domainInputXItem" structureRef="String"/>
@@ -42,12 +42,12 @@
   <bpmn2:itemDefinition id="__8CB7A114-8CEA-4461-8718-36C5581E42D1_dataMap.idInputXItem" structureRef="String"/>
   <bpmn2:itemDefinition id="__8CB7A114-8CEA-4461-8718-36C5581E42D1_dataMap.jsonata.versionInputXItem" structureRef="String"/>
   <bpmn2:itemDefinition id="__8CB7A114-8CEA-4461-8718-36C5581E42D1_dataMap.jsonata.odinRequestIdInputXItem" structureRef="String"/>
-  <bpmn2:itemDefinition id="__8CB7A114-8CEA-4461-8718-36C5581E42D1_dataMap.jsonata.addressMasterIdInputXItem" structureRef="String"/>
+  <bpmn2:itemDefinition id="__8CB7A114-8CEA-4461-8718-36C5581E42D1_dataMap.jsonata.globalReferenceIdInputXItem" structureRef="String"/>
   <bpmn2:itemDefinition id="__8CB7A114-8CEA-4461-8718-36C5581E42D1_dataMap.jsonata.distanceInputXItem" structureRef="Integer"/>
   <bpmn2:itemDefinition id="__8CB7A114-8CEA-4461-8718-36C5581E42D1_dataMap.jsonata.equipmentTypesInputXItem" structureRef="java.util.List"/>
   <bpmn2:itemDefinition id="__8CB7A114-8CEA-4461-8718-36C5581E42D1_versionOutputXItem" structureRef="String"/>
   <bpmn2:itemDefinition id="__8CB7A114-8CEA-4461-8718-36C5581E42D1_odinRequestIdOutputXItem" structureRef="String"/>
-  <bpmn2:itemDefinition id="__8CB7A114-8CEA-4461-8718-36C5581E42D1_addressMasterIdOutputXItem" structureRef="String"/>
+  <bpmn2:itemDefinition id="__8CB7A114-8CEA-4461-8718-36C5581E42D1_globalReferenceIdOutputXItem" structureRef="String"/>
   <bpmn2:itemDefinition id="__8CB7A114-8CEA-4461-8718-36C5581E42D1_distanceOutputXItem" structureRef="Integer"/>
   <bpmn2:itemDefinition id="__8CB7A114-8CEA-4461-8718-36C5581E42D1_equipmentTypesOutputXItem" structureRef="java.util.List"/>
   <bpmn2:error id="AddressNotFoundException" errorCode="AddressNotFoundException"/>
@@ -60,7 +60,7 @@
     <bpmn2:property id="_order" itemSubjectRef="__orderItem" name="_order"/>
     <bpmn2:property id="version" itemSubjectRef="_versionItem" name="version"/>
     <bpmn2:property id="odinRequestId" itemSubjectRef="_odinRequestIdItem" name="odinRequestId"/>
-    <bpmn2:property id="addressMasterId" itemSubjectRef="_addressMasterIdItem" name="addressMasterId"/>
+    <bpmn2:property id="globalReferenceId" itemSubjectRef="_globalReferenceIdItem" name="globalReferenceId"/>
     <bpmn2:property id="distance" itemSubjectRef="_distanceItem" name="distance"/>
     <bpmn2:property id="equipmentTypes" itemSubjectRef="_equipmentTypesItem" name="equipmentTypes"/>
     <bpmn2:property id="nodeId" itemSubjectRef="_nodeIdItem" name="nodeId"/>
@@ -119,10 +119,10 @@ System.out.println("===================================================");]]></d
         <drools:onExit-script scriptFormat="http://www.java.com/java">
           <drools:script><![CDATA[// Get inspired at: AutomatonTM.CREATE_ORDER_PI_API
 String dataOutputs = java.lang.String.format(
-    "version=%s, odinRequestId=%s, addressMasterId=%s, distance=%d, equipmentTypes=%s",
+    "version=%s, odinRequestId=%s, globalReferenceId=%s, distance=%d, equipmentTypes=%s",
     version,
     odinRequestId,
-    addressMasterId,
+    globalReferenceId,
     distance,
     equipmentTypes == null ? "" : equipmentTypes.toString()
 );
@@ -139,13 +139,13 @@ System.out.println("Data Outputs: " + dataOutputs);]]></drools:script>
         <bpmn2:dataInput id="_8CB7A114-8CEA-4461-8718-36C5581E42D1_dataMap.idInputX" drools:dtype="String" itemSubjectRef="__8CB7A114-8CEA-4461-8718-36C5581E42D1_dataMap.idInputXItem" name="dataMap.id"/>
         <bpmn2:dataInput id="_8CB7A114-8CEA-4461-8718-36C5581E42D1_dataMap.jsonata.versionInputX" drools:dtype="String" itemSubjectRef="__8CB7A114-8CEA-4461-8718-36C5581E42D1_dataMap.jsonata.versionInputXItem" name="dataMap.jsonata.version"/>
         <bpmn2:dataInput id="_8CB7A114-8CEA-4461-8718-36C5581E42D1_dataMap.jsonata.odinRequestIdInputX" drools:dtype="String" itemSubjectRef="__8CB7A114-8CEA-4461-8718-36C5581E42D1_dataMap.jsonata.odinRequestIdInputXItem" name="dataMap.jsonata.odinRequestId"/>
-        <bpmn2:dataInput id="_8CB7A114-8CEA-4461-8718-36C5581E42D1_dataMap.jsonata.addressMasterIdInputX" drools:dtype="String" itemSubjectRef="__8CB7A114-8CEA-4461-8718-36C5581E42D1_dataMap.jsonata.addressMasterIdInputXItem" name="dataMap.jsonata.addressMasterId"/>
+        <bpmn2:dataInput id="_8CB7A114-8CEA-4461-8718-36C5581E42D1_dataMap.jsonata.globalReferenceIdInputX" drools:dtype="String" itemSubjectRef="__8CB7A114-8CEA-4461-8718-36C5581E42D1_dataMap.jsonata.globalReferenceIdInputXItem" name="dataMap.jsonata.globalReferenceId"/>
         <bpmn2:dataInput id="_8CB7A114-8CEA-4461-8718-36C5581E42D1_dataMap.jsonata.distanceInputX" drools:dtype="Integer" itemSubjectRef="__8CB7A114-8CEA-4461-8718-36C5581E42D1_dataMap.jsonata.distanceInputXItem" name="dataMap.jsonata.distance"/>
         <bpmn2:dataInput id="_8CB7A114-8CEA-4461-8718-36C5581E42D1_dataMap.jsonata.equipmentTypesInputX" drools:dtype="java.util.List" itemSubjectRef="__8CB7A114-8CEA-4461-8718-36C5581E42D1_dataMap.jsonata.equipmentTypesInputXItem" name="dataMap.jsonata.equipmentTypes"/>
         <bpmn2:dataInput id="_8CB7A114-8CEA-4461-8718-36C5581E42D1_TaskNameInputX" drools:dtype="Object" name="TaskName"/>
         <bpmn2:dataOutput id="_8CB7A114-8CEA-4461-8718-36C5581E42D1_versionOutputX" drools:dtype="String" itemSubjectRef="__8CB7A114-8CEA-4461-8718-36C5581E42D1_versionOutputXItem" name="version"/>
         <bpmn2:dataOutput id="_8CB7A114-8CEA-4461-8718-36C5581E42D1_odinRequestIdOutputX" drools:dtype="String" itemSubjectRef="__8CB7A114-8CEA-4461-8718-36C5581E42D1_odinRequestIdOutputXItem" name="odinRequestId"/>
-        <bpmn2:dataOutput id="_8CB7A114-8CEA-4461-8718-36C5581E42D1_addressMasterIdOutputX" drools:dtype="String" itemSubjectRef="__8CB7A114-8CEA-4461-8718-36C5581E42D1_addressMasterIdOutputXItem" name="addressMasterId"/>
+        <bpmn2:dataOutput id="_8CB7A114-8CEA-4461-8718-36C5581E42D1_globalReferenceIdOutputX" drools:dtype="String" itemSubjectRef="__8CB7A114-8CEA-4461-8718-36C5581E42D1_globalReferenceIdOutputXItem" name="globalReferenceId"/>
         <bpmn2:dataOutput id="_8CB7A114-8CEA-4461-8718-36C5581E42D1_distanceOutputX" drools:dtype="Integer" itemSubjectRef="__8CB7A114-8CEA-4461-8718-36C5581E42D1_distanceOutputXItem" name="distance"/>
         <bpmn2:dataOutput id="_8CB7A114-8CEA-4461-8718-36C5581E42D1_equipmentTypesOutputX" drools:dtype="java.util.List" itemSubjectRef="__8CB7A114-8CEA-4461-8718-36C5581E42D1_equipmentTypesOutputXItem" name="equipmentTypes"/>
         <bpmn2:inputSet id="_NlyGdjP6EfGP_43KC4m93A">
@@ -156,7 +156,7 @@ System.out.println("Data Outputs: " + dataOutputs);]]></drools:script>
           <bpmn2:dataInputRefs>_8CB7A114-8CEA-4461-8718-36C5581E42D1_dataMap.idInputX</bpmn2:dataInputRefs>
           <bpmn2:dataInputRefs>_8CB7A114-8CEA-4461-8718-36C5581E42D1_dataMap.jsonata.versionInputX</bpmn2:dataInputRefs>
           <bpmn2:dataInputRefs>_8CB7A114-8CEA-4461-8718-36C5581E42D1_dataMap.jsonata.odinRequestIdInputX</bpmn2:dataInputRefs>
-          <bpmn2:dataInputRefs>_8CB7A114-8CEA-4461-8718-36C5581E42D1_dataMap.jsonata.addressMasterIdInputX</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>_8CB7A114-8CEA-4461-8718-36C5581E42D1_dataMap.jsonata.globalReferenceIdInputX</bpmn2:dataInputRefs>
           <bpmn2:dataInputRefs>_8CB7A114-8CEA-4461-8718-36C5581E42D1_dataMap.jsonata.distanceInputX</bpmn2:dataInputRefs>
           <bpmn2:dataInputRefs>_8CB7A114-8CEA-4461-8718-36C5581E42D1_dataMap.jsonata.equipmentTypesInputX</bpmn2:dataInputRefs>
           <bpmn2:dataInputRefs>_8CB7A114-8CEA-4461-8718-36C5581E42D1_TaskNameInputX</bpmn2:dataInputRefs>
@@ -164,7 +164,7 @@ System.out.println("Data Outputs: " + dataOutputs);]]></drools:script>
         <bpmn2:outputSet id="_NlyGdzP6EfGP_43KC4m93A">
           <bpmn2:dataOutputRefs>_8CB7A114-8CEA-4461-8718-36C5581E42D1_versionOutputX</bpmn2:dataOutputRefs>
           <bpmn2:dataOutputRefs>_8CB7A114-8CEA-4461-8718-36C5581E42D1_odinRequestIdOutputX</bpmn2:dataOutputRefs>
-          <bpmn2:dataOutputRefs>_8CB7A114-8CEA-4461-8718-36C5581E42D1_addressMasterIdOutputX</bpmn2:dataOutputRefs>
+          <bpmn2:dataOutputRefs>_8CB7A114-8CEA-4461-8718-36C5581E42D1_globalReferenceIdOutputX</bpmn2:dataOutputRefs>
           <bpmn2:dataOutputRefs>_8CB7A114-8CEA-4461-8718-36C5581E42D1_distanceOutputX</bpmn2:dataOutputRefs>
           <bpmn2:dataOutputRefs>_8CB7A114-8CEA-4461-8718-36C5581E42D1_equipmentTypesOutputX</bpmn2:dataOutputRefs>
         </bpmn2:outputSet>
@@ -213,10 +213,10 @@ System.out.println("Data Outputs: " + dataOutputs);]]></drools:script>
         </bpmn2:assignment>
       </bpmn2:dataInputAssociation>
       <bpmn2:dataInputAssociation id="_NlyGjjP6EfGP_43KC4m93A">
-        <bpmn2:targetRef>_8CB7A114-8CEA-4461-8718-36C5581E42D1_dataMap.jsonata.addressMasterIdInputX</bpmn2:targetRef>
+        <bpmn2:targetRef>_8CB7A114-8CEA-4461-8718-36C5581E42D1_dataMap.jsonata.globalReferenceIdInputX</bpmn2:targetRef>
         <bpmn2:assignment id="_NlyGjzP6EfGP_43KC4m93A">
-          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_NlyGkDP6EfGP_43KC4m93A"><![CDATA[addressMasterId]]></bpmn2:from>
-          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_NlyGkTP6EfGP_43KC4m93A">_8CB7A114-8CEA-4461-8718-36C5581E42D1_dataMap.jsonata.addressMasterIdInputX</bpmn2:to>
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_NlyGkDP6EfGP_43KC4m93A"><![CDATA[globalReferenceId]]></bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_NlyGkTP6EfGP_43KC4m93A">_8CB7A114-8CEA-4461-8718-36C5581E42D1_dataMap.jsonata.globalReferenceIdInputX</bpmn2:to>
         </bpmn2:assignment>
       </bpmn2:dataInputAssociation>
       <bpmn2:dataInputAssociation id="_NlyGkjP6EfGP_43KC4m93A">
@@ -249,8 +249,8 @@ System.out.println("Data Outputs: " + dataOutputs);]]></drools:script>
         <bpmn2:targetRef>odinRequestId</bpmn2:targetRef>
       </bpmn2:dataOutputAssociation>
       <bpmn2:dataOutputAssociation id="_NlyGoDP6EfGP_43KC4m93A">
-        <bpmn2:sourceRef>_8CB7A114-8CEA-4461-8718-36C5581E42D1_addressMasterIdOutputX</bpmn2:sourceRef>
-        <bpmn2:targetRef>addressMasterId</bpmn2:targetRef>
+        <bpmn2:sourceRef>_8CB7A114-8CEA-4461-8718-36C5581E42D1_globalReferenceIdOutputX</bpmn2:sourceRef>
+        <bpmn2:targetRef>globalReferenceId</bpmn2:targetRef>
       </bpmn2:dataOutputAssociation>
       <bpmn2:dataOutputAssociation id="_NlyGoTP6EfGP_43KC4m93A">
         <bpmn2:sourceRef>_8CB7A114-8CEA-4461-8718-36C5581E42D1_distanceOutputX</bpmn2:sourceRef>
@@ -407,14 +407,14 @@ if (addressList != null) {
         <bpmn2:dataInput id="_CA09AB50-A6C1-43DA-97F7-F3D92BC8EC85_apiUrlInputX" drools:dtype="String" itemSubjectRef="__CA09AB50-A6C1-43DA-97F7-F3D92BC8EC85_apiUrlInputXItem" name="apiUrl"/>
         <bpmn2:dataInput id="_CA09AB50-A6C1-43DA-97F7-F3D92BC8EC85_routeMap.domainInputX" drools:dtype="String" itemSubjectRef="__CA09AB50-A6C1-43DA-97F7-F3D92BC8EC85_routeMap.domainInputXItem" name="routeMap.domain"/>
         <bpmn2:dataInput id="_CA09AB50-A6C1-43DA-97F7-F3D92BC8EC85_routeMap.sourceInputX" drools:dtype="String" itemSubjectRef="__CA09AB50-A6C1-43DA-97F7-F3D92BC8EC85_routeMap.sourceInputXItem" name="routeMap.source"/>
-        <bpmn2:dataInput id="_CA09AB50-A6C1-43DA-97F7-F3D92BC8EC85_dataMap.addressMasterIdInputX" drools:dtype="String" itemSubjectRef="__CA09AB50-A6C1-43DA-97F7-F3D92BC8EC85_dataMap.addressMasterIdInputXItem" name="dataMap.addressMasterId"/>
+        <bpmn2:dataInput id="_CA09AB50-A6C1-43DA-97F7-F3D92BC8EC85_dataMap.globalReferenceIdInputX" drools:dtype="String" itemSubjectRef="__CA09AB50-A6C1-43DA-97F7-F3D92BC8EC85_dataMap.globalReferenceIdInputXItem" name="dataMap.globalReferenceId"/>
         <bpmn2:dataInput id="_CA09AB50-A6C1-43DA-97F7-F3D92BC8EC85_TaskNameInputX" drools:dtype="Object" name="TaskName"/>
         <bpmn2:dataOutput id="_CA09AB50-A6C1-43DA-97F7-F3D92BC8EC85_addressListOutputX" drools:dtype="java.util.List" itemSubjectRef="__CA09AB50-A6C1-43DA-97F7-F3D92BC8EC85_addressListOutputXItem" name="addressList"/>
         <bpmn2:inputSet id="_NlythTP6EfGP_43KC4m93A">
           <bpmn2:dataInputRefs>_CA09AB50-A6C1-43DA-97F7-F3D92BC8EC85_apiUrlInputX</bpmn2:dataInputRefs>
           <bpmn2:dataInputRefs>_CA09AB50-A6C1-43DA-97F7-F3D92BC8EC85_routeMap.domainInputX</bpmn2:dataInputRefs>
           <bpmn2:dataInputRefs>_CA09AB50-A6C1-43DA-97F7-F3D92BC8EC85_routeMap.sourceInputX</bpmn2:dataInputRefs>
-          <bpmn2:dataInputRefs>_CA09AB50-A6C1-43DA-97F7-F3D92BC8EC85_dataMap.addressMasterIdInputX</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>_CA09AB50-A6C1-43DA-97F7-F3D92BC8EC85_dataMap.globalReferenceIdInputX</bpmn2:dataInputRefs>
           <bpmn2:dataInputRefs>_CA09AB50-A6C1-43DA-97F7-F3D92BC8EC85_TaskNameInputX</bpmn2:dataInputRefs>
         </bpmn2:inputSet>
         <bpmn2:outputSet id="_NlythjP6EfGP_43KC4m93A">
@@ -440,8 +440,8 @@ if (addressList != null) {
         </bpmn2:assignment>
       </bpmn2:dataInputAssociation>
       <bpmn2:dataInputAssociation id="_NlytkDP6EfGP_43KC4m93A">
-        <bpmn2:sourceRef>addressMasterId</bpmn2:sourceRef>
-        <bpmn2:targetRef>_CA09AB50-A6C1-43DA-97F7-F3D92BC8EC85_dataMap.addressMasterIdInputX</bpmn2:targetRef>
+        <bpmn2:sourceRef>globalReferenceId</bpmn2:sourceRef>
+        <bpmn2:targetRef>_CA09AB50-A6C1-43DA-97F7-F3D92BC8EC85_dataMap.globalReferenceIdInputX</bpmn2:targetRef>
       </bpmn2:dataInputAssociation>
       <bpmn2:dataInputAssociation id="_NlytkTP6EfGP_43KC4m93A">
         <bpmn2:targetRef>_CA09AB50-A6C1-43DA-97F7-F3D92BC8EC85_TaskNameInputX</bpmn2:targetRef>
@@ -479,7 +479,7 @@ System.out.println("============================================================
         <bpmn2:dataInput id="_8D857E7A-9534-477A-8E8D-AF508CF19986_dataMap.versionInputX" drools:dtype="String" itemSubjectRef="__8D857E7A-9534-477A-8E8D-AF508CF19986_dataMap.versionInputXItem" name="dataMap.version"/>
         <bpmn2:dataInput id="_8D857E7A-9534-477A-8E8D-AF508CF19986_dataMap.odinRequestIdInputX" drools:dtype="String" itemSubjectRef="__8D857E7A-9534-477A-8E8D-AF508CF19986_dataMap.odinRequestIdInputXItem" name="dataMap.odinRequestId"/>
         <bpmn2:dataInput id="_8D857E7A-9534-477A-8E8D-AF508CF19986_dataMap.statusInputX" drools:dtype="String" itemSubjectRef="__8D857E7A-9534-477A-8E8D-AF508CF19986_dataMap.statusInputXItem" name="dataMap.status"/>
-        <bpmn2:dataInput id="_8D857E7A-9534-477A-8E8D-AF508CF19986_dataMap.addressMasterIdInputX" drools:dtype="String" itemSubjectRef="__8D857E7A-9534-477A-8E8D-AF508CF19986_dataMap.addressMasterIdInputXItem" name="dataMap.addressMasterId"/>
+        <bpmn2:dataInput id="_8D857E7A-9534-477A-8E8D-AF508CF19986_dataMap.globalReferenceIdInputX" drools:dtype="String" itemSubjectRef="__8D857E7A-9534-477A-8E8D-AF508CF19986_dataMap.globalReferenceIdInputXItem" name="dataMap.globalReferenceId"/>
         <bpmn2:dataInput id="_8D857E7A-9534-477A-8E8D-AF508CF19986_dataMap.addressLatitudeInputX" drools:dtype="java.lang.Double" itemSubjectRef="__8D857E7A-9534-477A-8E8D-AF508CF19986_dataMap.addressLatitudeInputXItem" name="dataMap.addressLatitude"/>
         <bpmn2:dataInput id="_8D857E7A-9534-477A-8E8D-AF508CF19986_dataMap.addressLongitudeInputX" drools:dtype="java.lang.Double" itemSubjectRef="__8D857E7A-9534-477A-8E8D-AF508CF19986_dataMap.addressLongitudeInputXItem" name="dataMap.addressLongitude"/>
         <bpmn2:dataInput id="_8D857E7A-9534-477A-8E8D-AF508CF19986_dataMap.equipmentListInputX" drools:dtype="java.util.List" itemSubjectRef="__8D857E7A-9534-477A-8E8D-AF508CF19986_dataMap.equipmentListInputXItem" name="dataMap.equipmentList"/>
@@ -492,7 +492,7 @@ System.out.println("============================================================
           <bpmn2:dataInputRefs>_8D857E7A-9534-477A-8E8D-AF508CF19986_dataMap.versionInputX</bpmn2:dataInputRefs>
           <bpmn2:dataInputRefs>_8D857E7A-9534-477A-8E8D-AF508CF19986_dataMap.odinRequestIdInputX</bpmn2:dataInputRefs>
           <bpmn2:dataInputRefs>_8D857E7A-9534-477A-8E8D-AF508CF19986_dataMap.statusInputX</bpmn2:dataInputRefs>
-          <bpmn2:dataInputRefs>_8D857E7A-9534-477A-8E8D-AF508CF19986_dataMap.addressMasterIdInputX</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>_8D857E7A-9534-477A-8E8D-AF508CF19986_dataMap.globalReferenceIdInputX</bpmn2:dataInputRefs>
           <bpmn2:dataInputRefs>_8D857E7A-9534-477A-8E8D-AF508CF19986_dataMap.addressLatitudeInputX</bpmn2:dataInputRefs>
           <bpmn2:dataInputRefs>_8D857E7A-9534-477A-8E8D-AF508CF19986_dataMap.addressLongitudeInputX</bpmn2:dataInputRefs>
           <bpmn2:dataInputRefs>_8D857E7A-9534-477A-8E8D-AF508CF19986_dataMap.equipmentListInputX</bpmn2:dataInputRefs>
@@ -538,8 +538,8 @@ System.out.println("============================================================
         </bpmn2:assignment>
       </bpmn2:dataInputAssociation>
       <bpmn2:dataInputAssociation id="_NlytqjP6EfGP_43KC4m93A">
-        <bpmn2:sourceRef>addressMasterId</bpmn2:sourceRef>
-        <bpmn2:targetRef>_8D857E7A-9534-477A-8E8D-AF508CF19986_dataMap.addressMasterIdInputX</bpmn2:targetRef>
+        <bpmn2:sourceRef>globalReferenceId</bpmn2:sourceRef>
+        <bpmn2:targetRef>_8D857E7A-9534-477A-8E8D-AF508CF19986_dataMap.globalReferenceIdInputX</bpmn2:targetRef>
       </bpmn2:dataInputAssociation>
       <bpmn2:dataInputAssociation id="_NlytqzP6EfGP_43KC4m93A">
         <bpmn2:sourceRef>addressLatitude</bpmn2:sourceRef>

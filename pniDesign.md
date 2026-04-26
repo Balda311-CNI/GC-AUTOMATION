@@ -45,7 +45,7 @@ the HTTP body to ODIN (same pattern as `resourceAvailabilityCheck`).
 | Field | Type | Notes |
 |-------|------|-------|
 | `version` | string | API contract version, echoed back in the response |
-| `addressMasterId` | string | Global reference id of the customer address |
+| `globalReferenceId` | string | Global reference id of the customer address |
 | `edgeEquipmentCrossId` | string | Cross id of the MAS/MER chosen by the previous `resourceAvailabilityCheck` call |
 | `serviceId` | string | External service identifier (ODIN-assigned) |
 | `crossProjectName` | string | Desired CROSS project name, typically the ODIN order id |
@@ -205,7 +205,7 @@ exactly the shape defined in the `EdgeEquipment` schema in
 | `_apiCallUrl` | `String` | kie global (MVEL) | Endpoint each SdcApiCall posts to |
 | `_order` | `String` | Automaton start params | `tmf_store.id` of the stored request |
 | `version` | `String` | TMF_STORE (T1) | Echoed in response |
-| `addressMasterId` | `String` | TMF_STORE (T1) | Request input |
+| `globalReferenceId` | `String` | TMF_STORE (T1) | Request input |
 | `edgeEquipmentCrossId` | `String` | TMF_STORE (T1) | Request input |
 | `serviceId` | `String` | TMF_STORE (T1) | Request input |
 | `crossProjectName` | `String` | TMF_STORE (T1) | Request input |
@@ -355,7 +355,7 @@ something — flag any that don't match your intent.
         -u admin:admin \
         -d '{
               "version": "1.0",
-              "addressMasterId": "1626222",
+              "globalReferenceId": "1626222",
               "edgeEquipmentCrossId": "cAAA-AAss-AAEG",
               "serviceId": "SVC-0099",
               "crossProjectName": "ORD-1234",
