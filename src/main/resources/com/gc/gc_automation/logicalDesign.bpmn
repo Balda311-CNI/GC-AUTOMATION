@@ -412,7 +412,7 @@ System.out.println("================================================");]]></droo
       <bpmn2:dataInputAssociation id="_3i4AQ1_8EfGRstmrwDP8aA">
         <bpmn2:targetRef>_0934EE00-F028-403A-947F-2A9F3EB58B85_routeMap.sourceInputX</bpmn2:targetRef>
         <bpmn2:assignment id="_3i4ARF_8EfGRstmrwDP8aA">
-          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_3i4ARV_8EfGRstmrwDP8aA"><![CDATA[cross/v1/service/{externalId}]]></bpmn2:from>
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_3i4ARV_8EfGRstmrwDP8aA"><![CDATA[cross/findService]]></bpmn2:from>
           <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_3i4ARl_8EfGRstmrwDP8aA">_0934EE00-F028-403A-947F-2A9F3EB58B85_routeMap.sourceInputX</bpmn2:to>
         </bpmn2:assignment>
       </bpmn2:dataInputAssociation>
@@ -502,7 +502,7 @@ System.out.println("============================================================
       <bpmn2:dataInputAssociation id="_3i4AWF_8EfGRstmrwDP8aA">
         <bpmn2:targetRef>_1A720794-B2DB-4426-B3AD-E2C1386506D0_routeMap.sourceInputX</bpmn2:targetRef>
         <bpmn2:assignment id="_3i4AWV_8EfGRstmrwDP8aA">
-          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_3i4AWl_8EfGRstmrwDP8aA"><![CDATA[cross/v1/link]]></bpmn2:from>
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_3i4AWl_8EfGRstmrwDP8aA"><![CDATA[cross/createNetworkSidePatchCord]]></bpmn2:from>
           <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_3i4AW1_8EfGRstmrwDP8aA">_1A720794-B2DB-4426-B3AD-E2C1386506D0_routeMap.sourceInputX</bpmn2:to>
         </bpmn2:assignment>
       </bpmn2:dataInputAssociation>
@@ -848,7 +848,7 @@ System.out.println("============================================================
       <bpmn2:dataInputAssociation id="_3i4Ao1_8EfGRstmrwDP8aA">
         <bpmn2:targetRef>_50B72174-6EED-4D72-A34B-246826D1C8A5_routeMap.sourceInputX</bpmn2:targetRef>
         <bpmn2:assignment id="_3i4nQF_8EfGRstmrwDP8aA">
-          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_3i4nQV_8EfGRstmrwDP8aA"><![CDATA[cross/v1/link]]></bpmn2:from>
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_3i4nQV_8EfGRstmrwDP8aA"><![CDATA[cross/createCustomerSidePatchCord]]></bpmn2:from>
           <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_3i4nQl_8EfGRstmrwDP8aA">_50B72174-6EED-4D72-A34B-246826D1C8A5_routeMap.sourceInputX</bpmn2:to>
         </bpmn2:assignment>
       </bpmn2:dataInputAssociation>
@@ -978,7 +978,7 @@ System.out.println("================================================");]]></droo
       <bpmn2:dataInputAssociation id="_3i4nYl_8EfGRstmrwDP8aA">
         <bpmn2:targetRef>_7654757A-B56D-4F87-896D-629750ECB1C0_routeMap.sourceInputX</bpmn2:targetRef>
         <bpmn2:assignment id="_3i4nY1_8EfGRstmrwDP8aA">
-          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_3i4nZF_8EfGRstmrwDP8aA"><![CDATA[cross/v1/link]]></bpmn2:from>
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_3i4nZF_8EfGRstmrwDP8aA"><![CDATA[cross/createEthLink]]></bpmn2:from>
           <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_3i4nZV_8EfGRstmrwDP8aA">_7654757A-B56D-4F87-896D-629750ECB1C0_routeMap.sourceInputX</bpmn2:to>
         </bpmn2:assignment>
       </bpmn2:dataInputAssociation>
@@ -1108,7 +1108,7 @@ System.out.println("============================================================
       <bpmn2:dataInputAssociation id="_3i4nkV_8EfGRstmrwDP8aA">
         <bpmn2:targetRef>_B6428571-C915-460C-9B88-EED174B9B507_routeMap.sourceInputX</bpmn2:targetRef>
         <bpmn2:assignment id="_3i4nkl_8EfGRstmrwDP8aA">
-          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_3i4nk1_8EfGRstmrwDP8aA"><![CDATA[cross/v1/service/{externalId}]]></bpmn2:from>
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_3i4nk1_8EfGRstmrwDP8aA"><![CDATA[cross/findService]]></bpmn2:from>
           <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_3i4nlF_8EfGRstmrwDP8aA">_B6428571-C915-460C-9B88-EED174B9B507_routeMap.sourceInputX</bpmn2:to>
         </bpmn2:assignment>
       </bpmn2:dataInputAssociation>
@@ -1188,7 +1188,7 @@ System.out.println("================================================");]]></droo
       <bpmn2:dataInputAssociation id="_3i4npl_8EfGRstmrwDP8aA">
         <bpmn2:targetRef>_48B89653-215B-48DE-8602-5F4FC94D02BC_routeMap.sourceInputX</bpmn2:targetRef>
         <bpmn2:assignment id="_3i4np1_8EfGRstmrwDP8aA">
-          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_3i4nqF_8EfGRstmrwDP8aA"><![CDATA[cross/v1/project]]></bpmn2:from>
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_3i4nqF_8EfGRstmrwDP8aA"><![CDATA[cross/findProject]]></bpmn2:from>
           <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_3i4nqV_8EfGRstmrwDP8aA">_48B89653-215B-48DE-8602-5F4FC94D02BC_routeMap.sourceInputX</bpmn2:to>
         </bpmn2:assignment>
       </bpmn2:dataInputAssociation>
@@ -1361,7 +1361,7 @@ kcontext.setVariable("ethLinkProviders", providers);]]></drools:script>
       <bpmn2:dataInputAssociation id="_3i4nu1_8EfGRstmrwDP8aA">
         <bpmn2:targetRef>_95FC3D56-3626-495B-97C9-D7522B6A02D9_routeMap.sourceInputX</bpmn2:targetRef>
         <bpmn2:assignment id="_3i4nvF_8EfGRstmrwDP8aA">
-          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_3i4nvV_8EfGRstmrwDP8aA"><![CDATA[cross/v1/link]]></bpmn2:from>
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_3i4nvV_8EfGRstmrwDP8aA"><![CDATA[cross/updateEthLinkProviders]]></bpmn2:from>
           <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_3i4nvl_8EfGRstmrwDP8aA">_95FC3D56-3626-495B-97C9-D7522B6A02D9_routeMap.sourceInputX</bpmn2:to>
         </bpmn2:assignment>
       </bpmn2:dataInputAssociation>
@@ -1695,7 +1695,7 @@ System.out.println("================================================");]]></droo
       <bpmn2:dataInputAssociation id="_3i5ObV_8EfGRstmrwDP8aA">
         <bpmn2:targetRef>_3BA0FD2D-81D7-4D0B-8F7C-7C6F7E2F685D_routeMap.sourceInputX</bpmn2:targetRef>
         <bpmn2:assignment id="_3i5Obl_8EfGRstmrwDP8aA">
-          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_3i5Ob1_8EfGRstmrwDP8aA"><![CDATA[cross/v2/node/insertMaterialTemplate/{externalId}]]></bpmn2:from>
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_3i5Ob1_8EfGRstmrwDP8aA"><![CDATA[cross/createCPE]]></bpmn2:from>
           <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_3i5OcF_8EfGRstmrwDP8aA">_3BA0FD2D-81D7-4D0B-8F7C-7C6F7E2F685D_routeMap.sourceInputX</bpmn2:to>
         </bpmn2:assignment>
       </bpmn2:dataInputAssociation>
