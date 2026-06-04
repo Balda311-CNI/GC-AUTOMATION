@@ -26,7 +26,7 @@ The processes never call REST endpoints directly. Every service task has `drools
 
 The handler is a generic API-call router. Each task passes two conceptual parameter families:
 
-- `routeMap.*` — tells the handler *where* to go: `domain` (e.g. `TMF_STORE`), `operation` (`GET` / `POST`), `transformation` (e.g. a JSONata template name), `source`.
+- `routeMap.*` — tells the handler *where* to go: `domain` (e.g. `TMF_STORE`, `REST_API_CALL`), `operation` (`GET` / `POST`), `transformation` (e.g. a JSONata template name), `source`. In practice only `TMF_STORE: get data` sets `operation` (`GET`); `REST_API_CALL` tasks route purely by `source` (the server infers the verb) — do **not** add `routeMap.operation` / `dataMap.method` to them.
 - `dataMap.*` — the payload. Keys beginning `dataMap.jsonata.*` feed into the transformation template.
 
 The endpoint itself comes from the process-scoped global `_apiCallUrl`, which is injected from the deployment descriptor via an MVEL resolver (see the `<global name="_apiCallUrl">` block in `kie-deployment-descriptor.xml` for the current value — it points at an environment-specific host and changes between dev/demo/prod). Every SdcApiCall task reads `_apiCallUrl` into its `apiUrl` input. When changing environments, edit that `<global>`; do **not** hardcode URLs in the BPMN.
@@ -43,7 +43,7 @@ These processes are not invoked directly by ODIN. The upstream **Automaton** ser
 - The first SdcApiCall task in every process is `TMF_STORE: get data`, which uses `_order` to fetch that stored body and extract the request fields into process variables via JSONata.
 - Synchronous processes return a `response` Map (assembled in a final script task) that Automaton sends back as the HTTP body. Async processes (`*Async.bpmn`) follow the same shape but Automaton returns immediately.
 
-`pniDesign.md` documents this end-to-end for the `pniDesign` flow (sequence diagram, request/response schemas, per-task variables) and is the best reference when working on any of the design processes — read it first. The originating spec for all flows is `workflow_steps_v02 CE 30 Mar.xlsx` at the repo root.
+`pniDesign.md` (repo root) documents this end-to-end for the `pniDesign` flow (sequence diagram, request/response schemas, per-task variables) and is the best reference when working on any of the design processes — read it first. Flow specs themselves are maintained **outside this repo**; newer flows are handed over as PlantUML sequence diagrams annotated with `/'jBPM`, `/'SdcApiCall` and `/'Script` comment blocks that spell out each task's `routeMap`/`dataMap` inputs, outputs, gateway and on-entry/exit scripts (this is how `logicalDesign` was built).
 
 ### Processes
 
@@ -51,6 +51,7 @@ These processes are not invoked directly by ODIN. The upstream **Automaton** ser
 - `pniDesign.bpmn` — the main PNI design flow (creates CROSS project, resolves address/locality/building, allocates a cage or transceiver on the chosen edge equipment, creates an Optical Path, creates a service from a service template, then attaches everything). See `pniDesign.md` for the full step list and process variables.
 - `pniDesign_Service_Access.bpmn` — service-access subset of the PNI design flow.
 - `lniDesign.bpmn` — LNI design counterpart.
+- `logicalDesign.bpmn` — logical design flow. From `serviceCrossId` (resolved via `TMF_STORE: get data`) it finds the service, project, `SC_PHYSICAL_ACCESS` placement and optical path, then creates a CPE, customer- and network-side optical patch cords and an ETH link, and finally sets the ETH link providers (network-side patch cord + optical path + customer-side patch cord). All FIND tasks run before the CREATE_OR_UPDATE tasks except `findCustomerSideCage`, which must follow `place CPE` (it needs the created `cpeCrossId`).
 
 All processes share the same error-routing shape (any failure throws to a `Failed` link, the catch-link assembles a `FAILED` response). Script tasks and gateway conditions use inline Java (`language="http://www.java.com/java"`). Types allowed without FQN come from `project.imports` (`String`, `Integer`, `Long`, `Double`, `List`, `ArrayList`, `Map`, `LinkedHashMap`, `Collection`, `Number`, `Boolean`).
 
@@ -63,3 +64,7 @@ All processes share the same error-routing shape (any failure throws to a `Faile
 Each process is a **pair**: `foo.bpmn` (the model) and `GC-AUTOMATION.foo-svg.svg` (the rendered diagram Business Central displays). Business Central regenerates the SVG when you save through the modeler. If you edit `.bpmn` XML by hand, the SVG will go stale — preferred workflow is to round-trip through Business Central so the diagram stays in sync, and commit both files together (recent history shows this pattern: BPMN + matching SVG in each commit).
 
 BPMN element IDs like `_8CB7A114-8CEA-4461-8718-36C5581E42D1` are used as prefixes across dozens of `<itemDefinition>` / `<dataInput>` / `<dataInputAssociation>` entries for a single task. When renaming or duplicating a task by hand, you must rewrite every occurrence of the UUID consistently or the kjar build will fail.
+
+Validate any hand-authored or hand-edited process with `mvn -o clean install` — `kie-maven-plugin` compiles the embedded Java, so a bad script fails the build. Two traps:
+- A script or gateway that references a **declared process variable** must not redeclare it (e.g. `String errorMessage = ...`) — the variable is already injected as a typed local, so this fails with *Duplicate local variable*. (`resourceAvailabilityCheck` does declare `String errorMessage` only because `errorMessage` is *not* a process variable there.)
+- Ignore the pre-existing non-fatal parser noise from the other files (`shape_null` shapes in pniDesign/lniDesign/resourceAvailabilityCheck, a duplicate `signal` id in pniDesign); it does not fail the build.
