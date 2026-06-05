@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<bpmn2:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.omg.org/bpmn20" xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:bpsim="http://www.bpsim.org/schemas/1.0" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:drools="http://www.jboss.org/drools" id="_47J5IGCpEfGoGZGuksU-9A" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd http://www.jboss.org/drools drools.xsd http://www.bpsim.org/schemas/1.0 bpsim.xsd http://www.omg.org/spec/DD/20100524/DC DC.xsd http://www.omg.org/spec/DD/20100524/DI DI.xsd " exporter="jBPM Process Modeler" exporterVersion="2.0" targetNamespace="http://www.omg.org/bpmn20">
+<bpmn2:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.omg.org/bpmn20" xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:bpsim="http://www.bpsim.org/schemas/1.0" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:drools="http://www.jboss.org/drools" id="_qlpDwGC3EfGoGZGuksU-9A" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd http://www.jboss.org/drools drools.xsd http://www.bpsim.org/schemas/1.0 bpsim.xsd http://www.omg.org/spec/DD/20100524/DC DC.xsd http://www.omg.org/spec/DD/20100524/DI DI.xsd " exporter="jBPM Process Modeler" exporterVersion="2.0" targetNamespace="http://www.omg.org/bpmn20">
   <bpmn2:itemDefinition id="__apiCallUrlItem" structureRef="String"/>
   <bpmn2:itemDefinition id="__orderItem" structureRef="String"/>
   <bpmn2:itemDefinition id="_serviceCrossIdItem" structureRef="String"/>
@@ -28,6 +28,7 @@
   <bpmn2:itemDefinition id="_serviceAccessCrossIdItem" structureRef="String"/>
   <bpmn2:itemDefinition id="_serviceAccessComponentsItem" structureRef="java.util.List"/>
   <bpmn2:itemDefinition id="_cpeTypeItem" structureRef="String"/>
+  <bpmn2:itemDefinition id="_cageStatusesItem" structureRef="java.util.List"/>
   <bpmn2:itemDefinition id="__3BA0FD2D-81D7-4D0B-8F7C-7C6F7E2F685D_apiUrlInputXItem" structureRef="String"/>
   <bpmn2:itemDefinition id="__3BA0FD2D-81D7-4D0B-8F7C-7C6F7E2F685D_routeMap.domainInputXItem" structureRef="String"/>
   <bpmn2:itemDefinition id="__3BA0FD2D-81D7-4D0B-8F7C-7C6F7E2F685D_routeMap.sourceInputXItem" structureRef="String"/>
@@ -174,22 +175,23 @@
     <bpmn2:property id="serviceAccessCrossId" itemSubjectRef="_serviceAccessCrossIdItem" name="serviceAccessCrossId"/>
     <bpmn2:property id="serviceAccessComponents" itemSubjectRef="_serviceAccessComponentsItem" name="serviceAccessComponents"/>
     <bpmn2:property id="cpeType" itemSubjectRef="_cpeTypeItem" name="cpeType"/>
+    <bpmn2:property id="cageStatuses" itemSubjectRef="_cageStatusesItem" name="cageStatuses"/>
     <bpmn2:sequenceFlow id="_B6CB2B83-10B7-4446-A832-AA8FD1D4253F" sourceRef="_704BE3D7-D5B2-42F0-88FD-D7106AE1D9C5" targetRef="_3A967505-D7CE-4E59-8691-ADFE250D498F"/>
     <bpmn2:sequenceFlow id="_BA2BCF64-9FC3-43BA-AFD4-E9A17ED37909" sourceRef="_1F02DC19-9919-47C8-9E08-D4163A6E67D0" targetRef="_704BE3D7-D5B2-42F0-88FD-D7106AE1D9C5"/>
     <bpmn2:sequenceFlow id="_82EF04D5-B109-4697-A16D-CDEF4D29C591" sourceRef="_0C0EFC6D-9912-48CD-8280-FD685B0D4070" targetRef="_2A00FC8E-90BE-48A0-B4E2-E5756F80558B"/>
     <bpmn2:sequenceFlow id="_2E9BF07D-788A-4296-9F38-6B1A9045D10C" sourceRef="_50B72174-6EED-4D72-A34B-246826D1C8A5" targetRef="_1A720794-B2DB-4426-B3AD-E2C1386506D0"/>
     <bpmn2:sequenceFlow id="_8F2F02C3-8DD7-40C2-89C2-9D6AB9CBC70C" sourceRef="_6EB922B0-824E-498B-A0A2-DBCED705DE5F" targetRef="_50B72174-6EED-4D72-A34B-246826D1C8A5"/>
+    <bpmn2:sequenceFlow id="_DC8893BD-DDA1-4526-9799-15D07A0FC762" sourceRef="_78E174E7-37C2-4B24-B54F-CE73773879F3" targetRef="_66392450-7920-4F66-8D5D-DF9BF4B94F2C"/>
     <bpmn2:sequenceFlow id="_7D3E6C63-99FC-4814-A95C-F5399D74E49E" name="Not found" sourceRef="_78E174E7-37C2-4B24-B54F-CE73773879F3" targetRef="_A4359702-17B0-4946-9FDC-1688A7A3B420">
       <bpmn2:extensionElements>
         <drools:metaData name="elementname">
           <drools:metaValue><![CDATA[Not found]]></drools:metaValue>
         </drools:metaData>
       </bpmn2:extensionElements>
-      <bpmn2:conditionExpression xsi:type="bpmn2:tFormalExpression" id="_47J5IWCpEfGoGZGuksU-9A" language="http://www.java.com/java"><![CDATA[boolean result = errorMessage != null;
+      <bpmn2:conditionExpression xsi:type="bpmn2:tFormalExpression" id="_qlpDwWC3EfGoGZGuksU-9A" language="http://www.java.com/java"><![CDATA[boolean result = errorMessage != null;
 System.out.println("VALIDATION: find opticalPath failed=" + result + ", errorMessage=" + errorMessage);
 return result;]]></bpmn2:conditionExpression>
     </bpmn2:sequenceFlow>
-    <bpmn2:sequenceFlow id="_DC8893BD-DDA1-4526-9799-15D07A0FC762" sourceRef="_78E174E7-37C2-4B24-B54F-CE73773879F3" targetRef="_66392450-7920-4F66-8D5D-DF9BF4B94F2C"/>
     <bpmn2:sequenceFlow id="_7F252FB6-BC09-4AB5-93D6-91A7470A4EFF" sourceRef="_2A00FC8E-90BE-48A0-B4E2-E5756F80558B" targetRef="_78E174E7-37C2-4B24-B54F-CE73773879F3"/>
     <bpmn2:sequenceFlow id="_2F2F01C7-3741-401E-B476-FF39AA84B301" sourceRef="_B170C4CE-FF4F-4C96-9E02-EBC4DE85A640" targetRef="_1F02DC19-9919-47C8-9E08-D4163A6E67D0"/>
     <bpmn2:sequenceFlow id="_DE23C89D-0718-4411-8D12-1197CD7D8962" sourceRef="_0934EE00-F028-403A-947F-2A9F3EB58B85" targetRef="_B170C4CE-FF4F-4C96-9E02-EBC4DE85A640"/>
@@ -220,22 +222,22 @@ return result;]]></bpmn2:conditionExpression>
           <drools:metaValue><![CDATA[Not found]]></drools:metaValue>
         </drools:metaData>
       </bpmn2:extensionElements>
-      <bpmn2:conditionExpression xsi:type="bpmn2:tFormalExpression" id="_47J5ImCpEfGoGZGuksU-9A" language="http://www.java.com/java"><![CDATA[boolean result = errorMessage != null;
+      <bpmn2:conditionExpression xsi:type="bpmn2:tFormalExpression" id="_qlpDwmC3EfGoGZGuksU-9A" language="http://www.java.com/java"><![CDATA[boolean result = errorMessage != null;
 System.out.println("VALIDATION: find serviceAccessCrossId failed=" + result + ", errorMessage=" + errorMessage);
 return result;]]></bpmn2:conditionExpression>
     </bpmn2:sequenceFlow>
     <bpmn2:sequenceFlow id="_DBE8F5D7-86F2-4A03-A38A-44AEB884C9ED" sourceRef="_1D583A1A-FF14-4E76-802A-6C52A5CA2314" targetRef="_3547B21E-9DE0-40A9-A049-2AC84F6E8551"/>
+    <bpmn2:sequenceFlow id="_D57B4875-0DB4-4D1B-B060-B5E681619841" sourceRef="_0B21A23F-C4FC-4BDF-B50C-D7F89C89E4DC" targetRef="_B6428571-C915-460C-9B88-EED174B9B507"/>
     <bpmn2:sequenceFlow id="_54DF1D7B-E352-4BE4-BE5E-EB9743230CA7" name="Not found" sourceRef="_0B21A23F-C4FC-4BDF-B50C-D7F89C89E4DC" targetRef="_B34DD288-073A-432F-99F2-70A114F6717B">
       <bpmn2:extensionElements>
         <drools:metaData name="elementname">
           <drools:metaValue><![CDATA[Not found]]></drools:metaValue>
         </drools:metaData>
       </bpmn2:extensionElements>
-      <bpmn2:conditionExpression xsi:type="bpmn2:tFormalExpression" id="_47J5I2CpEfGoGZGuksU-9A" language="http://www.java.com/java"><![CDATA[boolean result = errorMessage != null;
+      <bpmn2:conditionExpression xsi:type="bpmn2:tFormalExpression" id="_qlpDw2C3EfGoGZGuksU-9A" language="http://www.java.com/java"><![CDATA[boolean result = errorMessage != null;
 System.out.println("VALIDATION: find servicePhysicalAccessCrossId failed=" + result + ", errorMessage=" + errorMessage);
 return result;]]></bpmn2:conditionExpression>
     </bpmn2:sequenceFlow>
-    <bpmn2:sequenceFlow id="_D57B4875-0DB4-4D1B-B060-B5E681619841" sourceRef="_0B21A23F-C4FC-4BDF-B50C-D7F89C89E4DC" targetRef="_B6428571-C915-460C-9B88-EED174B9B507"/>
     <bpmn2:sequenceFlow id="_7709AD85-1029-4A42-9AC0-66970F2AF8A9" sourceRef="_3A967505-D7CE-4E59-8691-ADFE250D498F" targetRef="_0B21A23F-C4FC-4BDF-B50C-D7F89C89E4DC"/>
     <bpmn2:sequenceFlow id="_A1655C03-F4A2-4187-8720-316BBFF78802" sourceRef="_E3FF4E65-7DF5-4539-AA76-D274FD7B1429" targetRef="_3B0958CA-229C-4C49-97A4-B87D7A17D085"/>
     <bpmn2:sequenceFlow id="_CF706D49-2C04-47B1-A011-543AFB3AECD5" sourceRef="_C3372D74-0B79-4A7B-86D2-276BD56E6511" targetRef="_1053123B-306B-45C9-BE5F-7E74949C127F"/>
@@ -245,7 +247,7 @@ return result;]]></bpmn2:conditionExpression>
           <drools:metaValue><![CDATA[Not found]]></drools:metaValue>
         </drools:metaData>
       </bpmn2:extensionElements>
-      <bpmn2:conditionExpression xsi:type="bpmn2:tFormalExpression" id="_47J5JGCpEfGoGZGuksU-9A" language="http://www.java.com/java"><![CDATA[boolean result = errorMessage != null;
+      <bpmn2:conditionExpression xsi:type="bpmn2:tFormalExpression" id="_qlpDxGC3EfGoGZGuksU-9A" language="http://www.java.com/java"><![CDATA[boolean result = errorMessage != null;
 System.out.println("VALIDATION: find customerSidePlaceCrossId failed=" + result + ", errorMessage=" + errorMessage);
 return result;]]></bpmn2:conditionExpression>
     </bpmn2:sequenceFlow>
@@ -306,8 +308,8 @@ System.out.println("servicePhysicalAccessCrossId=" + kcontext.getVariable("servi
         </drools:metaData>
       </bpmn2:extensionElements>
       <bpmn2:incoming>_54DF1D7B-E352-4BE4-BE5E-EB9743230CA7</bpmn2:incoming>
-      <bpmn2:linkEventDefinition id="_47J5JWCpEfGoGZGuksU-9A" name="Failed">
-        <bpmn2:target>_47J5JmCpEfGoGZGuksU-9A</bpmn2:target>
+      <bpmn2:linkEventDefinition id="_qlpDxWC3EfGoGZGuksU-9A" name="Failed">
+        <bpmn2:target>_qlpDxmC3EfGoGZGuksU-9A</bpmn2:target>
       </bpmn2:linkEventDefinition>
     </bpmn2:intermediateThrowEvent>
     <bpmn2:intermediateThrowEvent id="_A4359702-17B0-4946-9FDC-1688A7A3B420" name="Failed">
@@ -317,13 +319,13 @@ System.out.println("servicePhysicalAccessCrossId=" + kcontext.getVariable("servi
         </drools:metaData>
       </bpmn2:extensionElements>
       <bpmn2:incoming>_7D3E6C63-99FC-4814-A95C-F5399D74E49E</bpmn2:incoming>
-      <bpmn2:linkEventDefinition id="_47J5J2CpEfGoGZGuksU-9A" name="Failed">
-        <bpmn2:target>_47J5JmCpEfGoGZGuksU-9A</bpmn2:target>
+      <bpmn2:linkEventDefinition id="_qlpDx2C3EfGoGZGuksU-9A" name="Failed">
+        <bpmn2:target>_qlpDxmC3EfGoGZGuksU-9A</bpmn2:target>
       </bpmn2:linkEventDefinition>
     </bpmn2:intermediateThrowEvent>
     <bpmn2:task id="_704BE3D7-D5B2-42F0-88FD-D7106AE1D9C5" drools:taskName="SdcApiCall" name="REST_API_CALL:
 cross/findService/SC_ACCESS">
-      <bpmn2:documentation id="_47J5KGCpEfGoGZGuksU-9A"><![CDATA[Retrieve service serviceAccessCrossId via CROSS API. (FIND)]]></bpmn2:documentation>
+      <bpmn2:documentation id="_qlpDyGC3EfGoGZGuksU-9A"><![CDATA[Retrieve service serviceAccessCrossId via CROSS API. (FIND)]]></bpmn2:documentation>
       <bpmn2:extensionElements>
         <drools:metaData name="elementname">
           <drools:metaValue><![CDATA[REST_API_CALL:
@@ -337,7 +339,7 @@ System.out.println("==========================================================")
       </bpmn2:extensionElements>
       <bpmn2:incoming>_BA2BCF64-9FC3-43BA-AFD4-E9A17ED37909</bpmn2:incoming>
       <bpmn2:outgoing>_B6CB2B83-10B7-4446-A832-AA8FD1D4253F</bpmn2:outgoing>
-      <bpmn2:ioSpecification id="_47J5KWCpEfGoGZGuksU-9A">
+      <bpmn2:ioSpecification id="_qlpDyWC3EfGoGZGuksU-9A">
         <bpmn2:dataInput id="_704BE3D7-D5B2-42F0-88FD-D7106AE1D9C5_apiUrlInputX" drools:dtype="String" itemSubjectRef="__704BE3D7-D5B2-42F0-88FD-D7106AE1D9C5_apiUrlInputXItem" name="apiUrl"/>
         <bpmn2:dataInput id="_704BE3D7-D5B2-42F0-88FD-D7106AE1D9C5_routeMap.domainInputX" drools:dtype="String" itemSubjectRef="__704BE3D7-D5B2-42F0-88FD-D7106AE1D9C5_routeMap.domainInputXItem" name="routeMap.domain"/>
         <bpmn2:dataInput id="_704BE3D7-D5B2-42F0-88FD-D7106AE1D9C5_routeMap.sourceInputX" drools:dtype="String" itemSubjectRef="__704BE3D7-D5B2-42F0-88FD-D7106AE1D9C5_routeMap.sourceInputXItem" name="routeMap.source"/>
@@ -346,57 +348,57 @@ System.out.println("==========================================================")
         <bpmn2:dataOutput id="_704BE3D7-D5B2-42F0-88FD-D7106AE1D9C5_httpStatusCodeOutputX" drools:dtype="Integer" itemSubjectRef="__704BE3D7-D5B2-42F0-88FD-D7106AE1D9C5_httpStatusCodeOutputXItem" name="httpStatusCode"/>
         <bpmn2:dataOutput id="_704BE3D7-D5B2-42F0-88FD-D7106AE1D9C5_messageOutputX" drools:dtype="String" itemSubjectRef="__704BE3D7-D5B2-42F0-88FD-D7106AE1D9C5_messageOutputXItem" name="message"/>
         <bpmn2:dataOutput id="_704BE3D7-D5B2-42F0-88FD-D7106AE1D9C5_serviceComponentsOutputX" drools:dtype="java.util.List" itemSubjectRef="__704BE3D7-D5B2-42F0-88FD-D7106AE1D9C5_serviceComponentsOutputXItem" name="serviceComponents"/>
-        <bpmn2:inputSet id="_47J5KmCpEfGoGZGuksU-9A">
+        <bpmn2:inputSet id="_qlpDymC3EfGoGZGuksU-9A">
           <bpmn2:dataInputRefs>_704BE3D7-D5B2-42F0-88FD-D7106AE1D9C5_apiUrlInputX</bpmn2:dataInputRefs>
           <bpmn2:dataInputRefs>_704BE3D7-D5B2-42F0-88FD-D7106AE1D9C5_routeMap.domainInputX</bpmn2:dataInputRefs>
           <bpmn2:dataInputRefs>_704BE3D7-D5B2-42F0-88FD-D7106AE1D9C5_routeMap.sourceInputX</bpmn2:dataInputRefs>
           <bpmn2:dataInputRefs>_704BE3D7-D5B2-42F0-88FD-D7106AE1D9C5_dataMap.serviceCrossIdInputX</bpmn2:dataInputRefs>
           <bpmn2:dataInputRefs>_704BE3D7-D5B2-42F0-88FD-D7106AE1D9C5_TaskNameInputX</bpmn2:dataInputRefs>
         </bpmn2:inputSet>
-        <bpmn2:outputSet id="_47J5K2CpEfGoGZGuksU-9A">
+        <bpmn2:outputSet id="_qlpDy2C3EfGoGZGuksU-9A">
           <bpmn2:dataOutputRefs>_704BE3D7-D5B2-42F0-88FD-D7106AE1D9C5_httpStatusCodeOutputX</bpmn2:dataOutputRefs>
           <bpmn2:dataOutputRefs>_704BE3D7-D5B2-42F0-88FD-D7106AE1D9C5_messageOutputX</bpmn2:dataOutputRefs>
           <bpmn2:dataOutputRefs>_704BE3D7-D5B2-42F0-88FD-D7106AE1D9C5_serviceComponentsOutputX</bpmn2:dataOutputRefs>
         </bpmn2:outputSet>
       </bpmn2:ioSpecification>
-      <bpmn2:dataInputAssociation id="_47J5LGCpEfGoGZGuksU-9A">
+      <bpmn2:dataInputAssociation id="_qlpDzGC3EfGoGZGuksU-9A">
         <bpmn2:sourceRef>_apiCallUrl</bpmn2:sourceRef>
         <bpmn2:targetRef>_704BE3D7-D5B2-42F0-88FD-D7106AE1D9C5_apiUrlInputX</bpmn2:targetRef>
       </bpmn2:dataInputAssociation>
-      <bpmn2:dataInputAssociation id="_47J5LWCpEfGoGZGuksU-9A">
+      <bpmn2:dataInputAssociation id="_qlpDzWC3EfGoGZGuksU-9A">
         <bpmn2:targetRef>_704BE3D7-D5B2-42F0-88FD-D7106AE1D9C5_routeMap.domainInputX</bpmn2:targetRef>
-        <bpmn2:assignment id="_47J5LmCpEfGoGZGuksU-9A">
-          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_47J5L2CpEfGoGZGuksU-9A"><![CDATA[REST_API_CALL]]></bpmn2:from>
-          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_47J5MGCpEfGoGZGuksU-9A">_704BE3D7-D5B2-42F0-88FD-D7106AE1D9C5_routeMap.domainInputX</bpmn2:to>
+        <bpmn2:assignment id="_qlpDzmC3EfGoGZGuksU-9A">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_qlpDz2C3EfGoGZGuksU-9A"><![CDATA[REST_API_CALL]]></bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_qlpD0GC3EfGoGZGuksU-9A">_704BE3D7-D5B2-42F0-88FD-D7106AE1D9C5_routeMap.domainInputX</bpmn2:to>
         </bpmn2:assignment>
       </bpmn2:dataInputAssociation>
-      <bpmn2:dataInputAssociation id="_47J5MWCpEfGoGZGuksU-9A">
+      <bpmn2:dataInputAssociation id="_qlpD0WC3EfGoGZGuksU-9A">
         <bpmn2:targetRef>_704BE3D7-D5B2-42F0-88FD-D7106AE1D9C5_routeMap.sourceInputX</bpmn2:targetRef>
-        <bpmn2:assignment id="_47J5MmCpEfGoGZGuksU-9A">
-          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_47J5M2CpEfGoGZGuksU-9A"><![CDATA[cross/findService]]></bpmn2:from>
-          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_47J5NGCpEfGoGZGuksU-9A">_704BE3D7-D5B2-42F0-88FD-D7106AE1D9C5_routeMap.sourceInputX</bpmn2:to>
+        <bpmn2:assignment id="_qlpD0mC3EfGoGZGuksU-9A">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_qlpD02C3EfGoGZGuksU-9A"><![CDATA[cross/findService]]></bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_qlpD1GC3EfGoGZGuksU-9A">_704BE3D7-D5B2-42F0-88FD-D7106AE1D9C5_routeMap.sourceInputX</bpmn2:to>
         </bpmn2:assignment>
       </bpmn2:dataInputAssociation>
-      <bpmn2:dataInputAssociation id="_47J5NWCpEfGoGZGuksU-9A">
+      <bpmn2:dataInputAssociation id="_qlpD1WC3EfGoGZGuksU-9A">
         <bpmn2:sourceRef>serviceAccessCrossId</bpmn2:sourceRef>
         <bpmn2:targetRef>_704BE3D7-D5B2-42F0-88FD-D7106AE1D9C5_dataMap.serviceCrossIdInputX</bpmn2:targetRef>
       </bpmn2:dataInputAssociation>
-      <bpmn2:dataInputAssociation id="_47J5NmCpEfGoGZGuksU-9A">
+      <bpmn2:dataInputAssociation id="_qlpD1mC3EfGoGZGuksU-9A">
         <bpmn2:targetRef>_704BE3D7-D5B2-42F0-88FD-D7106AE1D9C5_TaskNameInputX</bpmn2:targetRef>
-        <bpmn2:assignment id="_47J5N2CpEfGoGZGuksU-9A">
-          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_47J5OGCpEfGoGZGuksU-9A"><![CDATA[SdcApiCall]]></bpmn2:from>
-          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_47J5OWCpEfGoGZGuksU-9A">_704BE3D7-D5B2-42F0-88FD-D7106AE1D9C5_TaskNameInputX</bpmn2:to>
+        <bpmn2:assignment id="_qlpD12C3EfGoGZGuksU-9A">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_qlpD2GC3EfGoGZGuksU-9A"><![CDATA[SdcApiCall]]></bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_qlpD2WC3EfGoGZGuksU-9A">_704BE3D7-D5B2-42F0-88FD-D7106AE1D9C5_TaskNameInputX</bpmn2:to>
         </bpmn2:assignment>
       </bpmn2:dataInputAssociation>
-      <bpmn2:dataOutputAssociation id="_47J5OmCpEfGoGZGuksU-9A">
+      <bpmn2:dataOutputAssociation id="_qlpD2mC3EfGoGZGuksU-9A">
         <bpmn2:sourceRef>_704BE3D7-D5B2-42F0-88FD-D7106AE1D9C5_httpStatusCodeOutputX</bpmn2:sourceRef>
         <bpmn2:targetRef>httpStatusCode</bpmn2:targetRef>
       </bpmn2:dataOutputAssociation>
-      <bpmn2:dataOutputAssociation id="_47J5O2CpEfGoGZGuksU-9A">
+      <bpmn2:dataOutputAssociation id="_qlpD22C3EfGoGZGuksU-9A">
         <bpmn2:sourceRef>_704BE3D7-D5B2-42F0-88FD-D7106AE1D9C5_messageOutputX</bpmn2:sourceRef>
         <bpmn2:targetRef>message</bpmn2:targetRef>
       </bpmn2:dataOutputAssociation>
-      <bpmn2:dataOutputAssociation id="_47J5PGCpEfGoGZGuksU-9A">
+      <bpmn2:dataOutputAssociation id="_qlpD3GC3EfGoGZGuksU-9A">
         <bpmn2:sourceRef>_704BE3D7-D5B2-42F0-88FD-D7106AE1D9C5_serviceComponentsOutputX</bpmn2:sourceRef>
         <bpmn2:targetRef>serviceAccessComponents</bpmn2:targetRef>
       </bpmn2:dataOutputAssociation>
@@ -408,11 +410,11 @@ System.out.println("==========================================================")
         </drools:metaData>
       </bpmn2:extensionElements>
       <bpmn2:outgoing>_72D757B7-00B7-4F9D-B990-0D8DA7481646</bpmn2:outgoing>
-      <bpmn2:linkEventDefinition id="_47J5JmCpEfGoGZGuksU-9A" name="Failed">
-        <bpmn2:source>_47J5PWCpEfGoGZGuksU-9A</bpmn2:source>
-        <bpmn2:source>_47J5PmCpEfGoGZGuksU-9A</bpmn2:source>
-        <bpmn2:source>_47J5J2CpEfGoGZGuksU-9A</bpmn2:source>
-        <bpmn2:source>_47J5JWCpEfGoGZGuksU-9A</bpmn2:source>
+      <bpmn2:linkEventDefinition id="_qlpDxmC3EfGoGZGuksU-9A" name="Failed">
+        <bpmn2:source>_qlpD3WC3EfGoGZGuksU-9A</bpmn2:source>
+        <bpmn2:source>_qlpD3mC3EfGoGZGuksU-9A</bpmn2:source>
+        <bpmn2:source>_qlpDx2C3EfGoGZGuksU-9A</bpmn2:source>
+        <bpmn2:source>_qlpDxWC3EfGoGZGuksU-9A</bpmn2:source>
       </bpmn2:linkEventDefinition>
     </bpmn2:intermediateCatchEvent>
     <bpmn2:intermediateThrowEvent id="_D432352C-2E7B-4480-88C0-3EE568631963" name="Completed">
@@ -422,8 +424,8 @@ System.out.println("==========================================================")
         </drools:metaData>
       </bpmn2:extensionElements>
       <bpmn2:incoming>_983F4382-0A31-42C7-BC95-54DFA4C24D22</bpmn2:incoming>
-      <bpmn2:linkEventDefinition id="_47J5P2CpEfGoGZGuksU-9A" name="Completed">
-        <bpmn2:target>_47J5QGCpEfGoGZGuksU-9A</bpmn2:target>
+      <bpmn2:linkEventDefinition id="_qlpD32C3EfGoGZGuksU-9A" name="Completed">
+        <bpmn2:target>_qlpD4GC3EfGoGZGuksU-9A</bpmn2:target>
       </bpmn2:linkEventDefinition>
     </bpmn2:intermediateThrowEvent>
     <bpmn2:exclusiveGateway id="_1F02DC19-9919-47C8-9E08-D4163A6E67D0" drools:dg="_BA2BCF64-9FC3-43BA-AFD4-E9A17ED37909" gatewayDirection="Diverging" default="_BA2BCF64-9FC3-43BA-AFD4-E9A17ED37909">
@@ -482,7 +484,7 @@ System.out.println("opticalPathCrossId=" + kcontext.getVariable("opticalPathCros
     </bpmn2:scriptTask>
     <bpmn2:task id="_0934EE00-F028-403A-947F-2A9F3EB58B85" drools:taskName="SdcApiCall" name="REST_API_CALL:
 cross/findService">
-      <bpmn2:documentation id="_47J5QWCpEfGoGZGuksU-9A"><![CDATA[Retrieve service serviceCrossId via CROSS API. (FIND)]]></bpmn2:documentation>
+      <bpmn2:documentation id="_qlpD4WC3EfGoGZGuksU-9A"><![CDATA[Retrieve service serviceCrossId via CROSS API. (FIND)]]></bpmn2:documentation>
       <bpmn2:extensionElements>
         <drools:metaData name="elementname">
           <drools:metaValue><![CDATA[REST_API_CALL:
@@ -496,7 +498,7 @@ System.out.println("================================================");]]></droo
       </bpmn2:extensionElements>
       <bpmn2:incoming>_533F9645-3C16-41CB-8F05-7312587FD9DE</bpmn2:incoming>
       <bpmn2:outgoing>_DE23C89D-0718-4411-8D12-1197CD7D8962</bpmn2:outgoing>
-      <bpmn2:ioSpecification id="_47J5QmCpEfGoGZGuksU-9A">
+      <bpmn2:ioSpecification id="_qlpD4mC3EfGoGZGuksU-9A">
         <bpmn2:dataInput id="_0934EE00-F028-403A-947F-2A9F3EB58B85_apiUrlInputX" drools:dtype="String" itemSubjectRef="__0934EE00-F028-403A-947F-2A9F3EB58B85_apiUrlInputXItem" name="apiUrl"/>
         <bpmn2:dataInput id="_0934EE00-F028-403A-947F-2A9F3EB58B85_routeMap.domainInputX" drools:dtype="String" itemSubjectRef="__0934EE00-F028-403A-947F-2A9F3EB58B85_routeMap.domainInputXItem" name="routeMap.domain"/>
         <bpmn2:dataInput id="_0934EE00-F028-403A-947F-2A9F3EB58B85_routeMap.sourceInputX" drools:dtype="String" itemSubjectRef="__0934EE00-F028-403A-947F-2A9F3EB58B85_routeMap.sourceInputXItem" name="routeMap.source"/>
@@ -505,64 +507,64 @@ System.out.println("================================================");]]></droo
         <bpmn2:dataOutput id="_0934EE00-F028-403A-947F-2A9F3EB58B85_httpStatusCodeOutputX" drools:dtype="Integer" itemSubjectRef="__0934EE00-F028-403A-947F-2A9F3EB58B85_httpStatusCodeOutputXItem" name="httpStatusCode"/>
         <bpmn2:dataOutput id="_0934EE00-F028-403A-947F-2A9F3EB58B85_messageOutputX" drools:dtype="String" itemSubjectRef="__0934EE00-F028-403A-947F-2A9F3EB58B85_messageOutputXItem" name="message"/>
         <bpmn2:dataOutput id="_0934EE00-F028-403A-947F-2A9F3EB58B85_serviceComponentsOutputX" drools:dtype="java.util.List" itemSubjectRef="__0934EE00-F028-403A-947F-2A9F3EB58B85_serviceComponentsOutputXItem" name="serviceComponents"/>
-        <bpmn2:inputSet id="_47J5Q2CpEfGoGZGuksU-9A">
+        <bpmn2:inputSet id="_qlpD42C3EfGoGZGuksU-9A">
           <bpmn2:dataInputRefs>_0934EE00-F028-403A-947F-2A9F3EB58B85_apiUrlInputX</bpmn2:dataInputRefs>
           <bpmn2:dataInputRefs>_0934EE00-F028-403A-947F-2A9F3EB58B85_routeMap.domainInputX</bpmn2:dataInputRefs>
           <bpmn2:dataInputRefs>_0934EE00-F028-403A-947F-2A9F3EB58B85_routeMap.sourceInputX</bpmn2:dataInputRefs>
           <bpmn2:dataInputRefs>_0934EE00-F028-403A-947F-2A9F3EB58B85_dataMap.serviceCrossIdInputX</bpmn2:dataInputRefs>
           <bpmn2:dataInputRefs>_0934EE00-F028-403A-947F-2A9F3EB58B85_TaskNameInputX</bpmn2:dataInputRefs>
         </bpmn2:inputSet>
-        <bpmn2:outputSet id="_47J5RGCpEfGoGZGuksU-9A">
+        <bpmn2:outputSet id="_qlpD5GC3EfGoGZGuksU-9A">
           <bpmn2:dataOutputRefs>_0934EE00-F028-403A-947F-2A9F3EB58B85_httpStatusCodeOutputX</bpmn2:dataOutputRefs>
           <bpmn2:dataOutputRefs>_0934EE00-F028-403A-947F-2A9F3EB58B85_messageOutputX</bpmn2:dataOutputRefs>
           <bpmn2:dataOutputRefs>_0934EE00-F028-403A-947F-2A9F3EB58B85_serviceComponentsOutputX</bpmn2:dataOutputRefs>
         </bpmn2:outputSet>
       </bpmn2:ioSpecification>
-      <bpmn2:dataInputAssociation id="_47J5RWCpEfGoGZGuksU-9A">
+      <bpmn2:dataInputAssociation id="_qlpD5WC3EfGoGZGuksU-9A">
         <bpmn2:sourceRef>_apiCallUrl</bpmn2:sourceRef>
         <bpmn2:targetRef>_0934EE00-F028-403A-947F-2A9F3EB58B85_apiUrlInputX</bpmn2:targetRef>
       </bpmn2:dataInputAssociation>
-      <bpmn2:dataInputAssociation id="_47J5RmCpEfGoGZGuksU-9A">
+      <bpmn2:dataInputAssociation id="_qlpD5mC3EfGoGZGuksU-9A">
         <bpmn2:targetRef>_0934EE00-F028-403A-947F-2A9F3EB58B85_routeMap.domainInputX</bpmn2:targetRef>
-        <bpmn2:assignment id="_47J5R2CpEfGoGZGuksU-9A">
-          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_47J5SGCpEfGoGZGuksU-9A"><![CDATA[REST_API_CALL]]></bpmn2:from>
-          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_47J5SWCpEfGoGZGuksU-9A">_0934EE00-F028-403A-947F-2A9F3EB58B85_routeMap.domainInputX</bpmn2:to>
+        <bpmn2:assignment id="_qlpD52C3EfGoGZGuksU-9A">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_qlpD6GC3EfGoGZGuksU-9A"><![CDATA[REST_API_CALL]]></bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_qlpD6WC3EfGoGZGuksU-9A">_0934EE00-F028-403A-947F-2A9F3EB58B85_routeMap.domainInputX</bpmn2:to>
         </bpmn2:assignment>
       </bpmn2:dataInputAssociation>
-      <bpmn2:dataInputAssociation id="_47J5SmCpEfGoGZGuksU-9A">
+      <bpmn2:dataInputAssociation id="_qlpD6mC3EfGoGZGuksU-9A">
         <bpmn2:targetRef>_0934EE00-F028-403A-947F-2A9F3EB58B85_routeMap.sourceInputX</bpmn2:targetRef>
-        <bpmn2:assignment id="_47J5S2CpEfGoGZGuksU-9A">
-          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_47J5TGCpEfGoGZGuksU-9A"><![CDATA[cross/findService]]></bpmn2:from>
-          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_47J5TWCpEfGoGZGuksU-9A">_0934EE00-F028-403A-947F-2A9F3EB58B85_routeMap.sourceInputX</bpmn2:to>
+        <bpmn2:assignment id="_qlpD62C3EfGoGZGuksU-9A">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_qlpD7GC3EfGoGZGuksU-9A"><![CDATA[cross/findService]]></bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_qlpD7WC3EfGoGZGuksU-9A">_0934EE00-F028-403A-947F-2A9F3EB58B85_routeMap.sourceInputX</bpmn2:to>
         </bpmn2:assignment>
       </bpmn2:dataInputAssociation>
-      <bpmn2:dataInputAssociation id="_47J5TmCpEfGoGZGuksU-9A">
+      <bpmn2:dataInputAssociation id="_qlpD7mC3EfGoGZGuksU-9A">
         <bpmn2:sourceRef>serviceCrossId</bpmn2:sourceRef>
         <bpmn2:targetRef>_0934EE00-F028-403A-947F-2A9F3EB58B85_dataMap.serviceCrossIdInputX</bpmn2:targetRef>
       </bpmn2:dataInputAssociation>
-      <bpmn2:dataInputAssociation id="_47J5T2CpEfGoGZGuksU-9A">
+      <bpmn2:dataInputAssociation id="_qlpD72C3EfGoGZGuksU-9A">
         <bpmn2:targetRef>_0934EE00-F028-403A-947F-2A9F3EB58B85_TaskNameInputX</bpmn2:targetRef>
-        <bpmn2:assignment id="_47J5UGCpEfGoGZGuksU-9A">
-          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_47J5UWCpEfGoGZGuksU-9A"><![CDATA[SdcApiCall]]></bpmn2:from>
-          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_47J5UmCpEfGoGZGuksU-9A">_0934EE00-F028-403A-947F-2A9F3EB58B85_TaskNameInputX</bpmn2:to>
+        <bpmn2:assignment id="_qlpD8GC3EfGoGZGuksU-9A">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_qlpD8WC3EfGoGZGuksU-9A"><![CDATA[SdcApiCall]]></bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_qlpD8mC3EfGoGZGuksU-9A">_0934EE00-F028-403A-947F-2A9F3EB58B85_TaskNameInputX</bpmn2:to>
         </bpmn2:assignment>
       </bpmn2:dataInputAssociation>
-      <bpmn2:dataOutputAssociation id="_47J5U2CpEfGoGZGuksU-9A">
+      <bpmn2:dataOutputAssociation id="_qlpD82C3EfGoGZGuksU-9A">
         <bpmn2:sourceRef>_0934EE00-F028-403A-947F-2A9F3EB58B85_httpStatusCodeOutputX</bpmn2:sourceRef>
         <bpmn2:targetRef>httpStatusCode</bpmn2:targetRef>
       </bpmn2:dataOutputAssociation>
-      <bpmn2:dataOutputAssociation id="_47J5VGCpEfGoGZGuksU-9A">
+      <bpmn2:dataOutputAssociation id="_qlpD9GC3EfGoGZGuksU-9A">
         <bpmn2:sourceRef>_0934EE00-F028-403A-947F-2A9F3EB58B85_messageOutputX</bpmn2:sourceRef>
         <bpmn2:targetRef>message</bpmn2:targetRef>
       </bpmn2:dataOutputAssociation>
-      <bpmn2:dataOutputAssociation id="_47J5VWCpEfGoGZGuksU-9A">
+      <bpmn2:dataOutputAssociation id="_qlpD9WC3EfGoGZGuksU-9A">
         <bpmn2:sourceRef>_0934EE00-F028-403A-947F-2A9F3EB58B85_serviceComponentsOutputX</bpmn2:sourceRef>
         <bpmn2:targetRef>serviceComponents</bpmn2:targetRef>
       </bpmn2:dataOutputAssociation>
     </bpmn2:task>
     <bpmn2:task id="_1A720794-B2DB-4426-B3AD-E2C1386506D0" drools:taskName="SdcApiCall" name="REST_API_CALL:
 cross/createNetworkSidePatchCord">
-      <bpmn2:documentation id="_47J5VmCpEfGoGZGuksU-9A"><![CDATA[Create link between network side CAGE and PLACE via CROSS API. (CREATE_OR_UPDATE)]]></bpmn2:documentation>
+      <bpmn2:documentation id="_qlpD9mC3EfGoGZGuksU-9A"><![CDATA[Create link between network side CAGE and PLACE via CROSS API. (CREATE_OR_UPDATE)]]></bpmn2:documentation>
       <bpmn2:extensionElements>
         <drools:metaData name="elementname">
           <drools:metaValue><![CDATA[REST_API_CALL:
@@ -576,7 +578,7 @@ System.out.println("============================================================
       </bpmn2:extensionElements>
       <bpmn2:incoming>_2E9BF07D-788A-4296-9F38-6B1A9045D10C</bpmn2:incoming>
       <bpmn2:outgoing>_3E9E4984-021C-4A32-B1D2-304CFAA31AB7</bpmn2:outgoing>
-      <bpmn2:ioSpecification id="_47J5V2CpEfGoGZGuksU-9A">
+      <bpmn2:ioSpecification id="_qlpD92C3EfGoGZGuksU-9A">
         <bpmn2:dataInput id="_1A720794-B2DB-4426-B3AD-E2C1386506D0_apiUrlInputX" drools:dtype="String" itemSubjectRef="__1A720794-B2DB-4426-B3AD-E2C1386506D0_apiUrlInputXItem" name="apiUrl"/>
         <bpmn2:dataInput id="_1A720794-B2DB-4426-B3AD-E2C1386506D0_routeMap.domainInputX" drools:dtype="String" itemSubjectRef="__1A720794-B2DB-4426-B3AD-E2C1386506D0_routeMap.domainInputXItem" name="routeMap.domain"/>
         <bpmn2:dataInput id="_1A720794-B2DB-4426-B3AD-E2C1386506D0_routeMap.sourceInputX" drools:dtype="String" itemSubjectRef="__1A720794-B2DB-4426-B3AD-E2C1386506D0_routeMap.sourceInputXItem" name="routeMap.source"/>
@@ -590,7 +592,7 @@ System.out.println("============================================================
         <bpmn2:dataOutput id="_1A720794-B2DB-4426-B3AD-E2C1386506D0_httpStatusCodeOutputX" drools:dtype="Integer" itemSubjectRef="__1A720794-B2DB-4426-B3AD-E2C1386506D0_httpStatusCodeOutputXItem" name="httpStatusCode"/>
         <bpmn2:dataOutput id="_1A720794-B2DB-4426-B3AD-E2C1386506D0_messageOutputX" drools:dtype="String" itemSubjectRef="__1A720794-B2DB-4426-B3AD-E2C1386506D0_messageOutputXItem" name="message"/>
         <bpmn2:dataOutput id="_1A720794-B2DB-4426-B3AD-E2C1386506D0_crossIdOutputX" drools:dtype="String" itemSubjectRef="__1A720794-B2DB-4426-B3AD-E2C1386506D0_crossIdOutputXItem" name="crossId"/>
-        <bpmn2:inputSet id="_47J5WGCpEfGoGZGuksU-9A">
+        <bpmn2:inputSet id="_qlpD-GC3EfGoGZGuksU-9A">
           <bpmn2:dataInputRefs>_1A720794-B2DB-4426-B3AD-E2C1386506D0_apiUrlInputX</bpmn2:dataInputRefs>
           <bpmn2:dataInputRefs>_1A720794-B2DB-4426-B3AD-E2C1386506D0_routeMap.domainInputX</bpmn2:dataInputRefs>
           <bpmn2:dataInputRefs>_1A720794-B2DB-4426-B3AD-E2C1386506D0_routeMap.sourceInputX</bpmn2:dataInputRefs>
@@ -602,86 +604,100 @@ System.out.println("============================================================
           <bpmn2:dataInputRefs>_1A720794-B2DB-4426-B3AD-E2C1386506D0_dataMap.linkTypeInputX</bpmn2:dataInputRefs>
           <bpmn2:dataInputRefs>_1A720794-B2DB-4426-B3AD-E2C1386506D0_TaskNameInputX</bpmn2:dataInputRefs>
         </bpmn2:inputSet>
-        <bpmn2:outputSet id="_47J5WWCpEfGoGZGuksU-9A">
+        <bpmn2:outputSet id="_qlpD-WC3EfGoGZGuksU-9A">
           <bpmn2:dataOutputRefs>_1A720794-B2DB-4426-B3AD-E2C1386506D0_httpStatusCodeOutputX</bpmn2:dataOutputRefs>
           <bpmn2:dataOutputRefs>_1A720794-B2DB-4426-B3AD-E2C1386506D0_messageOutputX</bpmn2:dataOutputRefs>
           <bpmn2:dataOutputRefs>_1A720794-B2DB-4426-B3AD-E2C1386506D0_crossIdOutputX</bpmn2:dataOutputRefs>
         </bpmn2:outputSet>
       </bpmn2:ioSpecification>
-      <bpmn2:dataInputAssociation id="_47J5WmCpEfGoGZGuksU-9A">
+      <bpmn2:dataInputAssociation id="_qlpD-mC3EfGoGZGuksU-9A">
         <bpmn2:sourceRef>_apiCallUrl</bpmn2:sourceRef>
         <bpmn2:targetRef>_1A720794-B2DB-4426-B3AD-E2C1386506D0_apiUrlInputX</bpmn2:targetRef>
       </bpmn2:dataInputAssociation>
-      <bpmn2:dataInputAssociation id="_47J5W2CpEfGoGZGuksU-9A">
+      <bpmn2:dataInputAssociation id="_qlpD-2C3EfGoGZGuksU-9A">
         <bpmn2:targetRef>_1A720794-B2DB-4426-B3AD-E2C1386506D0_routeMap.domainInputX</bpmn2:targetRef>
-        <bpmn2:assignment id="_47J5XGCpEfGoGZGuksU-9A">
-          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_47J5XWCpEfGoGZGuksU-9A"><![CDATA[REST_API_CALL]]></bpmn2:from>
-          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_47J5XmCpEfGoGZGuksU-9A">_1A720794-B2DB-4426-B3AD-E2C1386506D0_routeMap.domainInputX</bpmn2:to>
+        <bpmn2:assignment id="_qlpD_GC3EfGoGZGuksU-9A">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_qlpD_WC3EfGoGZGuksU-9A"><![CDATA[REST_API_CALL]]></bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_qlpD_mC3EfGoGZGuksU-9A">_1A720794-B2DB-4426-B3AD-E2C1386506D0_routeMap.domainInputX</bpmn2:to>
         </bpmn2:assignment>
       </bpmn2:dataInputAssociation>
-      <bpmn2:dataInputAssociation id="_47J5X2CpEfGoGZGuksU-9A">
+      <bpmn2:dataInputAssociation id="_qlpD_2C3EfGoGZGuksU-9A">
         <bpmn2:targetRef>_1A720794-B2DB-4426-B3AD-E2C1386506D0_routeMap.sourceInputX</bpmn2:targetRef>
-        <bpmn2:assignment id="_47J5YGCpEfGoGZGuksU-9A">
-          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_47J5YWCpEfGoGZGuksU-9A"><![CDATA[cross/createNetworkSidePatchCord]]></bpmn2:from>
-          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_47J5YmCpEfGoGZGuksU-9A">_1A720794-B2DB-4426-B3AD-E2C1386506D0_routeMap.sourceInputX</bpmn2:to>
+        <bpmn2:assignment id="_qlpEAGC3EfGoGZGuksU-9A">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_qlpEAWC3EfGoGZGuksU-9A"><![CDATA[cross/createNetworkSidePatchCord]]></bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_qlpEAmC3EfGoGZGuksU-9A">_1A720794-B2DB-4426-B3AD-E2C1386506D0_routeMap.sourceInputX</bpmn2:to>
         </bpmn2:assignment>
       </bpmn2:dataInputAssociation>
-      <bpmn2:dataInputAssociation id="_47J5Y2CpEfGoGZGuksU-9A">
+      <bpmn2:dataInputAssociation id="_qlpEA2C3EfGoGZGuksU-9A">
         <bpmn2:sourceRef>crossProjectName</bpmn2:sourceRef>
         <bpmn2:targetRef>_1A720794-B2DB-4426-B3AD-E2C1386506D0_dataMap.projectNameInputX</bpmn2:targetRef>
       </bpmn2:dataInputAssociation>
-      <bpmn2:dataInputAssociation id="_47J5ZGCpEfGoGZGuksU-9A">
+      <bpmn2:dataInputAssociation id="_qlpEBGC3EfGoGZGuksU-9A">
         <bpmn2:sourceRef>networkSideCageCrossId</bpmn2:sourceRef>
         <bpmn2:targetRef>_1A720794-B2DB-4426-B3AD-E2C1386506D0_dataMap.startNodeInputX</bpmn2:targetRef>
       </bpmn2:dataInputAssociation>
-      <bpmn2:dataInputAssociation id="_47J5ZWCpEfGoGZGuksU-9A">
+      <bpmn2:dataInputAssociation id="_qlpEBWC3EfGoGZGuksU-9A">
         <bpmn2:sourceRef>networkSidePlaceCrossId</bpmn2:sourceRef>
         <bpmn2:targetRef>_1A720794-B2DB-4426-B3AD-E2C1386506D0_dataMap.endNodeInputX</bpmn2:targetRef>
       </bpmn2:dataInputAssociation>
-      <bpmn2:dataInputAssociation id="_47J5ZmCpEfGoGZGuksU-9A">
+      <bpmn2:dataInputAssociation id="_qlpEBmC3EfGoGZGuksU-9A">
         <bpmn2:targetRef>_1A720794-B2DB-4426-B3AD-E2C1386506D0_dataMap.nameInputX</bpmn2:targetRef>
-        <bpmn2:assignment id="_47J5Z2CpEfGoGZGuksU-9A">
-          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_47J5aGCpEfGoGZGuksU-9A"><![CDATA[TODO: MER/MAS:CAGE -> MER/MAS:PLACE link name]]></bpmn2:from>
-          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_47J5aWCpEfGoGZGuksU-9A">_1A720794-B2DB-4426-B3AD-E2C1386506D0_dataMap.nameInputX</bpmn2:to>
+        <bpmn2:assignment id="_qlpEB2C3EfGoGZGuksU-9A">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_qlpECGC3EfGoGZGuksU-9A"><![CDATA[TODO: MER/MAS:CAGE -> MER/MAS:PLACE link name]]></bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_qlpECWC3EfGoGZGuksU-9A">_1A720794-B2DB-4426-B3AD-E2C1386506D0_dataMap.nameInputX</bpmn2:to>
         </bpmn2:assignment>
       </bpmn2:dataInputAssociation>
-      <bpmn2:dataInputAssociation id="_47J5amCpEfGoGZGuksU-9A">
+      <bpmn2:dataInputAssociation id="_qlpECmC3EfGoGZGuksU-9A">
         <bpmn2:targetRef>_1A720794-B2DB-4426-B3AD-E2C1386506D0_dataMap.statusInputX</bpmn2:targetRef>
-        <bpmn2:assignment id="_47J5a2CpEfGoGZGuksU-9A">
-          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_47J5bGCpEfGoGZGuksU-9A"><![CDATA[DESIGNED]]></bpmn2:from>
-          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_47J5bWCpEfGoGZGuksU-9A">_1A720794-B2DB-4426-B3AD-E2C1386506D0_dataMap.statusInputX</bpmn2:to>
+        <bpmn2:assignment id="_qlpEC2C3EfGoGZGuksU-9A">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_qlpEDGC3EfGoGZGuksU-9A"><![CDATA[DESIGNED]]></bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_qlpEDWC3EfGoGZGuksU-9A">_1A720794-B2DB-4426-B3AD-E2C1386506D0_dataMap.statusInputX</bpmn2:to>
         </bpmn2:assignment>
       </bpmn2:dataInputAssociation>
-      <bpmn2:dataInputAssociation id="_47J5bmCpEfGoGZGuksU-9A">
+      <bpmn2:dataInputAssociation id="_qlpEDmC3EfGoGZGuksU-9A">
         <bpmn2:targetRef>_1A720794-B2DB-4426-B3AD-E2C1386506D0_dataMap.linkTypeInputX</bpmn2:targetRef>
-        <bpmn2:assignment id="_47J5b2CpEfGoGZGuksU-9A">
-          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_47J5cGCpEfGoGZGuksU-9A"><![CDATA[OPTICAL_PATCH_CORD]]></bpmn2:from>
-          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_47J5cWCpEfGoGZGuksU-9A">_1A720794-B2DB-4426-B3AD-E2C1386506D0_dataMap.linkTypeInputX</bpmn2:to>
+        <bpmn2:assignment id="_qlpED2C3EfGoGZGuksU-9A">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_qlpEEGC3EfGoGZGuksU-9A"><![CDATA[OPTICAL_PATCH_CORD]]></bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_qlpEEWC3EfGoGZGuksU-9A">_1A720794-B2DB-4426-B3AD-E2C1386506D0_dataMap.linkTypeInputX</bpmn2:to>
         </bpmn2:assignment>
       </bpmn2:dataInputAssociation>
-      <bpmn2:dataInputAssociation id="_47J5cmCpEfGoGZGuksU-9A">
+      <bpmn2:dataInputAssociation id="_qlpEEmC3EfGoGZGuksU-9A">
         <bpmn2:targetRef>_1A720794-B2DB-4426-B3AD-E2C1386506D0_TaskNameInputX</bpmn2:targetRef>
-        <bpmn2:assignment id="_47J5c2CpEfGoGZGuksU-9A">
-          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_47J5dGCpEfGoGZGuksU-9A"><![CDATA[SdcApiCall]]></bpmn2:from>
-          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_47J5dWCpEfGoGZGuksU-9A">_1A720794-B2DB-4426-B3AD-E2C1386506D0_TaskNameInputX</bpmn2:to>
+        <bpmn2:assignment id="_qlpEE2C3EfGoGZGuksU-9A">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_qlpEFGC3EfGoGZGuksU-9A"><![CDATA[SdcApiCall]]></bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_qlpEFWC3EfGoGZGuksU-9A">_1A720794-B2DB-4426-B3AD-E2C1386506D0_TaskNameInputX</bpmn2:to>
         </bpmn2:assignment>
       </bpmn2:dataInputAssociation>
-      <bpmn2:dataOutputAssociation id="_47J5dmCpEfGoGZGuksU-9A">
+      <bpmn2:dataOutputAssociation id="_qlpEFmC3EfGoGZGuksU-9A">
         <bpmn2:sourceRef>_1A720794-B2DB-4426-B3AD-E2C1386506D0_httpStatusCodeOutputX</bpmn2:sourceRef>
         <bpmn2:targetRef>httpStatusCode</bpmn2:targetRef>
       </bpmn2:dataOutputAssociation>
-      <bpmn2:dataOutputAssociation id="_47KgMGCpEfGoGZGuksU-9A">
+      <bpmn2:dataOutputAssociation id="_qlpEF2C3EfGoGZGuksU-9A">
         <bpmn2:sourceRef>_1A720794-B2DB-4426-B3AD-E2C1386506D0_messageOutputX</bpmn2:sourceRef>
         <bpmn2:targetRef>message</bpmn2:targetRef>
       </bpmn2:dataOutputAssociation>
-      <bpmn2:dataOutputAssociation id="_47KgMWCpEfGoGZGuksU-9A">
+      <bpmn2:dataOutputAssociation id="_qlpEGGC3EfGoGZGuksU-9A">
         <bpmn2:sourceRef>_1A720794-B2DB-4426-B3AD-E2C1386506D0_crossIdOutputX</bpmn2:sourceRef>
         <bpmn2:targetRef>networkSidePatchCordCrossId</bpmn2:targetRef>
       </bpmn2:dataOutputAssociation>
     </bpmn2:task>
+    <bpmn2:scriptTask id="_BD32371F-BDA3-4F6F-91BD-BC8CDA6AE9E2" name="Initialize" scriptFormat="http://www.java.com/java">
+      <bpmn2:extensionElements>
+        <drools:metaData name="elementname">
+          <drools:metaValue><![CDATA[Initialize]]></drools:metaValue>
+        </drools:metaData>
+      </bpmn2:extensionElements>
+      <bpmn2:script><![CDATA[System.out.println("==================================");
+System.out.println("=== logicalDesign - Initialize ===");
+System.out.println("==================================");
+
+//kcontext.setVariable("reservedStatusDiscriminator", "RESERVED");
+
+kcontext.setVariable("cageStatuses", java.util.Arrays.asList("ACTIVE", "DESIGNED"));]]></bpmn2:script>
+    </bpmn2:scriptTask>
     <bpmn2:task id="_6EB922B0-824E-498B-A0A2-DBCED705DE5F" drools:taskName="SdcApiCall" name="REST_API_CALL:
 cross/findCustomerSideCage">
-      <bpmn2:documentation id="_47KgMmCpEfGoGZGuksU-9A"><![CDATA[Find a CAGE under the deployed cpeCrossId via CROSS PROJECT API. (FIND - depends on created cpeCrossId)]]></bpmn2:documentation>
+      <bpmn2:documentation id="_qlpEGWC3EfGoGZGuksU-9A"><![CDATA[Find a CAGE under the deployed cpeCrossId via CROSS PROJECT API. (FIND - depends on created cpeCrossId)]]></bpmn2:documentation>
       <bpmn2:extensionElements>
         <drools:metaData name="elementname">
           <drools:metaValue><![CDATA[REST_API_CALL:
@@ -712,54 +728,54 @@ if (resultList == null || ((java.util.List<?>) resultList).isEmpty()) {
       </bpmn2:extensionElements>
       <bpmn2:incoming>_551A3D62-7662-4BA4-8381-FEFE1ECDD088</bpmn2:incoming>
       <bpmn2:outgoing>_8F2F02C3-8DD7-40C2-89C2-9D6AB9CBC70C</bpmn2:outgoing>
-      <bpmn2:ioSpecification id="_47KgM2CpEfGoGZGuksU-9A">
+      <bpmn2:ioSpecification id="_qlpEGmC3EfGoGZGuksU-9A">
         <bpmn2:dataInput id="_6EB922B0-824E-498B-A0A2-DBCED705DE5F_apiUrlInputX" drools:dtype="String" itemSubjectRef="__6EB922B0-824E-498B-A0A2-DBCED705DE5F_apiUrlInputXItem" name="apiUrl"/>
         <bpmn2:dataInput id="_6EB922B0-824E-498B-A0A2-DBCED705DE5F_routeMap.domainInputX" drools:dtype="String" itemSubjectRef="__6EB922B0-824E-498B-A0A2-DBCED705DE5F_routeMap.domainInputXItem" name="routeMap.domain"/>
         <bpmn2:dataInput id="_6EB922B0-824E-498B-A0A2-DBCED705DE5F_routeMap.sourceInputX" drools:dtype="String" itemSubjectRef="__6EB922B0-824E-498B-A0A2-DBCED705DE5F_routeMap.sourceInputXItem" name="routeMap.source"/>
         <bpmn2:dataInput id="_6EB922B0-824E-498B-A0A2-DBCED705DE5F_dataMap.cpeCrossIdInputX" drools:dtype="String" itemSubjectRef="__6EB922B0-824E-498B-A0A2-DBCED705DE5F_dataMap.cpeCrossIdInputXItem" name="dataMap.cpeCrossId"/>
         <bpmn2:dataInput id="_6EB922B0-824E-498B-A0A2-DBCED705DE5F_TaskNameInputX" drools:dtype="Object" name="TaskName"/>
         <bpmn2:dataOutput id="_6EB922B0-824E-498B-A0A2-DBCED705DE5F_resultListOutputX" drools:dtype="java.util.List" itemSubjectRef="__6EB922B0-824E-498B-A0A2-DBCED705DE5F_resultListOutputXItem" name="resultList"/>
-        <bpmn2:inputSet id="_47KgNGCpEfGoGZGuksU-9A">
+        <bpmn2:inputSet id="_qlpEG2C3EfGoGZGuksU-9A">
           <bpmn2:dataInputRefs>_6EB922B0-824E-498B-A0A2-DBCED705DE5F_apiUrlInputX</bpmn2:dataInputRefs>
           <bpmn2:dataInputRefs>_6EB922B0-824E-498B-A0A2-DBCED705DE5F_routeMap.domainInputX</bpmn2:dataInputRefs>
           <bpmn2:dataInputRefs>_6EB922B0-824E-498B-A0A2-DBCED705DE5F_routeMap.sourceInputX</bpmn2:dataInputRefs>
           <bpmn2:dataInputRefs>_6EB922B0-824E-498B-A0A2-DBCED705DE5F_dataMap.cpeCrossIdInputX</bpmn2:dataInputRefs>
           <bpmn2:dataInputRefs>_6EB922B0-824E-498B-A0A2-DBCED705DE5F_TaskNameInputX</bpmn2:dataInputRefs>
         </bpmn2:inputSet>
-        <bpmn2:outputSet id="_47KgNWCpEfGoGZGuksU-9A">
+        <bpmn2:outputSet id="_qlpq0GC3EfGoGZGuksU-9A">
           <bpmn2:dataOutputRefs>_6EB922B0-824E-498B-A0A2-DBCED705DE5F_resultListOutputX</bpmn2:dataOutputRefs>
         </bpmn2:outputSet>
       </bpmn2:ioSpecification>
-      <bpmn2:dataInputAssociation id="_47KgNmCpEfGoGZGuksU-9A">
+      <bpmn2:dataInputAssociation id="_qlpq0WC3EfGoGZGuksU-9A">
         <bpmn2:sourceRef>_apiCallUrl</bpmn2:sourceRef>
         <bpmn2:targetRef>_6EB922B0-824E-498B-A0A2-DBCED705DE5F_apiUrlInputX</bpmn2:targetRef>
       </bpmn2:dataInputAssociation>
-      <bpmn2:dataInputAssociation id="_47KgN2CpEfGoGZGuksU-9A">
+      <bpmn2:dataInputAssociation id="_qlpq0mC3EfGoGZGuksU-9A">
         <bpmn2:targetRef>_6EB922B0-824E-498B-A0A2-DBCED705DE5F_routeMap.domainInputX</bpmn2:targetRef>
-        <bpmn2:assignment id="_47KgOGCpEfGoGZGuksU-9A">
-          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_47KgOWCpEfGoGZGuksU-9A"><![CDATA[REST_API_CALL]]></bpmn2:from>
-          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_47KgOmCpEfGoGZGuksU-9A">_6EB922B0-824E-498B-A0A2-DBCED705DE5F_routeMap.domainInputX</bpmn2:to>
+        <bpmn2:assignment id="_qlpq02C3EfGoGZGuksU-9A">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_qlpq1GC3EfGoGZGuksU-9A"><![CDATA[REST_API_CALL]]></bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_qlpq1WC3EfGoGZGuksU-9A">_6EB922B0-824E-498B-A0A2-DBCED705DE5F_routeMap.domainInputX</bpmn2:to>
         </bpmn2:assignment>
       </bpmn2:dataInputAssociation>
-      <bpmn2:dataInputAssociation id="_47KgO2CpEfGoGZGuksU-9A">
+      <bpmn2:dataInputAssociation id="_qlpq1mC3EfGoGZGuksU-9A">
         <bpmn2:targetRef>_6EB922B0-824E-498B-A0A2-DBCED705DE5F_routeMap.sourceInputX</bpmn2:targetRef>
-        <bpmn2:assignment id="_47KgPGCpEfGoGZGuksU-9A">
-          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_47KgPWCpEfGoGZGuksU-9A"><![CDATA[cross/executeQuery/findCustomerSideCage]]></bpmn2:from>
-          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_47KgPmCpEfGoGZGuksU-9A">_6EB922B0-824E-498B-A0A2-DBCED705DE5F_routeMap.sourceInputX</bpmn2:to>
+        <bpmn2:assignment id="_qlpq12C3EfGoGZGuksU-9A">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_qlpq2GC3EfGoGZGuksU-9A"><![CDATA[cross/executeQuery/findCustomerSideCage]]></bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_qlpq2WC3EfGoGZGuksU-9A">_6EB922B0-824E-498B-A0A2-DBCED705DE5F_routeMap.sourceInputX</bpmn2:to>
         </bpmn2:assignment>
       </bpmn2:dataInputAssociation>
-      <bpmn2:dataInputAssociation id="_47KgP2CpEfGoGZGuksU-9A">
+      <bpmn2:dataInputAssociation id="_qlpq2mC3EfGoGZGuksU-9A">
         <bpmn2:sourceRef>cpeCrossId</bpmn2:sourceRef>
         <bpmn2:targetRef>_6EB922B0-824E-498B-A0A2-DBCED705DE5F_dataMap.cpeCrossIdInputX</bpmn2:targetRef>
       </bpmn2:dataInputAssociation>
-      <bpmn2:dataInputAssociation id="_47KgQGCpEfGoGZGuksU-9A">
+      <bpmn2:dataInputAssociation id="_qlpq22C3EfGoGZGuksU-9A">
         <bpmn2:targetRef>_6EB922B0-824E-498B-A0A2-DBCED705DE5F_TaskNameInputX</bpmn2:targetRef>
-        <bpmn2:assignment id="_47KgQWCpEfGoGZGuksU-9A">
-          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_47KgQmCpEfGoGZGuksU-9A"><![CDATA[SdcApiCall]]></bpmn2:from>
-          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_47KgQ2CpEfGoGZGuksU-9A">_6EB922B0-824E-498B-A0A2-DBCED705DE5F_TaskNameInputX</bpmn2:to>
+        <bpmn2:assignment id="_qlpq3GC3EfGoGZGuksU-9A">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_qlpq3WC3EfGoGZGuksU-9A"><![CDATA[SdcApiCall]]></bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_qlpq3mC3EfGoGZGuksU-9A">_6EB922B0-824E-498B-A0A2-DBCED705DE5F_TaskNameInputX</bpmn2:to>
         </bpmn2:assignment>
       </bpmn2:dataInputAssociation>
-      <bpmn2:dataOutputAssociation id="_47KgRGCpEfGoGZGuksU-9A">
+      <bpmn2:dataOutputAssociation id="_qlpq32C3EfGoGZGuksU-9A">
         <bpmn2:sourceRef>_6EB922B0-824E-498B-A0A2-DBCED705DE5F_resultListOutputX</bpmn2:sourceRef>
         <bpmn2:targetRef>resultList</bpmn2:targetRef>
       </bpmn2:dataOutputAssociation>
@@ -817,13 +833,13 @@ System.out.println("customerSidePlaceCrossId=" + kcontext.getVariable("customerS
         </drools:metaData>
       </bpmn2:extensionElements>
       <bpmn2:incoming>_DC8893BD-DDA1-4526-9799-15D07A0FC762</bpmn2:incoming>
-      <bpmn2:linkEventDefinition id="_47KgRWCpEfGoGZGuksU-9A" name="Upsert">
-        <bpmn2:target>_47KgRmCpEfGoGZGuksU-9A</bpmn2:target>
+      <bpmn2:linkEventDefinition id="_qlpq4GC3EfGoGZGuksU-9A" name="Upsert">
+        <bpmn2:target>_qlpq4WC3EfGoGZGuksU-9A</bpmn2:target>
       </bpmn2:linkEventDefinition>
     </bpmn2:intermediateThrowEvent>
     <bpmn2:task id="_0C0EFC6D-9912-48CD-8280-FD685B0D4070" drools:taskName="SdcApiCall" name="REST_API_CALL:
 cross/findNetworkSidePlace">
-      <bpmn2:documentation id="_47KgR2CpEfGoGZGuksU-9A"><![CDATA[Find a PLACE parent (not necessarily direct) for edgeEquipmentCrossId via CROSS PROJECT API. (FIND)]]></bpmn2:documentation>
+      <bpmn2:documentation id="_qlpq4mC3EfGoGZGuksU-9A"><![CDATA[Find a PLACE parent (not necessarily direct) for edgeEquipmentCrossId via CROSS PROJECT API. (FIND)]]></bpmn2:documentation>
       <bpmn2:extensionElements>
         <drools:metaData name="elementname">
           <drools:metaValue><![CDATA[REST_API_CALL:
@@ -854,61 +870,61 @@ if (resultList == null || ((java.util.List<?>) resultList).isEmpty()) {
       </bpmn2:extensionElements>
       <bpmn2:incoming>_2745BC9F-9298-40C8-A454-3A875F7B63E7</bpmn2:incoming>
       <bpmn2:outgoing>_82EF04D5-B109-4697-A16D-CDEF4D29C591</bpmn2:outgoing>
-      <bpmn2:ioSpecification id="_47KgSGCpEfGoGZGuksU-9A">
+      <bpmn2:ioSpecification id="_qlpq42C3EfGoGZGuksU-9A">
         <bpmn2:dataInput id="_0C0EFC6D-9912-48CD-8280-FD685B0D4070_apiUrlInputX" drools:dtype="String" itemSubjectRef="__0C0EFC6D-9912-48CD-8280-FD685B0D4070_apiUrlInputXItem" name="apiUrl"/>
         <bpmn2:dataInput id="_0C0EFC6D-9912-48CD-8280-FD685B0D4070_routeMap.domainInputX" drools:dtype="String" itemSubjectRef="__0C0EFC6D-9912-48CD-8280-FD685B0D4070_routeMap.domainInputXItem" name="routeMap.domain"/>
         <bpmn2:dataInput id="_0C0EFC6D-9912-48CD-8280-FD685B0D4070_routeMap.sourceInputX" drools:dtype="String" itemSubjectRef="__0C0EFC6D-9912-48CD-8280-FD685B0D4070_routeMap.sourceInputXItem" name="routeMap.source"/>
         <bpmn2:dataInput id="_0C0EFC6D-9912-48CD-8280-FD685B0D4070_dataMap.edgeEquipmentCrossIdInputX" drools:dtype="String" itemSubjectRef="__0C0EFC6D-9912-48CD-8280-FD685B0D4070_dataMap.edgeEquipmentCrossIdInputXItem" name="dataMap.edgeEquipmentCrossId"/>
         <bpmn2:dataInput id="_0C0EFC6D-9912-48CD-8280-FD685B0D4070_TaskNameInputX" drools:dtype="Object" name="TaskName"/>
         <bpmn2:dataOutput id="_0C0EFC6D-9912-48CD-8280-FD685B0D4070_resultListOutputX" drools:dtype="java.util.List" itemSubjectRef="__0C0EFC6D-9912-48CD-8280-FD685B0D4070_resultListOutputXItem" name="resultList"/>
-        <bpmn2:inputSet id="_47KgSWCpEfGoGZGuksU-9A">
+        <bpmn2:inputSet id="_qlpq5GC3EfGoGZGuksU-9A">
           <bpmn2:dataInputRefs>_0C0EFC6D-9912-48CD-8280-FD685B0D4070_apiUrlInputX</bpmn2:dataInputRefs>
           <bpmn2:dataInputRefs>_0C0EFC6D-9912-48CD-8280-FD685B0D4070_routeMap.domainInputX</bpmn2:dataInputRefs>
           <bpmn2:dataInputRefs>_0C0EFC6D-9912-48CD-8280-FD685B0D4070_routeMap.sourceInputX</bpmn2:dataInputRefs>
           <bpmn2:dataInputRefs>_0C0EFC6D-9912-48CD-8280-FD685B0D4070_dataMap.edgeEquipmentCrossIdInputX</bpmn2:dataInputRefs>
           <bpmn2:dataInputRefs>_0C0EFC6D-9912-48CD-8280-FD685B0D4070_TaskNameInputX</bpmn2:dataInputRefs>
         </bpmn2:inputSet>
-        <bpmn2:outputSet id="_47KgSmCpEfGoGZGuksU-9A">
+        <bpmn2:outputSet id="_qlpq5WC3EfGoGZGuksU-9A">
           <bpmn2:dataOutputRefs>_0C0EFC6D-9912-48CD-8280-FD685B0D4070_resultListOutputX</bpmn2:dataOutputRefs>
         </bpmn2:outputSet>
       </bpmn2:ioSpecification>
-      <bpmn2:dataInputAssociation id="_47KgS2CpEfGoGZGuksU-9A">
+      <bpmn2:dataInputAssociation id="_qlpq5mC3EfGoGZGuksU-9A">
         <bpmn2:sourceRef>_apiCallUrl</bpmn2:sourceRef>
         <bpmn2:targetRef>_0C0EFC6D-9912-48CD-8280-FD685B0D4070_apiUrlInputX</bpmn2:targetRef>
       </bpmn2:dataInputAssociation>
-      <bpmn2:dataInputAssociation id="_47KgTGCpEfGoGZGuksU-9A">
+      <bpmn2:dataInputAssociation id="_qlpq52C3EfGoGZGuksU-9A">
         <bpmn2:targetRef>_0C0EFC6D-9912-48CD-8280-FD685B0D4070_routeMap.domainInputX</bpmn2:targetRef>
-        <bpmn2:assignment id="_47KgTWCpEfGoGZGuksU-9A">
-          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_47KgTmCpEfGoGZGuksU-9A"><![CDATA[REST_API_CALL]]></bpmn2:from>
-          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_47KgT2CpEfGoGZGuksU-9A">_0C0EFC6D-9912-48CD-8280-FD685B0D4070_routeMap.domainInputX</bpmn2:to>
+        <bpmn2:assignment id="_qlpq6GC3EfGoGZGuksU-9A">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_qlpq6WC3EfGoGZGuksU-9A"><![CDATA[REST_API_CALL]]></bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_qlpq6mC3EfGoGZGuksU-9A">_0C0EFC6D-9912-48CD-8280-FD685B0D4070_routeMap.domainInputX</bpmn2:to>
         </bpmn2:assignment>
       </bpmn2:dataInputAssociation>
-      <bpmn2:dataInputAssociation id="_47KgUGCpEfGoGZGuksU-9A">
+      <bpmn2:dataInputAssociation id="_qlpq62C3EfGoGZGuksU-9A">
         <bpmn2:targetRef>_0C0EFC6D-9912-48CD-8280-FD685B0D4070_routeMap.sourceInputX</bpmn2:targetRef>
-        <bpmn2:assignment id="_47KgUWCpEfGoGZGuksU-9A">
-          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_47KgUmCpEfGoGZGuksU-9A"><![CDATA[cross/executeQuery/findNetworkSidePlace]]></bpmn2:from>
-          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_47KgU2CpEfGoGZGuksU-9A">_0C0EFC6D-9912-48CD-8280-FD685B0D4070_routeMap.sourceInputX</bpmn2:to>
+        <bpmn2:assignment id="_qlpq7GC3EfGoGZGuksU-9A">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_qlpq7WC3EfGoGZGuksU-9A"><![CDATA[cross/executeQuery/findNetworkSidePlace]]></bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_qlpq7mC3EfGoGZGuksU-9A">_0C0EFC6D-9912-48CD-8280-FD685B0D4070_routeMap.sourceInputX</bpmn2:to>
         </bpmn2:assignment>
       </bpmn2:dataInputAssociation>
-      <bpmn2:dataInputAssociation id="_47KgVGCpEfGoGZGuksU-9A">
+      <bpmn2:dataInputAssociation id="_qlpq72C3EfGoGZGuksU-9A">
         <bpmn2:sourceRef>edgeEquipmentCrossId</bpmn2:sourceRef>
         <bpmn2:targetRef>_0C0EFC6D-9912-48CD-8280-FD685B0D4070_dataMap.edgeEquipmentCrossIdInputX</bpmn2:targetRef>
       </bpmn2:dataInputAssociation>
-      <bpmn2:dataInputAssociation id="_47KgVWCpEfGoGZGuksU-9A">
+      <bpmn2:dataInputAssociation id="_qlpq8GC3EfGoGZGuksU-9A">
         <bpmn2:targetRef>_0C0EFC6D-9912-48CD-8280-FD685B0D4070_TaskNameInputX</bpmn2:targetRef>
-        <bpmn2:assignment id="_47KgVmCpEfGoGZGuksU-9A">
-          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_47KgV2CpEfGoGZGuksU-9A"><![CDATA[SdcApiCall]]></bpmn2:from>
-          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_47KgWGCpEfGoGZGuksU-9A">_0C0EFC6D-9912-48CD-8280-FD685B0D4070_TaskNameInputX</bpmn2:to>
+        <bpmn2:assignment id="_qlpq8WC3EfGoGZGuksU-9A">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_qlpq8mC3EfGoGZGuksU-9A"><![CDATA[SdcApiCall]]></bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_qlpq82C3EfGoGZGuksU-9A">_0C0EFC6D-9912-48CD-8280-FD685B0D4070_TaskNameInputX</bpmn2:to>
         </bpmn2:assignment>
       </bpmn2:dataInputAssociation>
-      <bpmn2:dataOutputAssociation id="_47KgWWCpEfGoGZGuksU-9A">
+      <bpmn2:dataOutputAssociation id="_qlpq9GC3EfGoGZGuksU-9A">
         <bpmn2:sourceRef>_0C0EFC6D-9912-48CD-8280-FD685B0D4070_resultListOutputX</bpmn2:sourceRef>
         <bpmn2:targetRef>resultList</bpmn2:targetRef>
       </bpmn2:dataOutputAssociation>
     </bpmn2:task>
     <bpmn2:task id="_50B72174-6EED-4D72-A34B-246826D1C8A5" drools:taskName="SdcApiCall" name="REST_API_CALL:
 cross/createCustomerSidePatchCord">
-      <bpmn2:documentation id="_47KgWmCpEfGoGZGuksU-9A"><![CDATA[Create link between customerSidePlaceCrossId and customerSideCageCrossId via CROSS API. (CREATE_OR_UPDATE)]]></bpmn2:documentation>
+      <bpmn2:documentation id="_qlpq9WC3EfGoGZGuksU-9A"><![CDATA[Create link between customerSidePlaceCrossId and customerSideCageCrossId via CROSS API. (CREATE_OR_UPDATE)]]></bpmn2:documentation>
       <bpmn2:extensionElements>
         <drools:metaData name="elementname">
           <drools:metaValue><![CDATA[REST_API_CALL:
@@ -922,7 +938,7 @@ System.out.println("============================================================
       </bpmn2:extensionElements>
       <bpmn2:incoming>_8F2F02C3-8DD7-40C2-89C2-9D6AB9CBC70C</bpmn2:incoming>
       <bpmn2:outgoing>_2E9BF07D-788A-4296-9F38-6B1A9045D10C</bpmn2:outgoing>
-      <bpmn2:ioSpecification id="_47KgW2CpEfGoGZGuksU-9A">
+      <bpmn2:ioSpecification id="_qlpq9mC3EfGoGZGuksU-9A">
         <bpmn2:dataInput id="_50B72174-6EED-4D72-A34B-246826D1C8A5_apiUrlInputX" drools:dtype="String" itemSubjectRef="__50B72174-6EED-4D72-A34B-246826D1C8A5_apiUrlInputXItem" name="apiUrl"/>
         <bpmn2:dataInput id="_50B72174-6EED-4D72-A34B-246826D1C8A5_routeMap.domainInputX" drools:dtype="String" itemSubjectRef="__50B72174-6EED-4D72-A34B-246826D1C8A5_routeMap.domainInputXItem" name="routeMap.domain"/>
         <bpmn2:dataInput id="_50B72174-6EED-4D72-A34B-246826D1C8A5_routeMap.sourceInputX" drools:dtype="String" itemSubjectRef="__50B72174-6EED-4D72-A34B-246826D1C8A5_routeMap.sourceInputXItem" name="routeMap.source"/>
@@ -936,7 +952,7 @@ System.out.println("============================================================
         <bpmn2:dataOutput id="_50B72174-6EED-4D72-A34B-246826D1C8A5_httpStatusCodeOutputX" drools:dtype="Integer" itemSubjectRef="__50B72174-6EED-4D72-A34B-246826D1C8A5_httpStatusCodeOutputXItem" name="httpStatusCode"/>
         <bpmn2:dataOutput id="_50B72174-6EED-4D72-A34B-246826D1C8A5_messageOutputX" drools:dtype="String" itemSubjectRef="__50B72174-6EED-4D72-A34B-246826D1C8A5_messageOutputXItem" name="message"/>
         <bpmn2:dataOutput id="_50B72174-6EED-4D72-A34B-246826D1C8A5_crossIdOutputX" drools:dtype="String" itemSubjectRef="__50B72174-6EED-4D72-A34B-246826D1C8A5_crossIdOutputXItem" name="crossId"/>
-        <bpmn2:inputSet id="_47KgXGCpEfGoGZGuksU-9A">
+        <bpmn2:inputSet id="_qlpq92C3EfGoGZGuksU-9A">
           <bpmn2:dataInputRefs>_50B72174-6EED-4D72-A34B-246826D1C8A5_apiUrlInputX</bpmn2:dataInputRefs>
           <bpmn2:dataInputRefs>_50B72174-6EED-4D72-A34B-246826D1C8A5_routeMap.domainInputX</bpmn2:dataInputRefs>
           <bpmn2:dataInputRefs>_50B72174-6EED-4D72-A34B-246826D1C8A5_routeMap.sourceInputX</bpmn2:dataInputRefs>
@@ -948,87 +964,87 @@ System.out.println("============================================================
           <bpmn2:dataInputRefs>_50B72174-6EED-4D72-A34B-246826D1C8A5_dataMap.linkTypeInputX</bpmn2:dataInputRefs>
           <bpmn2:dataInputRefs>_50B72174-6EED-4D72-A34B-246826D1C8A5_TaskNameInputX</bpmn2:dataInputRefs>
         </bpmn2:inputSet>
-        <bpmn2:outputSet id="_47KgXWCpEfGoGZGuksU-9A">
+        <bpmn2:outputSet id="_qlpq-GC3EfGoGZGuksU-9A">
           <bpmn2:dataOutputRefs>_50B72174-6EED-4D72-A34B-246826D1C8A5_httpStatusCodeOutputX</bpmn2:dataOutputRefs>
           <bpmn2:dataOutputRefs>_50B72174-6EED-4D72-A34B-246826D1C8A5_messageOutputX</bpmn2:dataOutputRefs>
           <bpmn2:dataOutputRefs>_50B72174-6EED-4D72-A34B-246826D1C8A5_crossIdOutputX</bpmn2:dataOutputRefs>
         </bpmn2:outputSet>
       </bpmn2:ioSpecification>
-      <bpmn2:dataInputAssociation id="_47KgXmCpEfGoGZGuksU-9A">
+      <bpmn2:dataInputAssociation id="_qlpq-WC3EfGoGZGuksU-9A">
         <bpmn2:sourceRef>_apiCallUrl</bpmn2:sourceRef>
         <bpmn2:targetRef>_50B72174-6EED-4D72-A34B-246826D1C8A5_apiUrlInputX</bpmn2:targetRef>
       </bpmn2:dataInputAssociation>
-      <bpmn2:dataInputAssociation id="_47KgX2CpEfGoGZGuksU-9A">
+      <bpmn2:dataInputAssociation id="_qlpq-mC3EfGoGZGuksU-9A">
         <bpmn2:targetRef>_50B72174-6EED-4D72-A34B-246826D1C8A5_routeMap.domainInputX</bpmn2:targetRef>
-        <bpmn2:assignment id="_47KgYGCpEfGoGZGuksU-9A">
-          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_47KgYWCpEfGoGZGuksU-9A"><![CDATA[REST_API_CALL]]></bpmn2:from>
-          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_47KgYmCpEfGoGZGuksU-9A">_50B72174-6EED-4D72-A34B-246826D1C8A5_routeMap.domainInputX</bpmn2:to>
+        <bpmn2:assignment id="_qlpq-2C3EfGoGZGuksU-9A">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_qlpq_GC3EfGoGZGuksU-9A"><![CDATA[REST_API_CALL]]></bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_qlpq_WC3EfGoGZGuksU-9A">_50B72174-6EED-4D72-A34B-246826D1C8A5_routeMap.domainInputX</bpmn2:to>
         </bpmn2:assignment>
       </bpmn2:dataInputAssociation>
-      <bpmn2:dataInputAssociation id="_47KgY2CpEfGoGZGuksU-9A">
+      <bpmn2:dataInputAssociation id="_qlpq_mC3EfGoGZGuksU-9A">
         <bpmn2:targetRef>_50B72174-6EED-4D72-A34B-246826D1C8A5_routeMap.sourceInputX</bpmn2:targetRef>
-        <bpmn2:assignment id="_47KgZGCpEfGoGZGuksU-9A">
-          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_47KgZWCpEfGoGZGuksU-9A"><![CDATA[cross/createCustomerSidePatchCord]]></bpmn2:from>
-          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_47KgZmCpEfGoGZGuksU-9A">_50B72174-6EED-4D72-A34B-246826D1C8A5_routeMap.sourceInputX</bpmn2:to>
+        <bpmn2:assignment id="_qlpq_2C3EfGoGZGuksU-9A">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_qlprAGC3EfGoGZGuksU-9A"><![CDATA[cross/createCustomerSidePatchCord]]></bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_qlprAWC3EfGoGZGuksU-9A">_50B72174-6EED-4D72-A34B-246826D1C8A5_routeMap.sourceInputX</bpmn2:to>
         </bpmn2:assignment>
       </bpmn2:dataInputAssociation>
-      <bpmn2:dataInputAssociation id="_47KgZ2CpEfGoGZGuksU-9A">
+      <bpmn2:dataInputAssociation id="_qlprAmC3EfGoGZGuksU-9A">
         <bpmn2:sourceRef>crossProjectName</bpmn2:sourceRef>
         <bpmn2:targetRef>_50B72174-6EED-4D72-A34B-246826D1C8A5_dataMap.projectNameInputX</bpmn2:targetRef>
       </bpmn2:dataInputAssociation>
-      <bpmn2:dataInputAssociation id="_47KgaGCpEfGoGZGuksU-9A">
+      <bpmn2:dataInputAssociation id="_qlprA2C3EfGoGZGuksU-9A">
         <bpmn2:sourceRef>customerSidePlaceCrossId</bpmn2:sourceRef>
         <bpmn2:targetRef>_50B72174-6EED-4D72-A34B-246826D1C8A5_dataMap.startNodeInputX</bpmn2:targetRef>
       </bpmn2:dataInputAssociation>
-      <bpmn2:dataInputAssociation id="_47KgaWCpEfGoGZGuksU-9A">
+      <bpmn2:dataInputAssociation id="_qlprBGC3EfGoGZGuksU-9A">
         <bpmn2:sourceRef>customerSideCageCrossId</bpmn2:sourceRef>
         <bpmn2:targetRef>_50B72174-6EED-4D72-A34B-246826D1C8A5_dataMap.endNodeInputX</bpmn2:targetRef>
       </bpmn2:dataInputAssociation>
-      <bpmn2:dataInputAssociation id="_47KgamCpEfGoGZGuksU-9A">
+      <bpmn2:dataInputAssociation id="_qlprBWC3EfGoGZGuksU-9A">
         <bpmn2:targetRef>_50B72174-6EED-4D72-A34B-246826D1C8A5_dataMap.nameInputX</bpmn2:targetRef>
-        <bpmn2:assignment id="_47Kga2CpEfGoGZGuksU-9A">
-          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_47KgbGCpEfGoGZGuksU-9A"><![CDATA[TODO: PLACE -> CPE:CAGE link name]]></bpmn2:from>
-          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_47KgbWCpEfGoGZGuksU-9A">_50B72174-6EED-4D72-A34B-246826D1C8A5_dataMap.nameInputX</bpmn2:to>
+        <bpmn2:assignment id="_qlprBmC3EfGoGZGuksU-9A">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_qlprB2C3EfGoGZGuksU-9A"><![CDATA[TODO: PLACE -> CPE:CAGE link name]]></bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_qlprCGC3EfGoGZGuksU-9A">_50B72174-6EED-4D72-A34B-246826D1C8A5_dataMap.nameInputX</bpmn2:to>
         </bpmn2:assignment>
       </bpmn2:dataInputAssociation>
-      <bpmn2:dataInputAssociation id="_47KgbmCpEfGoGZGuksU-9A">
+      <bpmn2:dataInputAssociation id="_qlprCWC3EfGoGZGuksU-9A">
         <bpmn2:targetRef>_50B72174-6EED-4D72-A34B-246826D1C8A5_dataMap.statusInputX</bpmn2:targetRef>
-        <bpmn2:assignment id="_47Kgb2CpEfGoGZGuksU-9A">
-          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_47KgcGCpEfGoGZGuksU-9A"><![CDATA[DESIGNED]]></bpmn2:from>
-          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_47KgcWCpEfGoGZGuksU-9A">_50B72174-6EED-4D72-A34B-246826D1C8A5_dataMap.statusInputX</bpmn2:to>
+        <bpmn2:assignment id="_qlprCmC3EfGoGZGuksU-9A">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_qlprC2C3EfGoGZGuksU-9A"><![CDATA[DESIGNED]]></bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_qlprDGC3EfGoGZGuksU-9A">_50B72174-6EED-4D72-A34B-246826D1C8A5_dataMap.statusInputX</bpmn2:to>
         </bpmn2:assignment>
       </bpmn2:dataInputAssociation>
-      <bpmn2:dataInputAssociation id="_47KgcmCpEfGoGZGuksU-9A">
+      <bpmn2:dataInputAssociation id="_qlprDWC3EfGoGZGuksU-9A">
         <bpmn2:targetRef>_50B72174-6EED-4D72-A34B-246826D1C8A5_dataMap.linkTypeInputX</bpmn2:targetRef>
-        <bpmn2:assignment id="_47Kgc2CpEfGoGZGuksU-9A">
-          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_47KgdGCpEfGoGZGuksU-9A"><![CDATA[OPTICAL_PATCH_CORD]]></bpmn2:from>
-          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_47KgdWCpEfGoGZGuksU-9A">_50B72174-6EED-4D72-A34B-246826D1C8A5_dataMap.linkTypeInputX</bpmn2:to>
+        <bpmn2:assignment id="_qlprDmC3EfGoGZGuksU-9A">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_qlprD2C3EfGoGZGuksU-9A"><![CDATA[OPTICAL_PATCH_CORD]]></bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_qlprEGC3EfGoGZGuksU-9A">_50B72174-6EED-4D72-A34B-246826D1C8A5_dataMap.linkTypeInputX</bpmn2:to>
         </bpmn2:assignment>
       </bpmn2:dataInputAssociation>
-      <bpmn2:dataInputAssociation id="_47KgdmCpEfGoGZGuksU-9A">
+      <bpmn2:dataInputAssociation id="_qlprEWC3EfGoGZGuksU-9A">
         <bpmn2:targetRef>_50B72174-6EED-4D72-A34B-246826D1C8A5_TaskNameInputX</bpmn2:targetRef>
-        <bpmn2:assignment id="_47Kgd2CpEfGoGZGuksU-9A">
-          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_47KgeGCpEfGoGZGuksU-9A"><![CDATA[SdcApiCall]]></bpmn2:from>
-          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_47KgeWCpEfGoGZGuksU-9A">_50B72174-6EED-4D72-A34B-246826D1C8A5_TaskNameInputX</bpmn2:to>
+        <bpmn2:assignment id="_qlprEmC3EfGoGZGuksU-9A">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_qlprE2C3EfGoGZGuksU-9A"><![CDATA[SdcApiCall]]></bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_qlprFGC3EfGoGZGuksU-9A">_50B72174-6EED-4D72-A34B-246826D1C8A5_TaskNameInputX</bpmn2:to>
         </bpmn2:assignment>
       </bpmn2:dataInputAssociation>
-      <bpmn2:dataOutputAssociation id="_47KgemCpEfGoGZGuksU-9A">
+      <bpmn2:dataOutputAssociation id="_qlprFWC3EfGoGZGuksU-9A">
         <bpmn2:sourceRef>_50B72174-6EED-4D72-A34B-246826D1C8A5_httpStatusCodeOutputX</bpmn2:sourceRef>
         <bpmn2:targetRef>httpStatusCode</bpmn2:targetRef>
       </bpmn2:dataOutputAssociation>
-      <bpmn2:dataOutputAssociation id="_47Kge2CpEfGoGZGuksU-9A">
+      <bpmn2:dataOutputAssociation id="_qlprFmC3EfGoGZGuksU-9A">
         <bpmn2:sourceRef>_50B72174-6EED-4D72-A34B-246826D1C8A5_messageOutputX</bpmn2:sourceRef>
         <bpmn2:targetRef>message</bpmn2:targetRef>
       </bpmn2:dataOutputAssociation>
-      <bpmn2:dataOutputAssociation id="_47KgfGCpEfGoGZGuksU-9A">
+      <bpmn2:dataOutputAssociation id="_qlprF2C3EfGoGZGuksU-9A">
         <bpmn2:sourceRef>_50B72174-6EED-4D72-A34B-246826D1C8A5_crossIdOutputX</bpmn2:sourceRef>
         <bpmn2:targetRef>customerSidePatchCordCrossId</bpmn2:targetRef>
       </bpmn2:dataOutputAssociation>
     </bpmn2:task>
     <bpmn2:exclusiveGateway id="_78E174E7-37C2-4B24-B54F-CE73773879F3" drools:dg="_DC8893BD-DDA1-4526-9799-15D07A0FC762" gatewayDirection="Diverging" default="_DC8893BD-DDA1-4526-9799-15D07A0FC762">
       <bpmn2:incoming>_7F252FB6-BC09-4AB5-93D6-91A7470A4EFF</bpmn2:incoming>
-      <bpmn2:outgoing>_DC8893BD-DDA1-4526-9799-15D07A0FC762</bpmn2:outgoing>
       <bpmn2:outgoing>_7D3E6C63-99FC-4814-A95C-F5399D74E49E</bpmn2:outgoing>
+      <bpmn2:outgoing>_DC8893BD-DDA1-4526-9799-15D07A0FC762</bpmn2:outgoing>
     </bpmn2:exclusiveGateway>
     <bpmn2:scriptTask id="_B170C4CE-FF4F-4C96-9E02-EBC4DE85A640" name="find
 serviceAccessCrossId" scriptFormat="http://www.java.com/java">
@@ -1078,7 +1094,7 @@ System.out.println("serviceAccessCrossId=" + kcontext.getVariable("serviceAccess
     </bpmn2:scriptTask>
     <bpmn2:task id="_7654757A-B56D-4F87-896D-629750ECB1C0" drools:taskName="SdcApiCall" name="REST_API_CALL:
 cross/createEthLink">
-      <bpmn2:documentation id="_47KgfWCpEfGoGZGuksU-9A"><![CDATA[Create ETHERNET link between network side CAGE and customer side CAGE via CROSS API. (CREATE_OR_UPDATE)]]></bpmn2:documentation>
+      <bpmn2:documentation id="_qlprGGC3EfGoGZGuksU-9A"><![CDATA[Create ETHERNET link between network side CAGE and customer side CAGE via CROSS API. (CREATE_OR_UPDATE)]]></bpmn2:documentation>
       <bpmn2:extensionElements>
         <drools:metaData name="elementname">
           <drools:metaValue><![CDATA[REST_API_CALL:
@@ -1092,7 +1108,7 @@ System.out.println("================================================");]]></droo
       </bpmn2:extensionElements>
       <bpmn2:incoming>_3E9E4984-021C-4A32-B1D2-304CFAA31AB7</bpmn2:incoming>
       <bpmn2:outgoing>_E12C3C7F-99A7-4B1C-8B53-644F8C167340</bpmn2:outgoing>
-      <bpmn2:ioSpecification id="_47KgfmCpEfGoGZGuksU-9A">
+      <bpmn2:ioSpecification id="_qlprGWC3EfGoGZGuksU-9A">
         <bpmn2:dataInput id="_7654757A-B56D-4F87-896D-629750ECB1C0_apiUrlInputX" drools:dtype="String" itemSubjectRef="__7654757A-B56D-4F87-896D-629750ECB1C0_apiUrlInputXItem" name="apiUrl"/>
         <bpmn2:dataInput id="_7654757A-B56D-4F87-896D-629750ECB1C0_routeMap.domainInputX" drools:dtype="String" itemSubjectRef="__7654757A-B56D-4F87-896D-629750ECB1C0_routeMap.domainInputXItem" name="routeMap.domain"/>
         <bpmn2:dataInput id="_7654757A-B56D-4F87-896D-629750ECB1C0_routeMap.sourceInputX" drools:dtype="String" itemSubjectRef="__7654757A-B56D-4F87-896D-629750ECB1C0_routeMap.sourceInputXItem" name="routeMap.source"/>
@@ -1109,7 +1125,7 @@ System.out.println("================================================");]]></droo
         <bpmn2:dataOutput id="_7654757A-B56D-4F87-896D-629750ECB1C0_httpStatusCodeOutputX" drools:dtype="Integer" itemSubjectRef="__7654757A-B56D-4F87-896D-629750ECB1C0_httpStatusCodeOutputXItem" name="httpStatusCode"/>
         <bpmn2:dataOutput id="_7654757A-B56D-4F87-896D-629750ECB1C0_messageOutputX" drools:dtype="String" itemSubjectRef="__7654757A-B56D-4F87-896D-629750ECB1C0_messageOutputXItem" name="message"/>
         <bpmn2:dataOutput id="_7654757A-B56D-4F87-896D-629750ECB1C0_crossIdOutputX" drools:dtype="String" itemSubjectRef="__7654757A-B56D-4F87-896D-629750ECB1C0_crossIdOutputXItem" name="crossId"/>
-        <bpmn2:inputSet id="_47Kgf2CpEfGoGZGuksU-9A">
+        <bpmn2:inputSet id="_qlprGmC3EfGoGZGuksU-9A">
           <bpmn2:dataInputRefs>_7654757A-B56D-4F87-896D-629750ECB1C0_apiUrlInputX</bpmn2:dataInputRefs>
           <bpmn2:dataInputRefs>_7654757A-B56D-4F87-896D-629750ECB1C0_routeMap.domainInputX</bpmn2:dataInputRefs>
           <bpmn2:dataInputRefs>_7654757A-B56D-4F87-896D-629750ECB1C0_routeMap.sourceInputX</bpmn2:dataInputRefs>
@@ -1124,107 +1140,107 @@ System.out.println("================================================");]]></droo
           <bpmn2:dataInputRefs>_7654757A-B56D-4F87-896D-629750ECB1C0_dataMap.protectionFibrilCountInputX</bpmn2:dataInputRefs>
           <bpmn2:dataInputRefs>_7654757A-B56D-4F87-896D-629750ECB1C0_TaskNameInputX</bpmn2:dataInputRefs>
         </bpmn2:inputSet>
-        <bpmn2:outputSet id="_47KggGCpEfGoGZGuksU-9A">
+        <bpmn2:outputSet id="_qlprG2C3EfGoGZGuksU-9A">
           <bpmn2:dataOutputRefs>_7654757A-B56D-4F87-896D-629750ECB1C0_httpStatusCodeOutputX</bpmn2:dataOutputRefs>
           <bpmn2:dataOutputRefs>_7654757A-B56D-4F87-896D-629750ECB1C0_messageOutputX</bpmn2:dataOutputRefs>
           <bpmn2:dataOutputRefs>_7654757A-B56D-4F87-896D-629750ECB1C0_crossIdOutputX</bpmn2:dataOutputRefs>
         </bpmn2:outputSet>
       </bpmn2:ioSpecification>
-      <bpmn2:dataInputAssociation id="_47KggWCpEfGoGZGuksU-9A">
+      <bpmn2:dataInputAssociation id="_qlprHGC3EfGoGZGuksU-9A">
         <bpmn2:sourceRef>_apiCallUrl</bpmn2:sourceRef>
         <bpmn2:targetRef>_7654757A-B56D-4F87-896D-629750ECB1C0_apiUrlInputX</bpmn2:targetRef>
       </bpmn2:dataInputAssociation>
-      <bpmn2:dataInputAssociation id="_47KggmCpEfGoGZGuksU-9A">
+      <bpmn2:dataInputAssociation id="_qlprHWC3EfGoGZGuksU-9A">
         <bpmn2:targetRef>_7654757A-B56D-4F87-896D-629750ECB1C0_routeMap.domainInputX</bpmn2:targetRef>
-        <bpmn2:assignment id="_47Kgg2CpEfGoGZGuksU-9A">
-          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_47KghGCpEfGoGZGuksU-9A"><![CDATA[REST_API_CALL]]></bpmn2:from>
-          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_47KghWCpEfGoGZGuksU-9A">_7654757A-B56D-4F87-896D-629750ECB1C0_routeMap.domainInputX</bpmn2:to>
+        <bpmn2:assignment id="_qlprHmC3EfGoGZGuksU-9A">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_qlprH2C3EfGoGZGuksU-9A"><![CDATA[REST_API_CALL]]></bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_qlprIGC3EfGoGZGuksU-9A">_7654757A-B56D-4F87-896D-629750ECB1C0_routeMap.domainInputX</bpmn2:to>
         </bpmn2:assignment>
       </bpmn2:dataInputAssociation>
-      <bpmn2:dataInputAssociation id="_47KghmCpEfGoGZGuksU-9A">
+      <bpmn2:dataInputAssociation id="_qlprIWC3EfGoGZGuksU-9A">
         <bpmn2:targetRef>_7654757A-B56D-4F87-896D-629750ECB1C0_routeMap.sourceInputX</bpmn2:targetRef>
-        <bpmn2:assignment id="_47Kgh2CpEfGoGZGuksU-9A">
-          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_47KgiGCpEfGoGZGuksU-9A"><![CDATA[cross/createEthLink]]></bpmn2:from>
-          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_47KgiWCpEfGoGZGuksU-9A">_7654757A-B56D-4F87-896D-629750ECB1C0_routeMap.sourceInputX</bpmn2:to>
+        <bpmn2:assignment id="_qlprImC3EfGoGZGuksU-9A">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_qlprI2C3EfGoGZGuksU-9A"><![CDATA[cross/createEthLink]]></bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_qlprJGC3EfGoGZGuksU-9A">_7654757A-B56D-4F87-896D-629750ECB1C0_routeMap.sourceInputX</bpmn2:to>
         </bpmn2:assignment>
       </bpmn2:dataInputAssociation>
-      <bpmn2:dataInputAssociation id="_47KgimCpEfGoGZGuksU-9A">
+      <bpmn2:dataInputAssociation id="_qlprJWC3EfGoGZGuksU-9A">
         <bpmn2:sourceRef>crossProjectName</bpmn2:sourceRef>
         <bpmn2:targetRef>_7654757A-B56D-4F87-896D-629750ECB1C0_dataMap.projectNameInputX</bpmn2:targetRef>
       </bpmn2:dataInputAssociation>
-      <bpmn2:dataInputAssociation id="_47Kgi2CpEfGoGZGuksU-9A">
+      <bpmn2:dataInputAssociation id="_qlprJmC3EfGoGZGuksU-9A">
         <bpmn2:sourceRef>networkSideCageCrossId</bpmn2:sourceRef>
         <bpmn2:targetRef>_7654757A-B56D-4F87-896D-629750ECB1C0_dataMap.startNodeInputX</bpmn2:targetRef>
       </bpmn2:dataInputAssociation>
-      <bpmn2:dataInputAssociation id="_47KgjGCpEfGoGZGuksU-9A">
+      <bpmn2:dataInputAssociation id="_qlprJ2C3EfGoGZGuksU-9A">
         <bpmn2:sourceRef>customerSideCageCrossId</bpmn2:sourceRef>
         <bpmn2:targetRef>_7654757A-B56D-4F87-896D-629750ECB1C0_dataMap.endNodeInputX</bpmn2:targetRef>
       </bpmn2:dataInputAssociation>
-      <bpmn2:dataInputAssociation id="_47KgjWCpEfGoGZGuksU-9A">
+      <bpmn2:dataInputAssociation id="_qlprKGC3EfGoGZGuksU-9A">
         <bpmn2:targetRef>_7654757A-B56D-4F87-896D-629750ECB1C0_dataMap.nameInputX</bpmn2:targetRef>
-        <bpmn2:assignment id="_47KgjmCpEfGoGZGuksU-9A">
-          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_47Kgj2CpEfGoGZGuksU-9A"><![CDATA[TODO: MER/MAS:CAGE -> CPE:CAGE link name]]></bpmn2:from>
-          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_47KgkGCpEfGoGZGuksU-9A">_7654757A-B56D-4F87-896D-629750ECB1C0_dataMap.nameInputX</bpmn2:to>
+        <bpmn2:assignment id="_qlprKWC3EfGoGZGuksU-9A">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_qlprKmC3EfGoGZGuksU-9A"><![CDATA[TODO: MER/MAS:CAGE -> CPE:CAGE link name]]></bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_qlprK2C3EfGoGZGuksU-9A">_7654757A-B56D-4F87-896D-629750ECB1C0_dataMap.nameInputX</bpmn2:to>
         </bpmn2:assignment>
       </bpmn2:dataInputAssociation>
-      <bpmn2:dataInputAssociation id="_47KgkWCpEfGoGZGuksU-9A">
+      <bpmn2:dataInputAssociation id="_qlprLGC3EfGoGZGuksU-9A">
         <bpmn2:targetRef>_7654757A-B56D-4F87-896D-629750ECB1C0_dataMap.statusInputX</bpmn2:targetRef>
-        <bpmn2:assignment id="_47KgkmCpEfGoGZGuksU-9A">
-          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_47Kgk2CpEfGoGZGuksU-9A"><![CDATA[DESIGNED]]></bpmn2:from>
-          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_47KglGCpEfGoGZGuksU-9A">_7654757A-B56D-4F87-896D-629750ECB1C0_dataMap.statusInputX</bpmn2:to>
+        <bpmn2:assignment id="_qlprLWC3EfGoGZGuksU-9A">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_qlprLmC3EfGoGZGuksU-9A"><![CDATA[DESIGNED]]></bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_qlprL2C3EfGoGZGuksU-9A">_7654757A-B56D-4F87-896D-629750ECB1C0_dataMap.statusInputX</bpmn2:to>
         </bpmn2:assignment>
       </bpmn2:dataInputAssociation>
-      <bpmn2:dataInputAssociation id="_47KglWCpEfGoGZGuksU-9A">
+      <bpmn2:dataInputAssociation id="_qlprMGC3EfGoGZGuksU-9A">
         <bpmn2:targetRef>_7654757A-B56D-4F87-896D-629750ECB1C0_dataMap.linkTypeInputX</bpmn2:targetRef>
-        <bpmn2:assignment id="_47KglmCpEfGoGZGuksU-9A">
-          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_47Kgl2CpEfGoGZGuksU-9A"><![CDATA[ETH]]></bpmn2:from>
-          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_47KgmGCpEfGoGZGuksU-9A">_7654757A-B56D-4F87-896D-629750ECB1C0_dataMap.linkTypeInputX</bpmn2:to>
+        <bpmn2:assignment id="_qlprMWC3EfGoGZGuksU-9A">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_qlprMmC3EfGoGZGuksU-9A"><![CDATA[ETH]]></bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_qlprM2C3EfGoGZGuksU-9A">_7654757A-B56D-4F87-896D-629750ECB1C0_dataMap.linkTypeInputX</bpmn2:to>
         </bpmn2:assignment>
       </bpmn2:dataInputAssociation>
-      <bpmn2:dataInputAssociation id="_47KgmWCpEfGoGZGuksU-9A">
+      <bpmn2:dataInputAssociation id="_qlprNGC3EfGoGZGuksU-9A">
         <bpmn2:targetRef>_7654757A-B56D-4F87-896D-629750ECB1C0_dataMap.routingPolicyInputX</bpmn2:targetRef>
-        <bpmn2:assignment id="_47KgmmCpEfGoGZGuksU-9A">
-          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_47Kgm2CpEfGoGZGuksU-9A"><![CDATA[PhysicalRoutingPolicy]]></bpmn2:from>
-          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_47KgnGCpEfGoGZGuksU-9A">_7654757A-B56D-4F87-896D-629750ECB1C0_dataMap.routingPolicyInputX</bpmn2:to>
+        <bpmn2:assignment id="_qlprNWC3EfGoGZGuksU-9A">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_qlprNmC3EfGoGZGuksU-9A"><![CDATA[PhysicalRoutingPolicy]]></bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_qlprN2C3EfGoGZGuksU-9A">_7654757A-B56D-4F87-896D-629750ECB1C0_dataMap.routingPolicyInputX</bpmn2:to>
         </bpmn2:assignment>
       </bpmn2:dataInputAssociation>
-      <bpmn2:dataInputAssociation id="_47KgnWCpEfGoGZGuksU-9A">
+      <bpmn2:dataInputAssociation id="_qlprOGC3EfGoGZGuksU-9A">
         <bpmn2:targetRef>_7654757A-B56D-4F87-896D-629750ECB1C0_dataMap.mainFibrilCountInputX</bpmn2:targetRef>
-        <bpmn2:assignment id="_47KgnmCpEfGoGZGuksU-9A">
-          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_47Kgn2CpEfGoGZGuksU-9A"><![CDATA[1]]></bpmn2:from>
-          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_47KgoGCpEfGoGZGuksU-9A">_7654757A-B56D-4F87-896D-629750ECB1C0_dataMap.mainFibrilCountInputX</bpmn2:to>
+        <bpmn2:assignment id="_qlprOWC3EfGoGZGuksU-9A">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_qlprOmC3EfGoGZGuksU-9A"><![CDATA[1]]></bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_qlprO2C3EfGoGZGuksU-9A">_7654757A-B56D-4F87-896D-629750ECB1C0_dataMap.mainFibrilCountInputX</bpmn2:to>
         </bpmn2:assignment>
       </bpmn2:dataInputAssociation>
-      <bpmn2:dataInputAssociation id="_47KgoWCpEfGoGZGuksU-9A">
+      <bpmn2:dataInputAssociation id="_qlprPGC3EfGoGZGuksU-9A">
         <bpmn2:targetRef>_7654757A-B56D-4F87-896D-629750ECB1C0_dataMap.protectionFibrilCountInputX</bpmn2:targetRef>
-        <bpmn2:assignment id="_47KgomCpEfGoGZGuksU-9A">
-          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_47Kgo2CpEfGoGZGuksU-9A"><![CDATA[0]]></bpmn2:from>
-          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_47KgpGCpEfGoGZGuksU-9A">_7654757A-B56D-4F87-896D-629750ECB1C0_dataMap.protectionFibrilCountInputX</bpmn2:to>
+        <bpmn2:assignment id="_qlprPWC3EfGoGZGuksU-9A">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_qlprPmC3EfGoGZGuksU-9A"><![CDATA[0]]></bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_qlprP2C3EfGoGZGuksU-9A">_7654757A-B56D-4F87-896D-629750ECB1C0_dataMap.protectionFibrilCountInputX</bpmn2:to>
         </bpmn2:assignment>
       </bpmn2:dataInputAssociation>
-      <bpmn2:dataInputAssociation id="_47KgpWCpEfGoGZGuksU-9A">
+      <bpmn2:dataInputAssociation id="_qlprQGC3EfGoGZGuksU-9A">
         <bpmn2:targetRef>_7654757A-B56D-4F87-896D-629750ECB1C0_TaskNameInputX</bpmn2:targetRef>
-        <bpmn2:assignment id="_47KgpmCpEfGoGZGuksU-9A">
-          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_47Kgp2CpEfGoGZGuksU-9A"><![CDATA[SdcApiCall]]></bpmn2:from>
-          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_47KgqGCpEfGoGZGuksU-9A">_7654757A-B56D-4F87-896D-629750ECB1C0_TaskNameInputX</bpmn2:to>
+        <bpmn2:assignment id="_qlprQWC3EfGoGZGuksU-9A">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_qlprQmC3EfGoGZGuksU-9A"><![CDATA[SdcApiCall]]></bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_qlprQ2C3EfGoGZGuksU-9A">_7654757A-B56D-4F87-896D-629750ECB1C0_TaskNameInputX</bpmn2:to>
         </bpmn2:assignment>
       </bpmn2:dataInputAssociation>
-      <bpmn2:dataOutputAssociation id="_47KgqWCpEfGoGZGuksU-9A">
+      <bpmn2:dataOutputAssociation id="_qlprRGC3EfGoGZGuksU-9A">
         <bpmn2:sourceRef>_7654757A-B56D-4F87-896D-629750ECB1C0_httpStatusCodeOutputX</bpmn2:sourceRef>
         <bpmn2:targetRef>httpStatusCode</bpmn2:targetRef>
       </bpmn2:dataOutputAssociation>
-      <bpmn2:dataOutputAssociation id="_47KgqmCpEfGoGZGuksU-9A">
+      <bpmn2:dataOutputAssociation id="_qlprRWC3EfGoGZGuksU-9A">
         <bpmn2:sourceRef>_7654757A-B56D-4F87-896D-629750ECB1C0_messageOutputX</bpmn2:sourceRef>
         <bpmn2:targetRef>message</bpmn2:targetRef>
       </bpmn2:dataOutputAssociation>
-      <bpmn2:dataOutputAssociation id="_47Kgq2CpEfGoGZGuksU-9A">
+      <bpmn2:dataOutputAssociation id="_qlprRmC3EfGoGZGuksU-9A">
         <bpmn2:sourceRef>_7654757A-B56D-4F87-896D-629750ECB1C0_crossIdOutputX</bpmn2:sourceRef>
         <bpmn2:targetRef>ethLinkCrossId</bpmn2:targetRef>
       </bpmn2:dataOutputAssociation>
     </bpmn2:task>
     <bpmn2:task id="_B6428571-C915-460C-9B88-EED174B9B507" drools:taskName="SdcApiCall" name="REST_API_CALL:
 cross/findService/SC_PHYSICAL_ACCESS">
-      <bpmn2:documentation id="_47KgrGCpEfGoGZGuksU-9A"><![CDATA[Retrieve service servicePhysicalAccessCrossId via CROSS API. (FIND)]]></bpmn2:documentation>
+      <bpmn2:documentation id="_qlprR2C3EfGoGZGuksU-9A"><![CDATA[Retrieve service servicePhysicalAccessCrossId via CROSS API. (FIND)]]></bpmn2:documentation>
       <bpmn2:extensionElements>
         <drools:metaData name="elementname">
           <drools:metaValue><![CDATA[REST_API_CALL:
@@ -1238,7 +1254,7 @@ System.out.println("============================================================
       </bpmn2:extensionElements>
       <bpmn2:incoming>_D57B4875-0DB4-4D1B-B060-B5E681619841</bpmn2:incoming>
       <bpmn2:outgoing>_D106C51E-B3C0-4BD7-A0A8-57B62EEDCAE4</bpmn2:outgoing>
-      <bpmn2:ioSpecification id="_47KgrWCpEfGoGZGuksU-9A">
+      <bpmn2:ioSpecification id="_qlprSGC3EfGoGZGuksU-9A">
         <bpmn2:dataInput id="_B6428571-C915-460C-9B88-EED174B9B507_apiUrlInputX" drools:dtype="String" itemSubjectRef="__B6428571-C915-460C-9B88-EED174B9B507_apiUrlInputXItem" name="apiUrl"/>
         <bpmn2:dataInput id="_B6428571-C915-460C-9B88-EED174B9B507_routeMap.domainInputX" drools:dtype="String" itemSubjectRef="__B6428571-C915-460C-9B88-EED174B9B507_routeMap.domainInputXItem" name="routeMap.domain"/>
         <bpmn2:dataInput id="_B6428571-C915-460C-9B88-EED174B9B507_routeMap.sourceInputX" drools:dtype="String" itemSubjectRef="__B6428571-C915-460C-9B88-EED174B9B507_routeMap.sourceInputXItem" name="routeMap.source"/>
@@ -1247,64 +1263,64 @@ System.out.println("============================================================
         <bpmn2:dataOutput id="_B6428571-C915-460C-9B88-EED174B9B507_httpStatusCodeOutputX" drools:dtype="Integer" itemSubjectRef="__B6428571-C915-460C-9B88-EED174B9B507_httpStatusCodeOutputXItem" name="httpStatusCode"/>
         <bpmn2:dataOutput id="_B6428571-C915-460C-9B88-EED174B9B507_messageOutputX" drools:dtype="String" itemSubjectRef="__B6428571-C915-460C-9B88-EED174B9B507_messageOutputXItem" name="message"/>
         <bpmn2:dataOutput id="_B6428571-C915-460C-9B88-EED174B9B507_serviceComponentsOutputX" drools:dtype="java.util.List" itemSubjectRef="__B6428571-C915-460C-9B88-EED174B9B507_serviceComponentsOutputXItem" name="serviceComponents"/>
-        <bpmn2:inputSet id="_47KgrmCpEfGoGZGuksU-9A">
+        <bpmn2:inputSet id="_qlprSWC3EfGoGZGuksU-9A">
           <bpmn2:dataInputRefs>_B6428571-C915-460C-9B88-EED174B9B507_apiUrlInputX</bpmn2:dataInputRefs>
           <bpmn2:dataInputRefs>_B6428571-C915-460C-9B88-EED174B9B507_routeMap.domainInputX</bpmn2:dataInputRefs>
           <bpmn2:dataInputRefs>_B6428571-C915-460C-9B88-EED174B9B507_routeMap.sourceInputX</bpmn2:dataInputRefs>
           <bpmn2:dataInputRefs>_B6428571-C915-460C-9B88-EED174B9B507_dataMap.serviceCrossIdInputX</bpmn2:dataInputRefs>
           <bpmn2:dataInputRefs>_B6428571-C915-460C-9B88-EED174B9B507_TaskNameInputX</bpmn2:dataInputRefs>
         </bpmn2:inputSet>
-        <bpmn2:outputSet id="_47Kgr2CpEfGoGZGuksU-9A">
+        <bpmn2:outputSet id="_qlprSmC3EfGoGZGuksU-9A">
           <bpmn2:dataOutputRefs>_B6428571-C915-460C-9B88-EED174B9B507_httpStatusCodeOutputX</bpmn2:dataOutputRefs>
           <bpmn2:dataOutputRefs>_B6428571-C915-460C-9B88-EED174B9B507_messageOutputX</bpmn2:dataOutputRefs>
           <bpmn2:dataOutputRefs>_B6428571-C915-460C-9B88-EED174B9B507_serviceComponentsOutputX</bpmn2:dataOutputRefs>
         </bpmn2:outputSet>
       </bpmn2:ioSpecification>
-      <bpmn2:dataInputAssociation id="_47KgsGCpEfGoGZGuksU-9A">
+      <bpmn2:dataInputAssociation id="_qlprS2C3EfGoGZGuksU-9A">
         <bpmn2:sourceRef>_apiCallUrl</bpmn2:sourceRef>
         <bpmn2:targetRef>_B6428571-C915-460C-9B88-EED174B9B507_apiUrlInputX</bpmn2:targetRef>
       </bpmn2:dataInputAssociation>
-      <bpmn2:dataInputAssociation id="_47KgsWCpEfGoGZGuksU-9A">
+      <bpmn2:dataInputAssociation id="_qlprTGC3EfGoGZGuksU-9A">
         <bpmn2:targetRef>_B6428571-C915-460C-9B88-EED174B9B507_routeMap.domainInputX</bpmn2:targetRef>
-        <bpmn2:assignment id="_47KgsmCpEfGoGZGuksU-9A">
-          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_47Kgs2CpEfGoGZGuksU-9A"><![CDATA[REST_API_CALL]]></bpmn2:from>
-          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_47KgtGCpEfGoGZGuksU-9A">_B6428571-C915-460C-9B88-EED174B9B507_routeMap.domainInputX</bpmn2:to>
+        <bpmn2:assignment id="_qlprTWC3EfGoGZGuksU-9A">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_qlprTmC3EfGoGZGuksU-9A"><![CDATA[REST_API_CALL]]></bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_qlprT2C3EfGoGZGuksU-9A">_B6428571-C915-460C-9B88-EED174B9B507_routeMap.domainInputX</bpmn2:to>
         </bpmn2:assignment>
       </bpmn2:dataInputAssociation>
-      <bpmn2:dataInputAssociation id="_47KgtWCpEfGoGZGuksU-9A">
+      <bpmn2:dataInputAssociation id="_qlprUGC3EfGoGZGuksU-9A">
         <bpmn2:targetRef>_B6428571-C915-460C-9B88-EED174B9B507_routeMap.sourceInputX</bpmn2:targetRef>
-        <bpmn2:assignment id="_47KgtmCpEfGoGZGuksU-9A">
-          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_47Kgt2CpEfGoGZGuksU-9A"><![CDATA[cross/findService]]></bpmn2:from>
-          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_47KguGCpEfGoGZGuksU-9A">_B6428571-C915-460C-9B88-EED174B9B507_routeMap.sourceInputX</bpmn2:to>
+        <bpmn2:assignment id="_qlprUWC3EfGoGZGuksU-9A">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_qlprUmC3EfGoGZGuksU-9A"><![CDATA[cross/findService]]></bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_qlprU2C3EfGoGZGuksU-9A">_B6428571-C915-460C-9B88-EED174B9B507_routeMap.sourceInputX</bpmn2:to>
         </bpmn2:assignment>
       </bpmn2:dataInputAssociation>
-      <bpmn2:dataInputAssociation id="_47KguWCpEfGoGZGuksU-9A">
+      <bpmn2:dataInputAssociation id="_qlprVGC3EfGoGZGuksU-9A">
         <bpmn2:sourceRef>servicePhysicalAccessCrossId</bpmn2:sourceRef>
         <bpmn2:targetRef>_B6428571-C915-460C-9B88-EED174B9B507_dataMap.serviceCrossIdInputX</bpmn2:targetRef>
       </bpmn2:dataInputAssociation>
-      <bpmn2:dataInputAssociation id="_47KgumCpEfGoGZGuksU-9A">
+      <bpmn2:dataInputAssociation id="_qlprVWC3EfGoGZGuksU-9A">
         <bpmn2:targetRef>_B6428571-C915-460C-9B88-EED174B9B507_TaskNameInputX</bpmn2:targetRef>
-        <bpmn2:assignment id="_47Kgu2CpEfGoGZGuksU-9A">
-          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_47KgvGCpEfGoGZGuksU-9A"><![CDATA[SdcApiCall]]></bpmn2:from>
-          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_47KgvWCpEfGoGZGuksU-9A">_B6428571-C915-460C-9B88-EED174B9B507_TaskNameInputX</bpmn2:to>
+        <bpmn2:assignment id="_qlprVmC3EfGoGZGuksU-9A">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_qlprV2C3EfGoGZGuksU-9A"><![CDATA[SdcApiCall]]></bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_qlprWGC3EfGoGZGuksU-9A">_B6428571-C915-460C-9B88-EED174B9B507_TaskNameInputX</bpmn2:to>
         </bpmn2:assignment>
       </bpmn2:dataInputAssociation>
-      <bpmn2:dataOutputAssociation id="_47KgvmCpEfGoGZGuksU-9A">
+      <bpmn2:dataOutputAssociation id="_qlprWWC3EfGoGZGuksU-9A">
         <bpmn2:sourceRef>_B6428571-C915-460C-9B88-EED174B9B507_httpStatusCodeOutputX</bpmn2:sourceRef>
         <bpmn2:targetRef>httpStatusCode</bpmn2:targetRef>
       </bpmn2:dataOutputAssociation>
-      <bpmn2:dataOutputAssociation id="_47Kgv2CpEfGoGZGuksU-9A">
+      <bpmn2:dataOutputAssociation id="_qlprWmC3EfGoGZGuksU-9A">
         <bpmn2:sourceRef>_B6428571-C915-460C-9B88-EED174B9B507_messageOutputX</bpmn2:sourceRef>
         <bpmn2:targetRef>message</bpmn2:targetRef>
       </bpmn2:dataOutputAssociation>
-      <bpmn2:dataOutputAssociation id="_47KgwGCpEfGoGZGuksU-9A">
+      <bpmn2:dataOutputAssociation id="_qlprW2C3EfGoGZGuksU-9A">
         <bpmn2:sourceRef>_B6428571-C915-460C-9B88-EED174B9B507_serviceComponentsOutputX</bpmn2:sourceRef>
         <bpmn2:targetRef>servicePhysicalAccessComponents</bpmn2:targetRef>
       </bpmn2:dataOutputAssociation>
     </bpmn2:task>
     <bpmn2:task id="_48B89653-215B-48DE-8602-5F4FC94D02BC" drools:taskName="SdcApiCall" name="REST_API_CALL:
 cross/findProject">
-      <bpmn2:documentation id="_47KgwWCpEfGoGZGuksU-9A"><![CDATA[Retrieve project crossProjectName via CROSS API. (FIND)]]></bpmn2:documentation>
+      <bpmn2:documentation id="_qlprXGC3EfGoGZGuksU-9A"><![CDATA[Retrieve project crossProjectName via CROSS API. (FIND)]]></bpmn2:documentation>
       <bpmn2:extensionElements>
         <drools:metaData name="elementname">
           <drools:metaValue><![CDATA[REST_API_CALL:
@@ -1318,7 +1334,7 @@ System.out.println("================================================");]]></droo
       </bpmn2:extensionElements>
       <bpmn2:incoming>_6D70824E-8561-4B38-93E5-94E7246D029B</bpmn2:incoming>
       <bpmn2:outgoing>_533F9645-3C16-41CB-8F05-7312587FD9DE</bpmn2:outgoing>
-      <bpmn2:ioSpecification id="_47KgwmCpEfGoGZGuksU-9A">
+      <bpmn2:ioSpecification id="_qlprXWC3EfGoGZGuksU-9A">
         <bpmn2:dataInput id="_48B89653-215B-48DE-8602-5F4FC94D02BC_apiUrlInputX" drools:dtype="String" itemSubjectRef="__48B89653-215B-48DE-8602-5F4FC94D02BC_apiUrlInputXItem" name="apiUrl"/>
         <bpmn2:dataInput id="_48B89653-215B-48DE-8602-5F4FC94D02BC_routeMap.domainInputX" drools:dtype="String" itemSubjectRef="__48B89653-215B-48DE-8602-5F4FC94D02BC_routeMap.domainInputXItem" name="routeMap.domain"/>
         <bpmn2:dataInput id="_48B89653-215B-48DE-8602-5F4FC94D02BC_routeMap.sourceInputX" drools:dtype="String" itemSubjectRef="__48B89653-215B-48DE-8602-5F4FC94D02BC_routeMap.sourceInputXItem" name="routeMap.source"/>
@@ -1327,57 +1343,57 @@ System.out.println("================================================");]]></droo
         <bpmn2:dataOutput id="_48B89653-215B-48DE-8602-5F4FC94D02BC_httpStatusCodeOutputX" drools:dtype="Integer" itemSubjectRef="__48B89653-215B-48DE-8602-5F4FC94D02BC_httpStatusCodeOutputXItem" name="httpStatusCode"/>
         <bpmn2:dataOutput id="_48B89653-215B-48DE-8602-5F4FC94D02BC_messageOutputX" drools:dtype="String" itemSubjectRef="__48B89653-215B-48DE-8602-5F4FC94D02BC_messageOutputXItem" name="message"/>
         <bpmn2:dataOutput id="_48B89653-215B-48DE-8602-5F4FC94D02BC_crossIdOutputX" drools:dtype="String" itemSubjectRef="__48B89653-215B-48DE-8602-5F4FC94D02BC_crossIdOutputXItem" name="crossId"/>
-        <bpmn2:inputSet id="_47Kgw2CpEfGoGZGuksU-9A">
+        <bpmn2:inputSet id="_qlprXmC3EfGoGZGuksU-9A">
           <bpmn2:dataInputRefs>_48B89653-215B-48DE-8602-5F4FC94D02BC_apiUrlInputX</bpmn2:dataInputRefs>
           <bpmn2:dataInputRefs>_48B89653-215B-48DE-8602-5F4FC94D02BC_routeMap.domainInputX</bpmn2:dataInputRefs>
           <bpmn2:dataInputRefs>_48B89653-215B-48DE-8602-5F4FC94D02BC_routeMap.sourceInputX</bpmn2:dataInputRefs>
           <bpmn2:dataInputRefs>_48B89653-215B-48DE-8602-5F4FC94D02BC_dataMap.crossProjectNameInputX</bpmn2:dataInputRefs>
           <bpmn2:dataInputRefs>_48B89653-215B-48DE-8602-5F4FC94D02BC_TaskNameInputX</bpmn2:dataInputRefs>
         </bpmn2:inputSet>
-        <bpmn2:outputSet id="_47KgxGCpEfGoGZGuksU-9A">
+        <bpmn2:outputSet id="_qlprX2C3EfGoGZGuksU-9A">
           <bpmn2:dataOutputRefs>_48B89653-215B-48DE-8602-5F4FC94D02BC_httpStatusCodeOutputX</bpmn2:dataOutputRefs>
           <bpmn2:dataOutputRefs>_48B89653-215B-48DE-8602-5F4FC94D02BC_messageOutputX</bpmn2:dataOutputRefs>
           <bpmn2:dataOutputRefs>_48B89653-215B-48DE-8602-5F4FC94D02BC_crossIdOutputX</bpmn2:dataOutputRefs>
         </bpmn2:outputSet>
       </bpmn2:ioSpecification>
-      <bpmn2:dataInputAssociation id="_47KgxWCpEfGoGZGuksU-9A">
+      <bpmn2:dataInputAssociation id="_qlprYGC3EfGoGZGuksU-9A">
         <bpmn2:sourceRef>_apiCallUrl</bpmn2:sourceRef>
         <bpmn2:targetRef>_48B89653-215B-48DE-8602-5F4FC94D02BC_apiUrlInputX</bpmn2:targetRef>
       </bpmn2:dataInputAssociation>
-      <bpmn2:dataInputAssociation id="_47KgxmCpEfGoGZGuksU-9A">
+      <bpmn2:dataInputAssociation id="_qlprYWC3EfGoGZGuksU-9A">
         <bpmn2:targetRef>_48B89653-215B-48DE-8602-5F4FC94D02BC_routeMap.domainInputX</bpmn2:targetRef>
-        <bpmn2:assignment id="_47Kgx2CpEfGoGZGuksU-9A">
-          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_47KgyGCpEfGoGZGuksU-9A"><![CDATA[REST_API_CALL]]></bpmn2:from>
-          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_47KgyWCpEfGoGZGuksU-9A">_48B89653-215B-48DE-8602-5F4FC94D02BC_routeMap.domainInputX</bpmn2:to>
+        <bpmn2:assignment id="_qlprYmC3EfGoGZGuksU-9A">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_qlprY2C3EfGoGZGuksU-9A"><![CDATA[REST_API_CALL]]></bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_qlprZGC3EfGoGZGuksU-9A">_48B89653-215B-48DE-8602-5F4FC94D02BC_routeMap.domainInputX</bpmn2:to>
         </bpmn2:assignment>
       </bpmn2:dataInputAssociation>
-      <bpmn2:dataInputAssociation id="_47KgymCpEfGoGZGuksU-9A">
+      <bpmn2:dataInputAssociation id="_qlprZWC3EfGoGZGuksU-9A">
         <bpmn2:targetRef>_48B89653-215B-48DE-8602-5F4FC94D02BC_routeMap.sourceInputX</bpmn2:targetRef>
-        <bpmn2:assignment id="_47Kgy2CpEfGoGZGuksU-9A">
-          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_47KgzGCpEfGoGZGuksU-9A"><![CDATA[cross/findProject]]></bpmn2:from>
-          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_47KgzWCpEfGoGZGuksU-9A">_48B89653-215B-48DE-8602-5F4FC94D02BC_routeMap.sourceInputX</bpmn2:to>
+        <bpmn2:assignment id="_qlprZmC3EfGoGZGuksU-9A">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_qlprZ2C3EfGoGZGuksU-9A"><![CDATA[cross/findProject]]></bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_qlpraGC3EfGoGZGuksU-9A">_48B89653-215B-48DE-8602-5F4FC94D02BC_routeMap.sourceInputX</bpmn2:to>
         </bpmn2:assignment>
       </bpmn2:dataInputAssociation>
-      <bpmn2:dataInputAssociation id="_47KgzmCpEfGoGZGuksU-9A">
+      <bpmn2:dataInputAssociation id="_qlpraWC3EfGoGZGuksU-9A">
         <bpmn2:sourceRef>crossProjectName</bpmn2:sourceRef>
         <bpmn2:targetRef>_48B89653-215B-48DE-8602-5F4FC94D02BC_dataMap.crossProjectNameInputX</bpmn2:targetRef>
       </bpmn2:dataInputAssociation>
-      <bpmn2:dataInputAssociation id="_47Kgz2CpEfGoGZGuksU-9A">
+      <bpmn2:dataInputAssociation id="_qlpramC3EfGoGZGuksU-9A">
         <bpmn2:targetRef>_48B89653-215B-48DE-8602-5F4FC94D02BC_TaskNameInputX</bpmn2:targetRef>
-        <bpmn2:assignment id="_47Kg0GCpEfGoGZGuksU-9A">
-          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_47Kg0WCpEfGoGZGuksU-9A"><![CDATA[SdcApiCall]]></bpmn2:from>
-          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_47Kg0mCpEfGoGZGuksU-9A">_48B89653-215B-48DE-8602-5F4FC94D02BC_TaskNameInputX</bpmn2:to>
+        <bpmn2:assignment id="_qlpra2C3EfGoGZGuksU-9A">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_qlprbGC3EfGoGZGuksU-9A"><![CDATA[SdcApiCall]]></bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_qlprbWC3EfGoGZGuksU-9A">_48B89653-215B-48DE-8602-5F4FC94D02BC_TaskNameInputX</bpmn2:to>
         </bpmn2:assignment>
       </bpmn2:dataInputAssociation>
-      <bpmn2:dataOutputAssociation id="_47Kg02CpEfGoGZGuksU-9A">
+      <bpmn2:dataOutputAssociation id="_qlprbmC3EfGoGZGuksU-9A">
         <bpmn2:sourceRef>_48B89653-215B-48DE-8602-5F4FC94D02BC_httpStatusCodeOutputX</bpmn2:sourceRef>
         <bpmn2:targetRef>httpStatusCode</bpmn2:targetRef>
       </bpmn2:dataOutputAssociation>
-      <bpmn2:dataOutputAssociation id="_47Kg1GCpEfGoGZGuksU-9A">
+      <bpmn2:dataOutputAssociation id="_qlprb2C3EfGoGZGuksU-9A">
         <bpmn2:sourceRef>_48B89653-215B-48DE-8602-5F4FC94D02BC_messageOutputX</bpmn2:sourceRef>
         <bpmn2:targetRef>message</bpmn2:targetRef>
       </bpmn2:dataOutputAssociation>
-      <bpmn2:dataOutputAssociation id="_47Kg1WCpEfGoGZGuksU-9A">
+      <bpmn2:dataOutputAssociation id="_qlprcGC3EfGoGZGuksU-9A">
         <bpmn2:sourceRef>_48B89653-215B-48DE-8602-5F4FC94D02BC_crossIdOutputX</bpmn2:sourceRef>
         <bpmn2:targetRef>projectCrossId</bpmn2:targetRef>
       </bpmn2:dataOutputAssociation>
@@ -1441,13 +1457,13 @@ kcontext.setVariable("response", map);]]></bpmn2:script>
         </drools:metaData>
       </bpmn2:extensionElements>
       <bpmn2:outgoing>_A4F410D5-65BC-4C07-A3B8-ADF4E6FF28B8</bpmn2:outgoing>
-      <bpmn2:linkEventDefinition id="_47J5QGCpEfGoGZGuksU-9A" name="Completed">
-        <bpmn2:source>_47J5P2CpEfGoGZGuksU-9A</bpmn2:source>
+      <bpmn2:linkEventDefinition id="_qlpD4GC3EfGoGZGuksU-9A" name="Completed">
+        <bpmn2:source>_qlpD32C3EfGoGZGuksU-9A</bpmn2:source>
       </bpmn2:linkEventDefinition>
     </bpmn2:intermediateCatchEvent>
     <bpmn2:task id="_95FC3D56-3626-495B-97C9-D7522B6A02D9" drools:taskName="SdcApiCall" name="REST_API_CALL:
 cross/updateEthLinkProviders">
-      <bpmn2:documentation id="_47Kg1mCpEfGoGZGuksU-9A"><![CDATA[Set networkSidePatchCord, opticalPath and customerSidePatchCord as providers of ethLinkCrossId. (CREATE_OR_UPDATE)]]></bpmn2:documentation>
+      <bpmn2:documentation id="_qlprcWC3EfGoGZGuksU-9A"><![CDATA[Set networkSidePatchCord, opticalPath and customerSidePatchCord as providers of ethLinkCrossId. (CREATE_OR_UPDATE)]]></bpmn2:documentation>
       <bpmn2:extensionElements>
         <drools:metaData name="elementname">
           <drools:metaValue><![CDATA[REST_API_CALL:
@@ -1489,7 +1505,7 @@ kcontext.setVariable("ethLinkProviders", providers);]]></drools:script>
       </bpmn2:extensionElements>
       <bpmn2:incoming>_E12C3C7F-99A7-4B1C-8B53-644F8C167340</bpmn2:incoming>
       <bpmn2:outgoing>_983F4382-0A31-42C7-BC95-54DFA4C24D22</bpmn2:outgoing>
-      <bpmn2:ioSpecification id="_47Kg12CpEfGoGZGuksU-9A">
+      <bpmn2:ioSpecification id="_qlprcmC3EfGoGZGuksU-9A">
         <bpmn2:dataInput id="_95FC3D56-3626-495B-97C9-D7522B6A02D9_apiUrlInputX" drools:dtype="String" itemSubjectRef="__95FC3D56-3626-495B-97C9-D7522B6A02D9_apiUrlInputXItem" name="apiUrl"/>
         <bpmn2:dataInput id="_95FC3D56-3626-495B-97C9-D7522B6A02D9_routeMap.domainInputX" drools:dtype="String" itemSubjectRef="__95FC3D56-3626-495B-97C9-D7522B6A02D9_routeMap.domainInputXItem" name="routeMap.domain"/>
         <bpmn2:dataInput id="_95FC3D56-3626-495B-97C9-D7522B6A02D9_routeMap.sourceInputX" drools:dtype="String" itemSubjectRef="__95FC3D56-3626-495B-97C9-D7522B6A02D9_routeMap.sourceInputXItem" name="routeMap.source"/>
@@ -1499,7 +1515,7 @@ kcontext.setVariable("ethLinkProviders", providers);]]></drools:script>
         <bpmn2:dataInput id="_95FC3D56-3626-495B-97C9-D7522B6A02D9_TaskNameInputX" drools:dtype="Object" name="TaskName"/>
         <bpmn2:dataOutput id="_95FC3D56-3626-495B-97C9-D7522B6A02D9_httpStatusCodeOutputX" drools:dtype="Integer" itemSubjectRef="__95FC3D56-3626-495B-97C9-D7522B6A02D9_httpStatusCodeOutputXItem" name="httpStatusCode"/>
         <bpmn2:dataOutput id="_95FC3D56-3626-495B-97C9-D7522B6A02D9_messageOutputX" drools:dtype="String" itemSubjectRef="__95FC3D56-3626-495B-97C9-D7522B6A02D9_messageOutputXItem" name="message"/>
-        <bpmn2:inputSet id="_47Kg2GCpEfGoGZGuksU-9A">
+        <bpmn2:inputSet id="_qlprc2C3EfGoGZGuksU-9A">
           <bpmn2:dataInputRefs>_95FC3D56-3626-495B-97C9-D7522B6A02D9_apiUrlInputX</bpmn2:dataInputRefs>
           <bpmn2:dataInputRefs>_95FC3D56-3626-495B-97C9-D7522B6A02D9_routeMap.domainInputX</bpmn2:dataInputRefs>
           <bpmn2:dataInputRefs>_95FC3D56-3626-495B-97C9-D7522B6A02D9_routeMap.sourceInputX</bpmn2:dataInputRefs>
@@ -1508,53 +1524,53 @@ kcontext.setVariable("ethLinkProviders", providers);]]></drools:script>
           <bpmn2:dataInputRefs>_95FC3D56-3626-495B-97C9-D7522B6A02D9_dataMap.providersInputX</bpmn2:dataInputRefs>
           <bpmn2:dataInputRefs>_95FC3D56-3626-495B-97C9-D7522B6A02D9_TaskNameInputX</bpmn2:dataInputRefs>
         </bpmn2:inputSet>
-        <bpmn2:outputSet id="_47Kg2WCpEfGoGZGuksU-9A">
+        <bpmn2:outputSet id="_qlprdGC3EfGoGZGuksU-9A">
           <bpmn2:dataOutputRefs>_95FC3D56-3626-495B-97C9-D7522B6A02D9_httpStatusCodeOutputX</bpmn2:dataOutputRefs>
           <bpmn2:dataOutputRefs>_95FC3D56-3626-495B-97C9-D7522B6A02D9_messageOutputX</bpmn2:dataOutputRefs>
         </bpmn2:outputSet>
       </bpmn2:ioSpecification>
-      <bpmn2:dataInputAssociation id="_47Kg2mCpEfGoGZGuksU-9A">
+      <bpmn2:dataInputAssociation id="_qlprdWC3EfGoGZGuksU-9A">
         <bpmn2:sourceRef>_apiCallUrl</bpmn2:sourceRef>
         <bpmn2:targetRef>_95FC3D56-3626-495B-97C9-D7522B6A02D9_apiUrlInputX</bpmn2:targetRef>
       </bpmn2:dataInputAssociation>
-      <bpmn2:dataInputAssociation id="_47Kg22CpEfGoGZGuksU-9A">
+      <bpmn2:dataInputAssociation id="_qlprdmC3EfGoGZGuksU-9A">
         <bpmn2:targetRef>_95FC3D56-3626-495B-97C9-D7522B6A02D9_routeMap.domainInputX</bpmn2:targetRef>
-        <bpmn2:assignment id="_47Kg3GCpEfGoGZGuksU-9A">
-          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_47Kg3WCpEfGoGZGuksU-9A"><![CDATA[REST_API_CALL]]></bpmn2:from>
-          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_47Kg3mCpEfGoGZGuksU-9A">_95FC3D56-3626-495B-97C9-D7522B6A02D9_routeMap.domainInputX</bpmn2:to>
+        <bpmn2:assignment id="_qlprd2C3EfGoGZGuksU-9A">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_qlpreGC3EfGoGZGuksU-9A"><![CDATA[REST_API_CALL]]></bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_qlpreWC3EfGoGZGuksU-9A">_95FC3D56-3626-495B-97C9-D7522B6A02D9_routeMap.domainInputX</bpmn2:to>
         </bpmn2:assignment>
       </bpmn2:dataInputAssociation>
-      <bpmn2:dataInputAssociation id="_47Kg32CpEfGoGZGuksU-9A">
+      <bpmn2:dataInputAssociation id="_qlpremC3EfGoGZGuksU-9A">
         <bpmn2:targetRef>_95FC3D56-3626-495B-97C9-D7522B6A02D9_routeMap.sourceInputX</bpmn2:targetRef>
-        <bpmn2:assignment id="_47Kg4GCpEfGoGZGuksU-9A">
-          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_47Kg4WCpEfGoGZGuksU-9A"><![CDATA[cross/updateEthLinkProviders]]></bpmn2:from>
-          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_47Kg4mCpEfGoGZGuksU-9A">_95FC3D56-3626-495B-97C9-D7522B6A02D9_routeMap.sourceInputX</bpmn2:to>
+        <bpmn2:assignment id="_qlpre2C3EfGoGZGuksU-9A">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_qlprfGC3EfGoGZGuksU-9A"><![CDATA[cross/updateEthLinkProviders]]></bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_qlprfWC3EfGoGZGuksU-9A">_95FC3D56-3626-495B-97C9-D7522B6A02D9_routeMap.sourceInputX</bpmn2:to>
         </bpmn2:assignment>
       </bpmn2:dataInputAssociation>
-      <bpmn2:dataInputAssociation id="_47Kg42CpEfGoGZGuksU-9A">
+      <bpmn2:dataInputAssociation id="_qlprfmC3EfGoGZGuksU-9A">
         <bpmn2:sourceRef>crossProjectName</bpmn2:sourceRef>
         <bpmn2:targetRef>_95FC3D56-3626-495B-97C9-D7522B6A02D9_dataMap.projectNameInputX</bpmn2:targetRef>
       </bpmn2:dataInputAssociation>
-      <bpmn2:dataInputAssociation id="_47Kg5GCpEfGoGZGuksU-9A">
+      <bpmn2:dataInputAssociation id="_qlprf2C3EfGoGZGuksU-9A">
         <bpmn2:sourceRef>ethLinkCrossId</bpmn2:sourceRef>
         <bpmn2:targetRef>_95FC3D56-3626-495B-97C9-D7522B6A02D9_dataMap.crossIdInputX</bpmn2:targetRef>
       </bpmn2:dataInputAssociation>
-      <bpmn2:dataInputAssociation id="_47Kg5WCpEfGoGZGuksU-9A">
+      <bpmn2:dataInputAssociation id="_qlprgGC3EfGoGZGuksU-9A">
         <bpmn2:sourceRef>ethLinkProviders</bpmn2:sourceRef>
         <bpmn2:targetRef>_95FC3D56-3626-495B-97C9-D7522B6A02D9_dataMap.providersInputX</bpmn2:targetRef>
       </bpmn2:dataInputAssociation>
-      <bpmn2:dataInputAssociation id="_47Kg5mCpEfGoGZGuksU-9A">
+      <bpmn2:dataInputAssociation id="_qlprgWC3EfGoGZGuksU-9A">
         <bpmn2:targetRef>_95FC3D56-3626-495B-97C9-D7522B6A02D9_TaskNameInputX</bpmn2:targetRef>
-        <bpmn2:assignment id="_47Kg52CpEfGoGZGuksU-9A">
-          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_47Kg6GCpEfGoGZGuksU-9A"><![CDATA[SdcApiCall]]></bpmn2:from>
-          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_47Kg6WCpEfGoGZGuksU-9A">_95FC3D56-3626-495B-97C9-D7522B6A02D9_TaskNameInputX</bpmn2:to>
+        <bpmn2:assignment id="_qlprgmC3EfGoGZGuksU-9A">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_qlprg2C3EfGoGZGuksU-9A"><![CDATA[SdcApiCall]]></bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_qlprhGC3EfGoGZGuksU-9A">_95FC3D56-3626-495B-97C9-D7522B6A02D9_TaskNameInputX</bpmn2:to>
         </bpmn2:assignment>
       </bpmn2:dataInputAssociation>
-      <bpmn2:dataOutputAssociation id="_47Kg6mCpEfGoGZGuksU-9A">
+      <bpmn2:dataOutputAssociation id="_qlprhWC3EfGoGZGuksU-9A">
         <bpmn2:sourceRef>_95FC3D56-3626-495B-97C9-D7522B6A02D9_httpStatusCodeOutputX</bpmn2:sourceRef>
         <bpmn2:targetRef>httpStatusCode</bpmn2:targetRef>
       </bpmn2:dataOutputAssociation>
-      <bpmn2:dataOutputAssociation id="_47Kg62CpEfGoGZGuksU-9A">
+      <bpmn2:dataOutputAssociation id="_qlprhmC3EfGoGZGuksU-9A">
         <bpmn2:sourceRef>_95FC3D56-3626-495B-97C9-D7522B6A02D9_messageOutputX</bpmn2:sourceRef>
         <bpmn2:targetRef>message</bpmn2:targetRef>
       </bpmn2:dataOutputAssociation>
@@ -1566,13 +1582,13 @@ kcontext.setVariable("ethLinkProviders", providers);]]></drools:script>
         </drools:metaData>
       </bpmn2:extensionElements>
       <bpmn2:outgoing>_6328BD36-C4CA-41DC-B20C-35EFE198D066</bpmn2:outgoing>
-      <bpmn2:linkEventDefinition id="_47KgRmCpEfGoGZGuksU-9A" name="Upsert">
-        <bpmn2:source>_47KgRWCpEfGoGZGuksU-9A</bpmn2:source>
+      <bpmn2:linkEventDefinition id="_qlpq4WC3EfGoGZGuksU-9A" name="Upsert">
+        <bpmn2:source>_qlpq4GC3EfGoGZGuksU-9A</bpmn2:source>
       </bpmn2:linkEventDefinition>
     </bpmn2:intermediateCatchEvent>
     <bpmn2:task id="_3547B21E-9DE0-40A9-A049-2AC84F6E8551" drools:taskName="SdcApiCall" name="TMF_STORE:
 get data">
-      <bpmn2:documentation id="_47Kg7GCpEfGoGZGuksU-9A"><![CDATA[Retrieves data from automaton's tmf_store table using TMF_STORE domain and JSONATA transformation.]]></bpmn2:documentation>
+      <bpmn2:documentation id="_qlqR4GC3EfGoGZGuksU-9A"><![CDATA[Retrieves data from automaton's tmf_store table using TMF_STORE domain and JSONATA transformation.]]></bpmn2:documentation>
       <bpmn2:extensionElements>
         <drools:metaData name="elementname">
           <drools:metaValue><![CDATA[TMF_STORE:
@@ -1589,7 +1605,7 @@ System.out.println("================================================");]]></droo
       </bpmn2:extensionElements>
       <bpmn2:incoming>_DBE8F5D7-86F2-4A03-A38A-44AEB884C9ED</bpmn2:incoming>
       <bpmn2:outgoing>_6D70824E-8561-4B38-93E5-94E7246D029B</bpmn2:outgoing>
-      <bpmn2:ioSpecification id="_47Kg7WCpEfGoGZGuksU-9A">
+      <bpmn2:ioSpecification id="_qlqR4WC3EfGoGZGuksU-9A">
         <bpmn2:dataInput id="_3547B21E-9DE0-40A9-A049-2AC84F6E8551_apiUrlInputX" drools:dtype="String" itemSubjectRef="__3547B21E-9DE0-40A9-A049-2AC84F6E8551_apiUrlInputXItem" name="apiUrl"/>
         <bpmn2:dataInput id="_3547B21E-9DE0-40A9-A049-2AC84F6E8551_routeMap.domainInputX" drools:dtype="String" itemSubjectRef="__3547B21E-9DE0-40A9-A049-2AC84F6E8551_routeMap.domainInputXItem" name="routeMap.domain"/>
         <bpmn2:dataInput id="_3547B21E-9DE0-40A9-A049-2AC84F6E8551_routeMap.operationInputX" drools:dtype="String" itemSubjectRef="__3547B21E-9DE0-40A9-A049-2AC84F6E8551_routeMap.operationInputXItem" name="routeMap.operation"/>
@@ -1604,7 +1620,7 @@ System.out.println("================================================");]]></droo
         <bpmn2:dataOutput id="_3547B21E-9DE0-40A9-A049-2AC84F6E8551_edgeEquipmentCrossIdOutputX" drools:dtype="String" itemSubjectRef="__3547B21E-9DE0-40A9-A049-2AC84F6E8551_edgeEquipmentCrossIdOutputXItem" name="edgeEquipmentCrossId"/>
         <bpmn2:dataOutput id="_3547B21E-9DE0-40A9-A049-2AC84F6E8551_crossProjectNameOutputX" drools:dtype="String" itemSubjectRef="__3547B21E-9DE0-40A9-A049-2AC84F6E8551_crossProjectNameOutputXItem" name="crossProjectName"/>
         <bpmn2:dataOutput id="_3547B21E-9DE0-40A9-A049-2AC84F6E8551_cpeTypeOutputX" drools:dtype="String" itemSubjectRef="__3547B21E-9DE0-40A9-A049-2AC84F6E8551_cpeTypeOutputXItem" name="cpeType"/>
-        <bpmn2:inputSet id="_47Kg7mCpEfGoGZGuksU-9A">
+        <bpmn2:inputSet id="_qlqR4mC3EfGoGZGuksU-9A">
           <bpmn2:dataInputRefs>_3547B21E-9DE0-40A9-A049-2AC84F6E8551_apiUrlInputX</bpmn2:dataInputRefs>
           <bpmn2:dataInputRefs>_3547B21E-9DE0-40A9-A049-2AC84F6E8551_routeMap.domainInputX</bpmn2:dataInputRefs>
           <bpmn2:dataInputRefs>_3547B21E-9DE0-40A9-A049-2AC84F6E8551_routeMap.operationInputX</bpmn2:dataInputRefs>
@@ -1616,90 +1632,90 @@ System.out.println("================================================");]]></droo
           <bpmn2:dataInputRefs>_3547B21E-9DE0-40A9-A049-2AC84F6E8551_dataMap.jsonata.cpeTypeInputX</bpmn2:dataInputRefs>
           <bpmn2:dataInputRefs>_3547B21E-9DE0-40A9-A049-2AC84F6E8551_TaskNameInputX</bpmn2:dataInputRefs>
         </bpmn2:inputSet>
-        <bpmn2:outputSet id="_47Kg72CpEfGoGZGuksU-9A">
+        <bpmn2:outputSet id="_qlqR42C3EfGoGZGuksU-9A">
           <bpmn2:dataOutputRefs>_3547B21E-9DE0-40A9-A049-2AC84F6E8551_serviceCrossIdOutputX</bpmn2:dataOutputRefs>
           <bpmn2:dataOutputRefs>_3547B21E-9DE0-40A9-A049-2AC84F6E8551_edgeEquipmentCrossIdOutputX</bpmn2:dataOutputRefs>
           <bpmn2:dataOutputRefs>_3547B21E-9DE0-40A9-A049-2AC84F6E8551_crossProjectNameOutputX</bpmn2:dataOutputRefs>
           <bpmn2:dataOutputRefs>_3547B21E-9DE0-40A9-A049-2AC84F6E8551_cpeTypeOutputX</bpmn2:dataOutputRefs>
         </bpmn2:outputSet>
       </bpmn2:ioSpecification>
-      <bpmn2:dataInputAssociation id="_47Kg8GCpEfGoGZGuksU-9A">
+      <bpmn2:dataInputAssociation id="_qlqR5GC3EfGoGZGuksU-9A">
         <bpmn2:sourceRef>_apiCallUrl</bpmn2:sourceRef>
         <bpmn2:targetRef>_3547B21E-9DE0-40A9-A049-2AC84F6E8551_apiUrlInputX</bpmn2:targetRef>
       </bpmn2:dataInputAssociation>
-      <bpmn2:dataInputAssociation id="_47Kg8WCpEfGoGZGuksU-9A">
+      <bpmn2:dataInputAssociation id="_qlqR5WC3EfGoGZGuksU-9A">
         <bpmn2:targetRef>_3547B21E-9DE0-40A9-A049-2AC84F6E8551_routeMap.domainInputX</bpmn2:targetRef>
-        <bpmn2:assignment id="_47Kg8mCpEfGoGZGuksU-9A">
-          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_47Kg82CpEfGoGZGuksU-9A"><![CDATA[TMF_STORE]]></bpmn2:from>
-          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_47Kg9GCpEfGoGZGuksU-9A">_3547B21E-9DE0-40A9-A049-2AC84F6E8551_routeMap.domainInputX</bpmn2:to>
+        <bpmn2:assignment id="_qlqR5mC3EfGoGZGuksU-9A">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_qlqR52C3EfGoGZGuksU-9A"><![CDATA[TMF_STORE]]></bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_qlqR6GC3EfGoGZGuksU-9A">_3547B21E-9DE0-40A9-A049-2AC84F6E8551_routeMap.domainInputX</bpmn2:to>
         </bpmn2:assignment>
       </bpmn2:dataInputAssociation>
-      <bpmn2:dataInputAssociation id="_47Kg9WCpEfGoGZGuksU-9A">
+      <bpmn2:dataInputAssociation id="_qlqR6WC3EfGoGZGuksU-9A">
         <bpmn2:targetRef>_3547B21E-9DE0-40A9-A049-2AC84F6E8551_routeMap.operationInputX</bpmn2:targetRef>
-        <bpmn2:assignment id="_47Kg9mCpEfGoGZGuksU-9A">
-          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_47Kg92CpEfGoGZGuksU-9A"><![CDATA[GET]]></bpmn2:from>
-          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_47Kg-GCpEfGoGZGuksU-9A">_3547B21E-9DE0-40A9-A049-2AC84F6E8551_routeMap.operationInputX</bpmn2:to>
+        <bpmn2:assignment id="_qlqR6mC3EfGoGZGuksU-9A">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_qlqR62C3EfGoGZGuksU-9A"><![CDATA[GET]]></bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_qlqR7GC3EfGoGZGuksU-9A">_3547B21E-9DE0-40A9-A049-2AC84F6E8551_routeMap.operationInputX</bpmn2:to>
         </bpmn2:assignment>
       </bpmn2:dataInputAssociation>
-      <bpmn2:dataInputAssociation id="_47Kg-WCpEfGoGZGuksU-9A">
+      <bpmn2:dataInputAssociation id="_qlqR7WC3EfGoGZGuksU-9A">
         <bpmn2:targetRef>_3547B21E-9DE0-40A9-A049-2AC84F6E8551_routeMap.transformationInputX</bpmn2:targetRef>
-        <bpmn2:assignment id="_47Kg-mCpEfGoGZGuksU-9A">
-          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_47Kg-2CpEfGoGZGuksU-9A"><![CDATA[JSONATA]]></bpmn2:from>
-          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_47Kg_GCpEfGoGZGuksU-9A">_3547B21E-9DE0-40A9-A049-2AC84F6E8551_routeMap.transformationInputX</bpmn2:to>
+        <bpmn2:assignment id="_qlqR7mC3EfGoGZGuksU-9A">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_qlqR72C3EfGoGZGuksU-9A"><![CDATA[JSONATA]]></bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_qlqR8GC3EfGoGZGuksU-9A">_3547B21E-9DE0-40A9-A049-2AC84F6E8551_routeMap.transformationInputX</bpmn2:to>
         </bpmn2:assignment>
       </bpmn2:dataInputAssociation>
-      <bpmn2:dataInputAssociation id="_47Kg_WCpEfGoGZGuksU-9A">
+      <bpmn2:dataInputAssociation id="_qlqR8WC3EfGoGZGuksU-9A">
         <bpmn2:sourceRef>_order</bpmn2:sourceRef>
         <bpmn2:targetRef>_3547B21E-9DE0-40A9-A049-2AC84F6E8551_dataMap.idInputX</bpmn2:targetRef>
       </bpmn2:dataInputAssociation>
-      <bpmn2:dataInputAssociation id="_47Kg_mCpEfGoGZGuksU-9A">
+      <bpmn2:dataInputAssociation id="_qlqR8mC3EfGoGZGuksU-9A">
         <bpmn2:targetRef>_3547B21E-9DE0-40A9-A049-2AC84F6E8551_dataMap.jsonata.serviceCrossIdInputX</bpmn2:targetRef>
-        <bpmn2:assignment id="_47Kg_2CpEfGoGZGuksU-9A">
-          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_47KhAGCpEfGoGZGuksU-9A"><![CDATA[serviceCrossId]]></bpmn2:from>
-          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_47KhAWCpEfGoGZGuksU-9A">_3547B21E-9DE0-40A9-A049-2AC84F6E8551_dataMap.jsonata.serviceCrossIdInputX</bpmn2:to>
+        <bpmn2:assignment id="_qlqR82C3EfGoGZGuksU-9A">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_qlqR9GC3EfGoGZGuksU-9A"><![CDATA[serviceCrossId]]></bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_qlqR9WC3EfGoGZGuksU-9A">_3547B21E-9DE0-40A9-A049-2AC84F6E8551_dataMap.jsonata.serviceCrossIdInputX</bpmn2:to>
         </bpmn2:assignment>
       </bpmn2:dataInputAssociation>
-      <bpmn2:dataInputAssociation id="_47KhAmCpEfGoGZGuksU-9A">
+      <bpmn2:dataInputAssociation id="_qlqR9mC3EfGoGZGuksU-9A">
         <bpmn2:targetRef>_3547B21E-9DE0-40A9-A049-2AC84F6E8551_dataMap.jsonata.edgeEquipmentCrossIdInputX</bpmn2:targetRef>
-        <bpmn2:assignment id="_47KhA2CpEfGoGZGuksU-9A">
-          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_47KhBGCpEfGoGZGuksU-9A"><![CDATA[edgeEquipmentCrossId]]></bpmn2:from>
-          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_47KhBWCpEfGoGZGuksU-9A">_3547B21E-9DE0-40A9-A049-2AC84F6E8551_dataMap.jsonata.edgeEquipmentCrossIdInputX</bpmn2:to>
+        <bpmn2:assignment id="_qlqR92C3EfGoGZGuksU-9A">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_qlqR-GC3EfGoGZGuksU-9A"><![CDATA[edgeEquipmentCrossId]]></bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_qlqR-WC3EfGoGZGuksU-9A">_3547B21E-9DE0-40A9-A049-2AC84F6E8551_dataMap.jsonata.edgeEquipmentCrossIdInputX</bpmn2:to>
         </bpmn2:assignment>
       </bpmn2:dataInputAssociation>
-      <bpmn2:dataInputAssociation id="_47KhBmCpEfGoGZGuksU-9A">
+      <bpmn2:dataInputAssociation id="_qlqR-mC3EfGoGZGuksU-9A">
         <bpmn2:targetRef>_3547B21E-9DE0-40A9-A049-2AC84F6E8551_dataMap.jsonata.crossProjectNameInputX</bpmn2:targetRef>
-        <bpmn2:assignment id="_47KhB2CpEfGoGZGuksU-9A">
-          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_47KhCGCpEfGoGZGuksU-9A"><![CDATA[crossProjectName]]></bpmn2:from>
-          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_47KhCWCpEfGoGZGuksU-9A">_3547B21E-9DE0-40A9-A049-2AC84F6E8551_dataMap.jsonata.crossProjectNameInputX</bpmn2:to>
+        <bpmn2:assignment id="_qlqR-2C3EfGoGZGuksU-9A">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_qlqR_GC3EfGoGZGuksU-9A"><![CDATA[crossProjectName]]></bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_qlqR_WC3EfGoGZGuksU-9A">_3547B21E-9DE0-40A9-A049-2AC84F6E8551_dataMap.jsonata.crossProjectNameInputX</bpmn2:to>
         </bpmn2:assignment>
       </bpmn2:dataInputAssociation>
-      <bpmn2:dataInputAssociation id="_47KhCmCpEfGoGZGuksU-9A">
+      <bpmn2:dataInputAssociation id="_qlqR_mC3EfGoGZGuksU-9A">
         <bpmn2:targetRef>_3547B21E-9DE0-40A9-A049-2AC84F6E8551_dataMap.jsonata.cpeTypeInputX</bpmn2:targetRef>
-        <bpmn2:assignment id="_47KhC2CpEfGoGZGuksU-9A">
-          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_47KhDGCpEfGoGZGuksU-9A"><![CDATA[cpeType]]></bpmn2:from>
-          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_47KhDWCpEfGoGZGuksU-9A">_3547B21E-9DE0-40A9-A049-2AC84F6E8551_dataMap.jsonata.cpeTypeInputX</bpmn2:to>
+        <bpmn2:assignment id="_qlqR_2C3EfGoGZGuksU-9A">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_qlqSAGC3EfGoGZGuksU-9A"><![CDATA[cpeType]]></bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_qlqSAWC3EfGoGZGuksU-9A">_3547B21E-9DE0-40A9-A049-2AC84F6E8551_dataMap.jsonata.cpeTypeInputX</bpmn2:to>
         </bpmn2:assignment>
       </bpmn2:dataInputAssociation>
-      <bpmn2:dataInputAssociation id="_47KhDmCpEfGoGZGuksU-9A">
+      <bpmn2:dataInputAssociation id="_qlqSAmC3EfGoGZGuksU-9A">
         <bpmn2:targetRef>_3547B21E-9DE0-40A9-A049-2AC84F6E8551_TaskNameInputX</bpmn2:targetRef>
-        <bpmn2:assignment id="_47KhD2CpEfGoGZGuksU-9A">
-          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_47KhEGCpEfGoGZGuksU-9A"><![CDATA[SdcApiCall]]></bpmn2:from>
-          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_47KhEWCpEfGoGZGuksU-9A">_3547B21E-9DE0-40A9-A049-2AC84F6E8551_TaskNameInputX</bpmn2:to>
+        <bpmn2:assignment id="_qlqSA2C3EfGoGZGuksU-9A">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_qlqSBGC3EfGoGZGuksU-9A"><![CDATA[SdcApiCall]]></bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_qlqSBWC3EfGoGZGuksU-9A">_3547B21E-9DE0-40A9-A049-2AC84F6E8551_TaskNameInputX</bpmn2:to>
         </bpmn2:assignment>
       </bpmn2:dataInputAssociation>
-      <bpmn2:dataOutputAssociation id="_47KhEmCpEfGoGZGuksU-9A">
+      <bpmn2:dataOutputAssociation id="_qlqSBmC3EfGoGZGuksU-9A">
         <bpmn2:sourceRef>_3547B21E-9DE0-40A9-A049-2AC84F6E8551_serviceCrossIdOutputX</bpmn2:sourceRef>
         <bpmn2:targetRef>serviceCrossId</bpmn2:targetRef>
       </bpmn2:dataOutputAssociation>
-      <bpmn2:dataOutputAssociation id="_47KhE2CpEfGoGZGuksU-9A">
+      <bpmn2:dataOutputAssociation id="_qlqSB2C3EfGoGZGuksU-9A">
         <bpmn2:sourceRef>_3547B21E-9DE0-40A9-A049-2AC84F6E8551_edgeEquipmentCrossIdOutputX</bpmn2:sourceRef>
         <bpmn2:targetRef>edgeEquipmentCrossId</bpmn2:targetRef>
       </bpmn2:dataOutputAssociation>
-      <bpmn2:dataOutputAssociation id="_47KhFGCpEfGoGZGuksU-9A">
+      <bpmn2:dataOutputAssociation id="_qlqSCGC3EfGoGZGuksU-9A">
         <bpmn2:sourceRef>_3547B21E-9DE0-40A9-A049-2AC84F6E8551_crossProjectNameOutputX</bpmn2:sourceRef>
         <bpmn2:targetRef>crossProjectName</bpmn2:targetRef>
       </bpmn2:dataOutputAssociation>
-      <bpmn2:dataOutputAssociation id="_47KhFWCpEfGoGZGuksU-9A">
+      <bpmn2:dataOutputAssociation id="_qlqSCWC3EfGoGZGuksU-9A">
         <bpmn2:sourceRef>_3547B21E-9DE0-40A9-A049-2AC84F6E8551_cpeTypeOutputX</bpmn2:sourceRef>
         <bpmn2:targetRef>cpeType</bpmn2:targetRef>
       </bpmn2:dataOutputAssociation>
@@ -1711,8 +1727,8 @@ System.out.println("================================================");]]></droo
         </drools:metaData>
       </bpmn2:extensionElements>
       <bpmn2:incoming>_B33D66A8-472A-4820-A36D-04773DA1248E</bpmn2:incoming>
-      <bpmn2:linkEventDefinition id="_47J5PmCpEfGoGZGuksU-9A" name="Failed">
-        <bpmn2:target>_47J5JmCpEfGoGZGuksU-9A</bpmn2:target>
+      <bpmn2:linkEventDefinition id="_qlpD3mC3EfGoGZGuksU-9A" name="Failed">
+        <bpmn2:target>_qlpDxmC3EfGoGZGuksU-9A</bpmn2:target>
       </bpmn2:linkEventDefinition>
     </bpmn2:intermediateThrowEvent>
     <bpmn2:startEvent id="_1D583A1A-FF14-4E76-802A-6C52A5CA2314">
@@ -1720,8 +1736,8 @@ System.out.println("================================================");]]></droo
     </bpmn2:startEvent>
     <bpmn2:exclusiveGateway id="_0B21A23F-C4FC-4BDF-B50C-D7F89C89E4DC" drools:dg="_D57B4875-0DB4-4D1B-B060-B5E681619841" gatewayDirection="Diverging" default="_D57B4875-0DB4-4D1B-B060-B5E681619841">
       <bpmn2:incoming>_7709AD85-1029-4A42-9AC0-66970F2AF8A9</bpmn2:incoming>
-      <bpmn2:outgoing>_D57B4875-0DB4-4D1B-B060-B5E681619841</bpmn2:outgoing>
       <bpmn2:outgoing>_54DF1D7B-E352-4BE4-BE5E-EB9743230CA7</bpmn2:outgoing>
+      <bpmn2:outgoing>_D57B4875-0DB4-4D1B-B060-B5E681619841</bpmn2:outgoing>
     </bpmn2:exclusiveGateway>
     <bpmn2:exclusiveGateway id="_3B0958CA-229C-4C49-97A4-B87D7A17D085" drools:dg="_ABCBBAD8-C11A-4138-B184-80C12C6D09A7" gatewayDirection="Diverging" default="_ABCBBAD8-C11A-4138-B184-80C12C6D09A7">
       <bpmn2:incoming>_A1655C03-F4A2-4187-8720-316BBFF78802</bpmn2:incoming>
@@ -1738,13 +1754,13 @@ System.out.println("================================================");]]></droo
         </drools:metaData>
       </bpmn2:extensionElements>
       <bpmn2:incoming>_24F6E9E5-0699-46D6-B0F6-B3EBCE74DE1E</bpmn2:incoming>
-      <bpmn2:linkEventDefinition id="_47J5PWCpEfGoGZGuksU-9A" name="Failed">
-        <bpmn2:target>_47J5JmCpEfGoGZGuksU-9A</bpmn2:target>
+      <bpmn2:linkEventDefinition id="_qlpD3WC3EfGoGZGuksU-9A" name="Failed">
+        <bpmn2:target>_qlpDxmC3EfGoGZGuksU-9A</bpmn2:target>
       </bpmn2:linkEventDefinition>
     </bpmn2:intermediateThrowEvent>
     <bpmn2:task id="_3756C96C-98B7-4F97-B9D7-C2A5AA4F4436" drools:taskName="SdcApiCall" name="REST_API_CALL:
 cross/findNetworkSideCage">
-      <bpmn2:documentation id="_47KhFmCpEfGoGZGuksU-9A"><![CDATA[Find a CAGE under the input edgeEquipmentCrossId via CROSS PROJECT API. (FIND)]]></bpmn2:documentation>
+      <bpmn2:documentation id="_qlqSCmC3EfGoGZGuksU-9A"><![CDATA[Find a CAGE under the input edgeEquipmentCrossId via CROSS PROJECT API. (FIND)]]></bpmn2:documentation>
       <bpmn2:extensionElements>
         <drools:metaData name="elementname">
           <drools:metaValue><![CDATA[REST_API_CALL:
@@ -1775,61 +1791,61 @@ if (resultList == null || ((java.util.List<?>) resultList).isEmpty()) {
       </bpmn2:extensionElements>
       <bpmn2:incoming>_ABCBBAD8-C11A-4138-B184-80C12C6D09A7</bpmn2:incoming>
       <bpmn2:outgoing>_2745BC9F-9298-40C8-A454-3A875F7B63E7</bpmn2:outgoing>
-      <bpmn2:ioSpecification id="_47KhF2CpEfGoGZGuksU-9A">
+      <bpmn2:ioSpecification id="_qlqSC2C3EfGoGZGuksU-9A">
         <bpmn2:dataInput id="_3756C96C-98B7-4F97-B9D7-C2A5AA4F4436_apiUrlInputX" drools:dtype="String" itemSubjectRef="__3756C96C-98B7-4F97-B9D7-C2A5AA4F4436_apiUrlInputXItem" name="apiUrl"/>
         <bpmn2:dataInput id="_3756C96C-98B7-4F97-B9D7-C2A5AA4F4436_routeMap.domainInputX" drools:dtype="String" itemSubjectRef="__3756C96C-98B7-4F97-B9D7-C2A5AA4F4436_routeMap.domainInputXItem" name="routeMap.domain"/>
         <bpmn2:dataInput id="_3756C96C-98B7-4F97-B9D7-C2A5AA4F4436_routeMap.sourceInputX" drools:dtype="String" itemSubjectRef="__3756C96C-98B7-4F97-B9D7-C2A5AA4F4436_routeMap.sourceInputXItem" name="routeMap.source"/>
         <bpmn2:dataInput id="_3756C96C-98B7-4F97-B9D7-C2A5AA4F4436_dataMap.edgeEquipmentCrossIdInputX" drools:dtype="String" itemSubjectRef="__3756C96C-98B7-4F97-B9D7-C2A5AA4F4436_dataMap.edgeEquipmentCrossIdInputXItem" name="dataMap.edgeEquipmentCrossId"/>
         <bpmn2:dataInput id="_3756C96C-98B7-4F97-B9D7-C2A5AA4F4436_TaskNameInputX" drools:dtype="Object" name="TaskName"/>
         <bpmn2:dataOutput id="_3756C96C-98B7-4F97-B9D7-C2A5AA4F4436_resultListOutputX" drools:dtype="java.util.List" itemSubjectRef="__3756C96C-98B7-4F97-B9D7-C2A5AA4F4436_resultListOutputXItem" name="resultList"/>
-        <bpmn2:inputSet id="_47KhGGCpEfGoGZGuksU-9A">
+        <bpmn2:inputSet id="_qlqSDGC3EfGoGZGuksU-9A">
           <bpmn2:dataInputRefs>_3756C96C-98B7-4F97-B9D7-C2A5AA4F4436_apiUrlInputX</bpmn2:dataInputRefs>
           <bpmn2:dataInputRefs>_3756C96C-98B7-4F97-B9D7-C2A5AA4F4436_routeMap.domainInputX</bpmn2:dataInputRefs>
           <bpmn2:dataInputRefs>_3756C96C-98B7-4F97-B9D7-C2A5AA4F4436_routeMap.sourceInputX</bpmn2:dataInputRefs>
           <bpmn2:dataInputRefs>_3756C96C-98B7-4F97-B9D7-C2A5AA4F4436_dataMap.edgeEquipmentCrossIdInputX</bpmn2:dataInputRefs>
           <bpmn2:dataInputRefs>_3756C96C-98B7-4F97-B9D7-C2A5AA4F4436_TaskNameInputX</bpmn2:dataInputRefs>
         </bpmn2:inputSet>
-        <bpmn2:outputSet id="_47KhGWCpEfGoGZGuksU-9A">
+        <bpmn2:outputSet id="_qlqSDWC3EfGoGZGuksU-9A">
           <bpmn2:dataOutputRefs>_3756C96C-98B7-4F97-B9D7-C2A5AA4F4436_resultListOutputX</bpmn2:dataOutputRefs>
         </bpmn2:outputSet>
       </bpmn2:ioSpecification>
-      <bpmn2:dataInputAssociation id="_47KhGmCpEfGoGZGuksU-9A">
+      <bpmn2:dataInputAssociation id="_qlqSDmC3EfGoGZGuksU-9A">
         <bpmn2:sourceRef>_apiCallUrl</bpmn2:sourceRef>
         <bpmn2:targetRef>_3756C96C-98B7-4F97-B9D7-C2A5AA4F4436_apiUrlInputX</bpmn2:targetRef>
       </bpmn2:dataInputAssociation>
-      <bpmn2:dataInputAssociation id="_47KhG2CpEfGoGZGuksU-9A">
+      <bpmn2:dataInputAssociation id="_qlqSD2C3EfGoGZGuksU-9A">
         <bpmn2:targetRef>_3756C96C-98B7-4F97-B9D7-C2A5AA4F4436_routeMap.domainInputX</bpmn2:targetRef>
-        <bpmn2:assignment id="_47KhHGCpEfGoGZGuksU-9A">
-          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_47KhHWCpEfGoGZGuksU-9A"><![CDATA[REST_API_CALL]]></bpmn2:from>
-          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_47KhHmCpEfGoGZGuksU-9A">_3756C96C-98B7-4F97-B9D7-C2A5AA4F4436_routeMap.domainInputX</bpmn2:to>
+        <bpmn2:assignment id="_qlqSEGC3EfGoGZGuksU-9A">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_qlqSEWC3EfGoGZGuksU-9A"><![CDATA[REST_API_CALL]]></bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_qlqSEmC3EfGoGZGuksU-9A">_3756C96C-98B7-4F97-B9D7-C2A5AA4F4436_routeMap.domainInputX</bpmn2:to>
         </bpmn2:assignment>
       </bpmn2:dataInputAssociation>
-      <bpmn2:dataInputAssociation id="_47KhH2CpEfGoGZGuksU-9A">
+      <bpmn2:dataInputAssociation id="_qlqSE2C3EfGoGZGuksU-9A">
         <bpmn2:targetRef>_3756C96C-98B7-4F97-B9D7-C2A5AA4F4436_routeMap.sourceInputX</bpmn2:targetRef>
-        <bpmn2:assignment id="_47KhIGCpEfGoGZGuksU-9A">
-          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_47KhIWCpEfGoGZGuksU-9A"><![CDATA[cross/executeQuery/findNetworkSideCage]]></bpmn2:from>
-          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_47KhImCpEfGoGZGuksU-9A">_3756C96C-98B7-4F97-B9D7-C2A5AA4F4436_routeMap.sourceInputX</bpmn2:to>
+        <bpmn2:assignment id="_qlqSFGC3EfGoGZGuksU-9A">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_qlqSFWC3EfGoGZGuksU-9A"><![CDATA[cross/executeQuery/findNetworkSideCage]]></bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_qlqSFmC3EfGoGZGuksU-9A">_3756C96C-98B7-4F97-B9D7-C2A5AA4F4436_routeMap.sourceInputX</bpmn2:to>
         </bpmn2:assignment>
       </bpmn2:dataInputAssociation>
-      <bpmn2:dataInputAssociation id="_47KhI2CpEfGoGZGuksU-9A">
+      <bpmn2:dataInputAssociation id="_qlqSF2C3EfGoGZGuksU-9A">
         <bpmn2:sourceRef>edgeEquipmentCrossId</bpmn2:sourceRef>
         <bpmn2:targetRef>_3756C96C-98B7-4F97-B9D7-C2A5AA4F4436_dataMap.edgeEquipmentCrossIdInputX</bpmn2:targetRef>
       </bpmn2:dataInputAssociation>
-      <bpmn2:dataInputAssociation id="_47KhJGCpEfGoGZGuksU-9A">
+      <bpmn2:dataInputAssociation id="_qlqSGGC3EfGoGZGuksU-9A">
         <bpmn2:targetRef>_3756C96C-98B7-4F97-B9D7-C2A5AA4F4436_TaskNameInputX</bpmn2:targetRef>
-        <bpmn2:assignment id="_47KhJWCpEfGoGZGuksU-9A">
-          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_47KhJmCpEfGoGZGuksU-9A"><![CDATA[SdcApiCall]]></bpmn2:from>
-          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_47KhJ2CpEfGoGZGuksU-9A">_3756C96C-98B7-4F97-B9D7-C2A5AA4F4436_TaskNameInputX</bpmn2:to>
+        <bpmn2:assignment id="_qlqSGWC3EfGoGZGuksU-9A">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_qlqSGmC3EfGoGZGuksU-9A"><![CDATA[SdcApiCall]]></bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_qlqSG2C3EfGoGZGuksU-9A">_3756C96C-98B7-4F97-B9D7-C2A5AA4F4436_TaskNameInputX</bpmn2:to>
         </bpmn2:assignment>
       </bpmn2:dataInputAssociation>
-      <bpmn2:dataOutputAssociation id="_47KhKGCpEfGoGZGuksU-9A">
+      <bpmn2:dataOutputAssociation id="_qlqSHGC3EfGoGZGuksU-9A">
         <bpmn2:sourceRef>_3756C96C-98B7-4F97-B9D7-C2A5AA4F4436_resultListOutputX</bpmn2:sourceRef>
         <bpmn2:targetRef>resultList</bpmn2:targetRef>
       </bpmn2:dataOutputAssociation>
     </bpmn2:task>
     <bpmn2:task id="_3BA0FD2D-81D7-4D0B-8F7C-7C6F7E2F685D" drools:taskName="SdcApiCall" name="REST_API_CALL:
 cross/createCPE">
-      <bpmn2:documentation id="_47KhKWCpEfGoGZGuksU-9A"><![CDATA[Deploy node under customerSidePlaceCrossId via CROSS API. (CREATE_OR_UPDATE)]]></bpmn2:documentation>
+      <bpmn2:documentation id="_qlqSHWC3EfGoGZGuksU-9A"><![CDATA[Deploy node under customerSidePlaceCrossId via CROSS API. (CREATE_OR_UPDATE)]]></bpmn2:documentation>
       <bpmn2:extensionElements>
         <drools:metaData name="elementname">
           <drools:metaValue><![CDATA[REST_API_CALL:
@@ -1843,7 +1859,7 @@ System.out.println("================================================");]]></droo
       </bpmn2:extensionElements>
       <bpmn2:incoming>_6328BD36-C4CA-41DC-B20C-35EFE198D066</bpmn2:incoming>
       <bpmn2:outgoing>_551A3D62-7662-4BA4-8381-FEFE1ECDD088</bpmn2:outgoing>
-      <bpmn2:ioSpecification id="_47KhKmCpEfGoGZGuksU-9A">
+      <bpmn2:ioSpecification id="_qlqSHmC3EfGoGZGuksU-9A">
         <bpmn2:dataInput id="_3BA0FD2D-81D7-4D0B-8F7C-7C6F7E2F685D_apiUrlInputX" drools:dtype="String" itemSubjectRef="__3BA0FD2D-81D7-4D0B-8F7C-7C6F7E2F685D_apiUrlInputXItem" name="apiUrl"/>
         <bpmn2:dataInput id="_3BA0FD2D-81D7-4D0B-8F7C-7C6F7E2F685D_routeMap.domainInputX" drools:dtype="String" itemSubjectRef="__3BA0FD2D-81D7-4D0B-8F7C-7C6F7E2F685D_routeMap.domainInputXItem" name="routeMap.domain"/>
         <bpmn2:dataInput id="_3BA0FD2D-81D7-4D0B-8F7C-7C6F7E2F685D_routeMap.sourceInputX" drools:dtype="String" itemSubjectRef="__3BA0FD2D-81D7-4D0B-8F7C-7C6F7E2F685D_routeMap.sourceInputXItem" name="routeMap.source"/>
@@ -1856,7 +1872,7 @@ System.out.println("================================================");]]></droo
         <bpmn2:dataOutput id="_3BA0FD2D-81D7-4D0B-8F7C-7C6F7E2F685D_httpStatusCodeOutputX" drools:dtype="Integer" itemSubjectRef="__3BA0FD2D-81D7-4D0B-8F7C-7C6F7E2F685D_httpStatusCodeOutputXItem" name="httpStatusCode"/>
         <bpmn2:dataOutput id="_3BA0FD2D-81D7-4D0B-8F7C-7C6F7E2F685D_messageOutputX" drools:dtype="String" itemSubjectRef="__3BA0FD2D-81D7-4D0B-8F7C-7C6F7E2F685D_messageOutputXItem" name="message"/>
         <bpmn2:dataOutput id="_3BA0FD2D-81D7-4D0B-8F7C-7C6F7E2F685D_crossIdOutputX" drools:dtype="String" itemSubjectRef="__3BA0FD2D-81D7-4D0B-8F7C-7C6F7E2F685D_crossIdOutputXItem" name="crossId"/>
-        <bpmn2:inputSet id="_47KhK2CpEfGoGZGuksU-9A">
+        <bpmn2:inputSet id="_qlqSH2C3EfGoGZGuksU-9A">
           <bpmn2:dataInputRefs>_3BA0FD2D-81D7-4D0B-8F7C-7C6F7E2F685D_apiUrlInputX</bpmn2:dataInputRefs>
           <bpmn2:dataInputRefs>_3BA0FD2D-81D7-4D0B-8F7C-7C6F7E2F685D_routeMap.domainInputX</bpmn2:dataInputRefs>
           <bpmn2:dataInputRefs>_3BA0FD2D-81D7-4D0B-8F7C-7C6F7E2F685D_routeMap.sourceInputX</bpmn2:dataInputRefs>
@@ -1867,79 +1883,79 @@ System.out.println("================================================");]]></droo
           <bpmn2:dataInputRefs>_3BA0FD2D-81D7-4D0B-8F7C-7C6F7E2F685D_dataMap.namingRuleInputX</bpmn2:dataInputRefs>
           <bpmn2:dataInputRefs>_3BA0FD2D-81D7-4D0B-8F7C-7C6F7E2F685D_TaskNameInputX</bpmn2:dataInputRefs>
         </bpmn2:inputSet>
-        <bpmn2:outputSet id="_47KhLGCpEfGoGZGuksU-9A">
+        <bpmn2:outputSet id="_qlqSIGC3EfGoGZGuksU-9A">
           <bpmn2:dataOutputRefs>_3BA0FD2D-81D7-4D0B-8F7C-7C6F7E2F685D_httpStatusCodeOutputX</bpmn2:dataOutputRefs>
           <bpmn2:dataOutputRefs>_3BA0FD2D-81D7-4D0B-8F7C-7C6F7E2F685D_messageOutputX</bpmn2:dataOutputRefs>
           <bpmn2:dataOutputRefs>_3BA0FD2D-81D7-4D0B-8F7C-7C6F7E2F685D_crossIdOutputX</bpmn2:dataOutputRefs>
         </bpmn2:outputSet>
       </bpmn2:ioSpecification>
-      <bpmn2:dataInputAssociation id="_47KhLWCpEfGoGZGuksU-9A">
+      <bpmn2:dataInputAssociation id="_qlqSIWC3EfGoGZGuksU-9A">
         <bpmn2:sourceRef>_apiCallUrl</bpmn2:sourceRef>
         <bpmn2:targetRef>_3BA0FD2D-81D7-4D0B-8F7C-7C6F7E2F685D_apiUrlInputX</bpmn2:targetRef>
       </bpmn2:dataInputAssociation>
-      <bpmn2:dataInputAssociation id="_47KhLmCpEfGoGZGuksU-9A">
+      <bpmn2:dataInputAssociation id="_qlqSImC3EfGoGZGuksU-9A">
         <bpmn2:targetRef>_3BA0FD2D-81D7-4D0B-8F7C-7C6F7E2F685D_routeMap.domainInputX</bpmn2:targetRef>
-        <bpmn2:assignment id="_47KhL2CpEfGoGZGuksU-9A">
-          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_47KhMGCpEfGoGZGuksU-9A"><![CDATA[REST_API_CALL]]></bpmn2:from>
-          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_47KhMWCpEfGoGZGuksU-9A">_3BA0FD2D-81D7-4D0B-8F7C-7C6F7E2F685D_routeMap.domainInputX</bpmn2:to>
+        <bpmn2:assignment id="_qlqSI2C3EfGoGZGuksU-9A">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_qlqSJGC3EfGoGZGuksU-9A"><![CDATA[REST_API_CALL]]></bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_qlqSJWC3EfGoGZGuksU-9A">_3BA0FD2D-81D7-4D0B-8F7C-7C6F7E2F685D_routeMap.domainInputX</bpmn2:to>
         </bpmn2:assignment>
       </bpmn2:dataInputAssociation>
-      <bpmn2:dataInputAssociation id="_47KhMmCpEfGoGZGuksU-9A">
+      <bpmn2:dataInputAssociation id="_qlqSJmC3EfGoGZGuksU-9A">
         <bpmn2:targetRef>_3BA0FD2D-81D7-4D0B-8F7C-7C6F7E2F685D_routeMap.sourceInputX</bpmn2:targetRef>
-        <bpmn2:assignment id="_47KhM2CpEfGoGZGuksU-9A">
-          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_47KhNGCpEfGoGZGuksU-9A"><![CDATA[cross/createCPE]]></bpmn2:from>
-          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_47KhNWCpEfGoGZGuksU-9A">_3BA0FD2D-81D7-4D0B-8F7C-7C6F7E2F685D_routeMap.sourceInputX</bpmn2:to>
+        <bpmn2:assignment id="_qlqSJ2C3EfGoGZGuksU-9A">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_qlqSKGC3EfGoGZGuksU-9A"><![CDATA[cross/createCPE]]></bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_qlqSKWC3EfGoGZGuksU-9A">_3BA0FD2D-81D7-4D0B-8F7C-7C6F7E2F685D_routeMap.sourceInputX</bpmn2:to>
         </bpmn2:assignment>
       </bpmn2:dataInputAssociation>
-      <bpmn2:dataInputAssociation id="_47KhNmCpEfGoGZGuksU-9A">
+      <bpmn2:dataInputAssociation id="_qlqSKmC3EfGoGZGuksU-9A">
         <bpmn2:sourceRef>crossProjectName</bpmn2:sourceRef>
         <bpmn2:targetRef>_3BA0FD2D-81D7-4D0B-8F7C-7C6F7E2F685D_dataMap.projectNameInputX</bpmn2:targetRef>
       </bpmn2:dataInputAssociation>
-      <bpmn2:dataInputAssociation id="_47KhN2CpEfGoGZGuksU-9A">
+      <bpmn2:dataInputAssociation id="_qlqSK2C3EfGoGZGuksU-9A">
         <bpmn2:sourceRef>customerSidePlaceCrossId</bpmn2:sourceRef>
         <bpmn2:targetRef>_3BA0FD2D-81D7-4D0B-8F7C-7C6F7E2F685D_dataMap.parentCrossIdInputX</bpmn2:targetRef>
       </bpmn2:dataInputAssociation>
-      <bpmn2:dataInputAssociation id="_47KhOGCpEfGoGZGuksU-9A">
+      <bpmn2:dataInputAssociation id="_qlqSLGC3EfGoGZGuksU-9A">
         <bpmn2:sourceRef>cpeType</bpmn2:sourceRef>
         <bpmn2:targetRef>_3BA0FD2D-81D7-4D0B-8F7C-7C6F7E2F685D_dataMap.materialTemplateNameInputX</bpmn2:targetRef>
       </bpmn2:dataInputAssociation>
-      <bpmn2:dataInputAssociation id="_47KhOWCpEfGoGZGuksU-9A">
+      <bpmn2:dataInputAssociation id="_qlqSLWC3EfGoGZGuksU-9A">
         <bpmn2:targetRef>_3BA0FD2D-81D7-4D0B-8F7C-7C6F7E2F685D_dataMap.statusDiscriminatorInputX</bpmn2:targetRef>
-        <bpmn2:assignment id="_47KhOmCpEfGoGZGuksU-9A">
-          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_47KhO2CpEfGoGZGuksU-9A"><![CDATA[DESIGNED]]></bpmn2:from>
-          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_47KhPGCpEfGoGZGuksU-9A">_3BA0FD2D-81D7-4D0B-8F7C-7C6F7E2F685D_dataMap.statusDiscriminatorInputX</bpmn2:to>
+        <bpmn2:assignment id="_qlqSLmC3EfGoGZGuksU-9A">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_qlqSL2C3EfGoGZGuksU-9A"><![CDATA[DESIGNED]]></bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_qlqSMGC3EfGoGZGuksU-9A">_3BA0FD2D-81D7-4D0B-8F7C-7C6F7E2F685D_dataMap.statusDiscriminatorInputX</bpmn2:to>
         </bpmn2:assignment>
       </bpmn2:dataInputAssociation>
-      <bpmn2:dataInputAssociation id="_47KhPWCpEfGoGZGuksU-9A">
+      <bpmn2:dataInputAssociation id="_qlqSMWC3EfGoGZGuksU-9A">
         <bpmn2:targetRef>_3BA0FD2D-81D7-4D0B-8F7C-7C6F7E2F685D_dataMap.namingRuleInputX</bpmn2:targetRef>
-        <bpmn2:assignment id="_47KhPmCpEfGoGZGuksU-9A">
-          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_47KhP2CpEfGoGZGuksU-9A"><![CDATA[GcNodeNameRule]]></bpmn2:from>
-          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_47KhQGCpEfGoGZGuksU-9A">_3BA0FD2D-81D7-4D0B-8F7C-7C6F7E2F685D_dataMap.namingRuleInputX</bpmn2:to>
+        <bpmn2:assignment id="_qlqSMmC3EfGoGZGuksU-9A">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_qlqSM2C3EfGoGZGuksU-9A"><![CDATA[GcNodeNameRule]]></bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_qlqSNGC3EfGoGZGuksU-9A">_3BA0FD2D-81D7-4D0B-8F7C-7C6F7E2F685D_dataMap.namingRuleInputX</bpmn2:to>
         </bpmn2:assignment>
       </bpmn2:dataInputAssociation>
-      <bpmn2:dataInputAssociation id="_47KhQWCpEfGoGZGuksU-9A">
+      <bpmn2:dataInputAssociation id="_qlqSNWC3EfGoGZGuksU-9A">
         <bpmn2:targetRef>_3BA0FD2D-81D7-4D0B-8F7C-7C6F7E2F685D_TaskNameInputX</bpmn2:targetRef>
-        <bpmn2:assignment id="_47KhQmCpEfGoGZGuksU-9A">
-          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_47KhQ2CpEfGoGZGuksU-9A"><![CDATA[SdcApiCall]]></bpmn2:from>
-          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_47KhRGCpEfGoGZGuksU-9A">_3BA0FD2D-81D7-4D0B-8F7C-7C6F7E2F685D_TaskNameInputX</bpmn2:to>
+        <bpmn2:assignment id="_qlqSNmC3EfGoGZGuksU-9A">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_qlqSN2C3EfGoGZGuksU-9A"><![CDATA[SdcApiCall]]></bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_qlqSOGC3EfGoGZGuksU-9A">_3BA0FD2D-81D7-4D0B-8F7C-7C6F7E2F685D_TaskNameInputX</bpmn2:to>
         </bpmn2:assignment>
       </bpmn2:dataInputAssociation>
-      <bpmn2:dataOutputAssociation id="_47KhRWCpEfGoGZGuksU-9A">
+      <bpmn2:dataOutputAssociation id="_qlqSOWC3EfGoGZGuksU-9A">
         <bpmn2:sourceRef>_3BA0FD2D-81D7-4D0B-8F7C-7C6F7E2F685D_httpStatusCodeOutputX</bpmn2:sourceRef>
         <bpmn2:targetRef>httpStatusCode</bpmn2:targetRef>
       </bpmn2:dataOutputAssociation>
-      <bpmn2:dataOutputAssociation id="_47KhRmCpEfGoGZGuksU-9A">
+      <bpmn2:dataOutputAssociation id="_qlqSOmC3EfGoGZGuksU-9A">
         <bpmn2:sourceRef>_3BA0FD2D-81D7-4D0B-8F7C-7C6F7E2F685D_messageOutputX</bpmn2:sourceRef>
         <bpmn2:targetRef>message</bpmn2:targetRef>
       </bpmn2:dataOutputAssociation>
-      <bpmn2:dataOutputAssociation id="_47KhR2CpEfGoGZGuksU-9A">
+      <bpmn2:dataOutputAssociation id="_qlqSO2C3EfGoGZGuksU-9A">
         <bpmn2:sourceRef>_3BA0FD2D-81D7-4D0B-8F7C-7C6F7E2F685D_crossIdOutputX</bpmn2:sourceRef>
         <bpmn2:targetRef>cpeCrossId</bpmn2:targetRef>
       </bpmn2:dataOutputAssociation>
     </bpmn2:task>
   </bpmn2:process>
-  <bpmndi:BPMNDiagram id="_47LHQGCpEfGoGZGuksU-9A">
-    <bpmndi:BPMNPlane id="_47LHQWCpEfGoGZGuksU-9A" bpmnElement="GC-AUTOMATION.logicalDesign">
+  <bpmndi:BPMNDiagram id="_qlqSPGC3EfGoGZGuksU-9A">
+    <bpmndi:BPMNPlane id="_qlqSPWC3EfGoGZGuksU-9A" bpmnElement="GC-AUTOMATION.logicalDesign">
       <bpmndi:BPMNShape id="shape__3BA0FD2D-81D7-4D0B-8F7C-7C6F7E2F685D" bpmnElement="_3BA0FD2D-81D7-4D0B-8F7C-7C6F7E2F685D">
         <dc:Bounds height="102.0" width="154.0" x="428.0" y="596.0"/>
       </bpmndi:BPMNShape>
@@ -2012,6 +2028,9 @@ System.out.println("================================================");]]></droo
       <bpmndi:BPMNShape id="shape__6EB922B0-824E-498B-A0A2-DBCED705DE5F" bpmnElement="_6EB922B0-824E-498B-A0A2-DBCED705DE5F">
         <dc:Bounds height="102.0" width="154.0" x="646.0" y="596.0"/>
       </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="shape__BD32371F-BDA3-4F6F-91BD-BC8CDA6AE9E2" bpmnElement="_BD32371F-BDA3-4F6F-91BD-BC8CDA6AE9E2">
+        <dc:Bounds height="102.0" width="154.0" x="412.0" y="236.0"/>
+      </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="shape__1A720794-B2DB-4426-B3AD-E2C1386506D0" bpmnElement="_1A720794-B2DB-4426-B3AD-E2C1386506D0">
         <dc:Bounds height="102.0" width="154.0" x="1082.0" y="596.0"/>
       </bpmndi:BPMNShape>
@@ -2077,13 +2096,13 @@ System.out.println("================================================");]]></droo
         <di:waypoint xsi:type="dc:Point" x="1595.0" y="418.0"/>
         <di:waypoint xsi:type="dc:Point" x="1595.0" y="292.0"/>
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="edge_shape__0B21A23F-C4FC-4BDF-B50C-D7F89C89E4DC_to_shape__B6428571-C915-460C-9B88-EED174B9B507" bpmnElement="_D57B4875-0DB4-4D1B-B060-B5E681619841">
-        <di:waypoint xsi:type="dc:Point" x="1595.0" y="292.0"/>
-        <di:waypoint xsi:type="dc:Point" x="1813.0" y="418.0"/>
-      </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="edge_shape__0B21A23F-C4FC-4BDF-B50C-D7F89C89E4DC_to_shape__B34DD288-073A-432F-99F2-70A114F6717B" bpmnElement="_54DF1D7B-E352-4BE4-BE5E-EB9743230CA7">
         <di:waypoint xsi:type="dc:Point" x="1595.0" y="292.0"/>
         <di:waypoint xsi:type="dc:Point" x="1486.0" y="292.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="edge_shape__0B21A23F-C4FC-4BDF-B50C-D7F89C89E4DC_to_shape__B6428571-C915-460C-9B88-EED174B9B507" bpmnElement="_D57B4875-0DB4-4D1B-B060-B5E681619841">
+        <di:waypoint xsi:type="dc:Point" x="1595.0" y="292.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1813.0" y="418.0"/>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="edge_shape__1D583A1A-FF14-4E76-802A-6C52A5CA2314_to_shape__3547B21E-9DE0-40A9-A049-2AC84F6E8551" bpmnElement="_DBE8F5D7-86F2-4A03-A38A-44AEB884C9ED">
         <di:waypoint xsi:type="dc:Point" x="336.0" y="418.0"/>
@@ -2141,13 +2160,13 @@ System.out.println("================================================");]]></droo
         <di:waypoint xsi:type="dc:Point" x="2685.0" y="418.0"/>
         <di:waypoint xsi:type="dc:Point" x="2685.0" y="292.0"/>
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="edge_shape__78E174E7-37C2-4B24-B54F-CE73773879F3_to_shape__66392450-7920-4F66-8D5D-DF9BF4B94F2C" bpmnElement="_DC8893BD-DDA1-4526-9799-15D07A0FC762">
-        <di:waypoint xsi:type="dc:Point" x="2685.0" y="292.0"/>
-        <di:waypoint xsi:type="dc:Point" x="2854.0" y="418.0"/>
-      </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="edge_shape__78E174E7-37C2-4B24-B54F-CE73773879F3_to_shape__A4359702-17B0-4946-9FDC-1688A7A3B420" bpmnElement="_7D3E6C63-99FC-4814-A95C-F5399D74E49E">
         <di:waypoint xsi:type="dc:Point" x="2685.0" y="292.0"/>
         <di:waypoint xsi:type="dc:Point" x="2576.0" y="292.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="edge_shape__78E174E7-37C2-4B24-B54F-CE73773879F3_to_shape__66392450-7920-4F66-8D5D-DF9BF4B94F2C" bpmnElement="_DC8893BD-DDA1-4526-9799-15D07A0FC762">
+        <di:waypoint xsi:type="dc:Point" x="2685.0" y="292.0"/>
+        <di:waypoint xsi:type="dc:Point" x="2854.0" y="418.0"/>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="edge_shape__6EB922B0-824E-498B-A0A2-DBCED705DE5F_to_shape__50B72174-6EED-4D72-A34B-246826D1C8A5" bpmnElement="_8F2F02C3-8DD7-40C2-89C2-9D6AB9CBC70C">
         <di:waypoint xsi:type="dc:Point" x="723.0" y="647.0"/>
@@ -2171,12 +2190,12 @@ System.out.println("================================================");]]></droo
       </bpmndi:BPMNEdge>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>
-  <bpmn2:relationship id="_47LHQmCpEfGoGZGuksU-9A" type="BPSimData">
+  <bpmn2:relationship id="_qlq48GC3EfGoGZGuksU-9A" type="BPSimData">
     <bpmn2:extensionElements>
       <bpsim:BPSimData>
         <bpsim:Scenario xsi:type="bpsim:Scenario" id="default" name="Simulationscenario">
           <bpsim:ScenarioParameters xsi:type="bpsim:ScenarioParameters"/>
-          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_3BA0FD2D-81D7-4D0B-8F7C-7C6F7E2F685D" id="_47LHQ2CpEfGoGZGuksU-9A">
+          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_3BA0FD2D-81D7-4D0B-8F7C-7C6F7E2F685D" id="_qlq48WC3EfGoGZGuksU-9A">
             <bpsim:TimeParameters xsi:type="bpsim:TimeParameters">
               <bpsim:ProcessingTime xsi:type="bpsim:Parameter">
                 <bpsim:NormalDistribution mean="0.0" standardDeviation="0.0"/>
@@ -2196,7 +2215,7 @@ System.out.println("================================================");]]></droo
               </bpsim:UnitCost>
             </bpsim:CostParameters>
           </bpsim:ElementParameters>
-          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_3756C96C-98B7-4F97-B9D7-C2A5AA4F4436" id="_47LHRGCpEfGoGZGuksU-9A">
+          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_3756C96C-98B7-4F97-B9D7-C2A5AA4F4436" id="_qlq48mC3EfGoGZGuksU-9A">
             <bpsim:TimeParameters xsi:type="bpsim:TimeParameters">
               <bpsim:ProcessingTime xsi:type="bpsim:Parameter">
                 <bpsim:NormalDistribution mean="0.0" standardDeviation="0.0"/>
@@ -2216,34 +2235,14 @@ System.out.println("================================================");]]></droo
               </bpsim:UnitCost>
             </bpsim:CostParameters>
           </bpsim:ElementParameters>
-          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_1D583A1A-FF14-4E76-802A-6C52A5CA2314" id="_47LHRWCpEfGoGZGuksU-9A">
+          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_1D583A1A-FF14-4E76-802A-6C52A5CA2314" id="_qlq482C3EfGoGZGuksU-9A">
             <bpsim:TimeParameters xsi:type="bpsim:TimeParameters">
               <bpsim:ProcessingTime xsi:type="bpsim:Parameter">
                 <bpsim:NormalDistribution mean="0.0" standardDeviation="0.0"/>
               </bpsim:ProcessingTime>
             </bpsim:TimeParameters>
           </bpsim:ElementParameters>
-          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_3547B21E-9DE0-40A9-A049-2AC84F6E8551" id="_47LHRmCpEfGoGZGuksU-9A">
-            <bpsim:TimeParameters xsi:type="bpsim:TimeParameters">
-              <bpsim:ProcessingTime xsi:type="bpsim:Parameter">
-                <bpsim:NormalDistribution mean="0.0" standardDeviation="0.0"/>
-              </bpsim:ProcessingTime>
-            </bpsim:TimeParameters>
-            <bpsim:ResourceParameters xsi:type="bpsim:ResourceParameters">
-              <bpsim:Availability xsi:type="bpsim:Parameter">
-                <bpsim:FloatingParameter value="0.0"/>
-              </bpsim:Availability>
-              <bpsim:Quantity xsi:type="bpsim:Parameter">
-                <bpsim:FloatingParameter value="0.0"/>
-              </bpsim:Quantity>
-            </bpsim:ResourceParameters>
-            <bpsim:CostParameters xsi:type="bpsim:CostParameters">
-              <bpsim:UnitCost xsi:type="bpsim:Parameter">
-                <bpsim:FloatingParameter value="0.0"/>
-              </bpsim:UnitCost>
-            </bpsim:CostParameters>
-          </bpsim:ElementParameters>
-          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_95FC3D56-3626-495B-97C9-D7522B6A02D9" id="_47LHR2CpEfGoGZGuksU-9A">
+          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_3547B21E-9DE0-40A9-A049-2AC84F6E8551" id="_qlq49GC3EfGoGZGuksU-9A">
             <bpsim:TimeParameters xsi:type="bpsim:TimeParameters">
               <bpsim:ProcessingTime xsi:type="bpsim:Parameter">
                 <bpsim:NormalDistribution mean="0.0" standardDeviation="0.0"/>
@@ -2263,7 +2262,7 @@ System.out.println("================================================");]]></droo
               </bpsim:UnitCost>
             </bpsim:CostParameters>
           </bpsim:ElementParameters>
-          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_9E0D848F-1EAE-47F0-8C0A-6A091C2C8323" id="_47LHSGCpEfGoGZGuksU-9A">
+          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_95FC3D56-3626-495B-97C9-D7522B6A02D9" id="_qlq49WC3EfGoGZGuksU-9A">
             <bpsim:TimeParameters xsi:type="bpsim:TimeParameters">
               <bpsim:ProcessingTime xsi:type="bpsim:Parameter">
                 <bpsim:NormalDistribution mean="0.0" standardDeviation="0.0"/>
@@ -2283,7 +2282,7 @@ System.out.println("================================================");]]></droo
               </bpsim:UnitCost>
             </bpsim:CostParameters>
           </bpsim:ElementParameters>
-          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_C3372D74-0B79-4A7B-86D2-276BD56E6511" id="_47LHSWCpEfGoGZGuksU-9A">
+          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_9E0D848F-1EAE-47F0-8C0A-6A091C2C8323" id="_qlq49mC3EfGoGZGuksU-9A">
             <bpsim:TimeParameters xsi:type="bpsim:TimeParameters">
               <bpsim:ProcessingTime xsi:type="bpsim:Parameter">
                 <bpsim:NormalDistribution mean="0.0" standardDeviation="0.0"/>
@@ -2303,7 +2302,7 @@ System.out.println("================================================");]]></droo
               </bpsim:UnitCost>
             </bpsim:CostParameters>
           </bpsim:ElementParameters>
-          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_48B89653-215B-48DE-8602-5F4FC94D02BC" id="_47LHSmCpEfGoGZGuksU-9A">
+          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_C3372D74-0B79-4A7B-86D2-276BD56E6511" id="_qlq492C3EfGoGZGuksU-9A">
             <bpsim:TimeParameters xsi:type="bpsim:TimeParameters">
               <bpsim:ProcessingTime xsi:type="bpsim:Parameter">
                 <bpsim:NormalDistribution mean="0.0" standardDeviation="0.0"/>
@@ -2323,7 +2322,7 @@ System.out.println("================================================");]]></droo
               </bpsim:UnitCost>
             </bpsim:CostParameters>
           </bpsim:ElementParameters>
-          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_B6428571-C915-460C-9B88-EED174B9B507" id="_47LHS2CpEfGoGZGuksU-9A">
+          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_48B89653-215B-48DE-8602-5F4FC94D02BC" id="_qlq4-GC3EfGoGZGuksU-9A">
             <bpsim:TimeParameters xsi:type="bpsim:TimeParameters">
               <bpsim:ProcessingTime xsi:type="bpsim:Parameter">
                 <bpsim:NormalDistribution mean="0.0" standardDeviation="0.0"/>
@@ -2343,7 +2342,7 @@ System.out.println("================================================");]]></droo
               </bpsim:UnitCost>
             </bpsim:CostParameters>
           </bpsim:ElementParameters>
-          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_7654757A-B56D-4F87-896D-629750ECB1C0" id="_47LHTGCpEfGoGZGuksU-9A">
+          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_B6428571-C915-460C-9B88-EED174B9B507" id="_qlq4-WC3EfGoGZGuksU-9A">
             <bpsim:TimeParameters xsi:type="bpsim:TimeParameters">
               <bpsim:ProcessingTime xsi:type="bpsim:Parameter">
                 <bpsim:NormalDistribution mean="0.0" standardDeviation="0.0"/>
@@ -2363,7 +2362,7 @@ System.out.println("================================================");]]></droo
               </bpsim:UnitCost>
             </bpsim:CostParameters>
           </bpsim:ElementParameters>
-          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_B170C4CE-FF4F-4C96-9E02-EBC4DE85A640" id="_47LHTWCpEfGoGZGuksU-9A">
+          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_7654757A-B56D-4F87-896D-629750ECB1C0" id="_qlq4-mC3EfGoGZGuksU-9A">
             <bpsim:TimeParameters xsi:type="bpsim:TimeParameters">
               <bpsim:ProcessingTime xsi:type="bpsim:Parameter">
                 <bpsim:NormalDistribution mean="0.0" standardDeviation="0.0"/>
@@ -2383,7 +2382,7 @@ System.out.println("================================================");]]></droo
               </bpsim:UnitCost>
             </bpsim:CostParameters>
           </bpsim:ElementParameters>
-          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_50B72174-6EED-4D72-A34B-246826D1C8A5" id="_47LHTmCpEfGoGZGuksU-9A">
+          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_B170C4CE-FF4F-4C96-9E02-EBC4DE85A640" id="_qlq4-2C3EfGoGZGuksU-9A">
             <bpsim:TimeParameters xsi:type="bpsim:TimeParameters">
               <bpsim:ProcessingTime xsi:type="bpsim:Parameter">
                 <bpsim:NormalDistribution mean="0.0" standardDeviation="0.0"/>
@@ -2403,7 +2402,7 @@ System.out.println("================================================");]]></droo
               </bpsim:UnitCost>
             </bpsim:CostParameters>
           </bpsim:ElementParameters>
-          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_0C0EFC6D-9912-48CD-8280-FD685B0D4070" id="_47LHT2CpEfGoGZGuksU-9A">
+          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_50B72174-6EED-4D72-A34B-246826D1C8A5" id="_qlq4_GC3EfGoGZGuksU-9A">
             <bpsim:TimeParameters xsi:type="bpsim:TimeParameters">
               <bpsim:ProcessingTime xsi:type="bpsim:Parameter">
                 <bpsim:NormalDistribution mean="0.0" standardDeviation="0.0"/>
@@ -2423,7 +2422,7 @@ System.out.println("================================================");]]></droo
               </bpsim:UnitCost>
             </bpsim:CostParameters>
           </bpsim:ElementParameters>
-          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_E3FF4E65-7DF5-4539-AA76-D274FD7B1429" id="_47LHUGCpEfGoGZGuksU-9A">
+          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_0C0EFC6D-9912-48CD-8280-FD685B0D4070" id="_qlq4_WC3EfGoGZGuksU-9A">
             <bpsim:TimeParameters xsi:type="bpsim:TimeParameters">
               <bpsim:ProcessingTime xsi:type="bpsim:Parameter">
                 <bpsim:NormalDistribution mean="0.0" standardDeviation="0.0"/>
@@ -2443,7 +2442,7 @@ System.out.println("================================================");]]></droo
               </bpsim:UnitCost>
             </bpsim:CostParameters>
           </bpsim:ElementParameters>
-          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_6EB922B0-824E-498B-A0A2-DBCED705DE5F" id="_47LHUWCpEfGoGZGuksU-9A">
+          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_E3FF4E65-7DF5-4539-AA76-D274FD7B1429" id="_qlq4_mC3EfGoGZGuksU-9A">
             <bpsim:TimeParameters xsi:type="bpsim:TimeParameters">
               <bpsim:ProcessingTime xsi:type="bpsim:Parameter">
                 <bpsim:NormalDistribution mean="0.0" standardDeviation="0.0"/>
@@ -2463,7 +2462,7 @@ System.out.println("================================================");]]></droo
               </bpsim:UnitCost>
             </bpsim:CostParameters>
           </bpsim:ElementParameters>
-          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_1A720794-B2DB-4426-B3AD-E2C1386506D0" id="_47LHUmCpEfGoGZGuksU-9A">
+          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_6EB922B0-824E-498B-A0A2-DBCED705DE5F" id="_qlq4_2C3EfGoGZGuksU-9A">
             <bpsim:TimeParameters xsi:type="bpsim:TimeParameters">
               <bpsim:ProcessingTime xsi:type="bpsim:Parameter">
                 <bpsim:NormalDistribution mean="0.0" standardDeviation="0.0"/>
@@ -2483,7 +2482,7 @@ System.out.println("================================================");]]></droo
               </bpsim:UnitCost>
             </bpsim:CostParameters>
           </bpsim:ElementParameters>
-          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_0934EE00-F028-403A-947F-2A9F3EB58B85" id="_47LHU2CpEfGoGZGuksU-9A">
+          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_BD32371F-BDA3-4F6F-91BD-BC8CDA6AE9E2" id="_qlq5AGC3EfGoGZGuksU-9A">
             <bpsim:TimeParameters xsi:type="bpsim:TimeParameters">
               <bpsim:ProcessingTime xsi:type="bpsim:Parameter">
                 <bpsim:NormalDistribution mean="0.0" standardDeviation="0.0"/>
@@ -2503,7 +2502,7 @@ System.out.println("================================================");]]></droo
               </bpsim:UnitCost>
             </bpsim:CostParameters>
           </bpsim:ElementParameters>
-          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_2A00FC8E-90BE-48A0-B4E2-E5756F80558B" id="_47LHVGCpEfGoGZGuksU-9A">
+          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_1A720794-B2DB-4426-B3AD-E2C1386506D0" id="_qlq5AWC3EfGoGZGuksU-9A">
             <bpsim:TimeParameters xsi:type="bpsim:TimeParameters">
               <bpsim:ProcessingTime xsi:type="bpsim:Parameter">
                 <bpsim:NormalDistribution mean="0.0" standardDeviation="0.0"/>
@@ -2523,7 +2522,7 @@ System.out.println("================================================");]]></droo
               </bpsim:UnitCost>
             </bpsim:CostParameters>
           </bpsim:ElementParameters>
-          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_704BE3D7-D5B2-42F0-88FD-D7106AE1D9C5" id="_47LHVWCpEfGoGZGuksU-9A">
+          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_0934EE00-F028-403A-947F-2A9F3EB58B85" id="_qlq5AmC3EfGoGZGuksU-9A">
             <bpsim:TimeParameters xsi:type="bpsim:TimeParameters">
               <bpsim:ProcessingTime xsi:type="bpsim:Parameter">
                 <bpsim:NormalDistribution mean="0.0" standardDeviation="0.0"/>
@@ -2543,7 +2542,47 @@ System.out.println("================================================");]]></droo
               </bpsim:UnitCost>
             </bpsim:CostParameters>
           </bpsim:ElementParameters>
-          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_3A967505-D7CE-4E59-8691-ADFE250D498F" id="_47LHVmCpEfGoGZGuksU-9A">
+          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_2A00FC8E-90BE-48A0-B4E2-E5756F80558B" id="_qlq5A2C3EfGoGZGuksU-9A">
+            <bpsim:TimeParameters xsi:type="bpsim:TimeParameters">
+              <bpsim:ProcessingTime xsi:type="bpsim:Parameter">
+                <bpsim:NormalDistribution mean="0.0" standardDeviation="0.0"/>
+              </bpsim:ProcessingTime>
+            </bpsim:TimeParameters>
+            <bpsim:ResourceParameters xsi:type="bpsim:ResourceParameters">
+              <bpsim:Availability xsi:type="bpsim:Parameter">
+                <bpsim:FloatingParameter value="0.0"/>
+              </bpsim:Availability>
+              <bpsim:Quantity xsi:type="bpsim:Parameter">
+                <bpsim:FloatingParameter value="0.0"/>
+              </bpsim:Quantity>
+            </bpsim:ResourceParameters>
+            <bpsim:CostParameters xsi:type="bpsim:CostParameters">
+              <bpsim:UnitCost xsi:type="bpsim:Parameter">
+                <bpsim:FloatingParameter value="0.0"/>
+              </bpsim:UnitCost>
+            </bpsim:CostParameters>
+          </bpsim:ElementParameters>
+          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_704BE3D7-D5B2-42F0-88FD-D7106AE1D9C5" id="_qlq5BGC3EfGoGZGuksU-9A">
+            <bpsim:TimeParameters xsi:type="bpsim:TimeParameters">
+              <bpsim:ProcessingTime xsi:type="bpsim:Parameter">
+                <bpsim:NormalDistribution mean="0.0" standardDeviation="0.0"/>
+              </bpsim:ProcessingTime>
+            </bpsim:TimeParameters>
+            <bpsim:ResourceParameters xsi:type="bpsim:ResourceParameters">
+              <bpsim:Availability xsi:type="bpsim:Parameter">
+                <bpsim:FloatingParameter value="0.0"/>
+              </bpsim:Availability>
+              <bpsim:Quantity xsi:type="bpsim:Parameter">
+                <bpsim:FloatingParameter value="0.0"/>
+              </bpsim:Quantity>
+            </bpsim:ResourceParameters>
+            <bpsim:CostParameters xsi:type="bpsim:CostParameters">
+              <bpsim:UnitCost xsi:type="bpsim:Parameter">
+                <bpsim:FloatingParameter value="0.0"/>
+              </bpsim:UnitCost>
+            </bpsim:CostParameters>
+          </bpsim:ElementParameters>
+          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_3A967505-D7CE-4E59-8691-ADFE250D498F" id="_qlq5BWC3EfGoGZGuksU-9A">
             <bpsim:TimeParameters xsi:type="bpsim:TimeParameters">
               <bpsim:ProcessingTime xsi:type="bpsim:Parameter">
                 <bpsim:NormalDistribution mean="0.0" standardDeviation="0.0"/>
@@ -2566,7 +2605,7 @@ System.out.println("================================================");]]></droo
         </bpsim:Scenario>
       </bpsim:BPSimData>
     </bpmn2:extensionElements>
-    <bpmn2:source>_47J5IGCpEfGoGZGuksU-9A</bpmn2:source>
-    <bpmn2:target>_47J5IGCpEfGoGZGuksU-9A</bpmn2:target>
+    <bpmn2:source>_qlpDwGC3EfGoGZGuksU-9A</bpmn2:source>
+    <bpmn2:target>_qlpDwGC3EfGoGZGuksU-9A</bpmn2:target>
   </bpmn2:relationship>
 </bpmn2:definitions>
