@@ -4,7 +4,7 @@
   <bpmn2:itemDefinition id="__orderItem" structureRef="String"/>
   <bpmn2:itemDefinition id="_projectNameItem" structureRef="String"/>
   <bpmn2:itemDefinition id="_cageCrossIdItem" structureRef="String"/>
-  <bpmn2:itemDefinition id="_opticalPathCrossIdItem" structureRef="String"/>
+  <bpmn2:itemDefinition id="_opticalCircuitCrossIdItem" structureRef="String"/>
   <bpmn2:itemDefinition id="_placeCrossIdItem" structureRef="String"/>
   <bpmn2:itemDefinition id="_serviceCrossIdItem" structureRef="String"/>
   <bpmn2:itemDefinition id="_serviceComponentsItem" structureRef="java.util.List"/>
@@ -66,7 +66,7 @@
     <bpmn2:property id="_order" itemSubjectRef="__orderItem" name="_order"/>
     <bpmn2:property id="projectName" itemSubjectRef="_projectNameItem" name="projectName"/>
     <bpmn2:property id="cageCrossId" itemSubjectRef="_cageCrossIdItem" name="cageCrossId"/>
-    <bpmn2:property id="opticalPathCrossId" itemSubjectRef="_opticalPathCrossIdItem" name="opticalPathCrossId"/>
+    <bpmn2:property id="opticalCircuitCrossId" itemSubjectRef="_opticalCircuitCrossIdItem" name="opticalCircuitCrossId"/>
     <bpmn2:property id="placeCrossId" itemSubjectRef="_placeCrossIdItem" name="placeCrossId"/>
     <bpmn2:property id="serviceCrossId" itemSubjectRef="_serviceCrossIdItem" name="serviceCrossId"/>
     <bpmn2:property id="serviceComponents" itemSubjectRef="_serviceComponentsItem" name="serviceComponents"/>
@@ -176,22 +176,22 @@ System.out.println("VALIDATION: Service with ACCESS_EQUIPMENT_PORT service compo
 return result;]]></bpmn2:conditionExpression>
     </bpmn2:sequenceFlow>
     <bpmn2:task id="_EFEED2F2-D72F-4F9F-890D-70F6C5CF29BE" drools:taskName="SdcApiCall" name="REST_API_CALL:
-cross/addOpticalPathToAServiceComponent">
-      <bpmn2:documentation id="_nmB-JUGhEfGrK4FBZUBLpg"><![CDATA[Add provisioning Optical Path to a Service Component of the created Service.]]></bpmn2:documentation>
+cross/addOpticalCircuitToAServiceComponent">
+      <bpmn2:documentation id="_nmB-JUGhEfGrK4FBZUBLpg"><![CDATA[Add provisioning Optical Circuit to a Service Component of the created Service.]]></bpmn2:documentation>
       <bpmn2:extensionElements>
         <drools:metaData name="elementname">
           <drools:metaValue><![CDATA[REST_API_CALL:
-cross/addOpticalPathToAServiceComponent]]></drools:metaValue>
+cross/addOpticalCircuitToAServiceComponent]]></drools:metaValue>
         </drools:metaData>
         <drools:onEntry-script scriptFormat="http://www.java.com/java">
           <drools:script><![CDATA[System.out.println("==================================================================================");
-System.out.println("=== pniDesign_Service_Access - REST_API_CALL: cross/addOpticalPathToAServiceComponent ===");
+System.out.println("=== pniDesign_Service_Access - REST_API_CALL: cross/addOpticalCircuitToAServiceComponent ===");
 System.out.println("==================================================================================");
 
 java.util.List<Object> list = new java.util.ArrayList<>();
 
 java.util.Map<String, Object> resource = new java.util.HashMap<>();
-resource.put("crossId", kcontext.getVariable("opticalPathCrossId"));
+resource.put("crossId", kcontext.getVariable("opticalCircuitCrossId"));
 resource.put("primary", true);
 list.add(resource);
 
