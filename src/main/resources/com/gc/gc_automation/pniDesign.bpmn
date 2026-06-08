@@ -13,8 +13,8 @@
   <bpmn2:itemDefinition id="_localityCrossIdItem" structureRef="String"/>
   <bpmn2:itemDefinition id="_localitySmwIdItem" structureRef="String"/>
   <bpmn2:itemDefinition id="_cageCrossIdItem" structureRef="String"/>
-  <bpmn2:itemDefinition id="_opticalPathCrossIdItem" structureRef="String"/>
-  <bpmn2:itemDefinition id="_opticalPathPrmIdItem" structureRef="String"/>
+  <bpmn2:itemDefinition id="_opticalCircuitCrossIdItem" structureRef="String"/>
+  <bpmn2:itemDefinition id="_opticalCircuitPrmIdItem" structureRef="String"/>
   <bpmn2:itemDefinition id="_serviceCrossIdItem" structureRef="String"/>
   <bpmn2:itemDefinition id="_httpStatusCodeItem" structureRef="Integer"/>
   <bpmn2:itemDefinition id="_messageItem" structureRef="String"/>
@@ -55,7 +55,7 @@
   <bpmn2:itemDefinition id="__4C9BFDFB-52A1-4C33-B044-7D6CEF45D913_resultListOutputXItem" structureRef="java.util.List"/>
   <bpmn2:itemDefinition id="__6DF56BBA-D8CB-4D82-B7E7-0759F6EC5F5E_projectNameInputXItem" structureRef="String"/>
   <bpmn2:itemDefinition id="__6DF56BBA-D8CB-4D82-B7E7-0759F6EC5F5E_placeCrossIdInputXItem" structureRef="String"/>
-  <bpmn2:itemDefinition id="__6DF56BBA-D8CB-4D82-B7E7-0759F6EC5F5E_opticalPathCrossIdInputXItem" structureRef="String"/>
+  <bpmn2:itemDefinition id="__6DF56BBA-D8CB-4D82-B7E7-0759F6EC5F5E_opticalCircuitCrossIdInputXItem" structureRef="String"/>
   <bpmn2:itemDefinition id="__6DF56BBA-D8CB-4D82-B7E7-0759F6EC5F5E_cageCrossIdInputXItem" structureRef="String"/>
   <bpmn2:itemDefinition id="__6DF56BBA-D8CB-4D82-B7E7-0759F6EC5F5E_serviceCrossIdOutputXItem" structureRef="String"/>
   <bpmn2:itemDefinition id="__DF7DBE5F-DCB0-43F2-B5A0-D14E96F15DDF_apiUrlInputXItem" structureRef="String"/>
@@ -140,8 +140,8 @@
     <bpmn2:property id="localityCrossId" itemSubjectRef="_localityCrossIdItem" name="localityCrossId"/>
     <bpmn2:property id="localitySmwId" itemSubjectRef="_localitySmwIdItem" name="localitySmwId"/>
     <bpmn2:property id="cageCrossId" itemSubjectRef="_cageCrossIdItem" name="cageCrossId"/>
-    <bpmn2:property id="opticalPathCrossId" itemSubjectRef="_opticalPathCrossIdItem" name="opticalPathCrossId"/>
-    <bpmn2:property id="opticalPathPrmId" itemSubjectRef="_opticalPathPrmIdItem" name="opticalPathPrmId"/>
+    <bpmn2:property id="opticalCircuitCrossId" itemSubjectRef="_opticalCircuitCrossIdItem" name="opticalCircuitCrossId"/>
+    <bpmn2:property id="opticalCircuitPrmId" itemSubjectRef="_opticalCircuitPrmIdItem" name="opticalCircuitPrmId"/>
     <bpmn2:property id="serviceCrossId" itemSubjectRef="_serviceCrossIdItem" name="serviceCrossId"/>
     <bpmn2:property id="httpStatusCode" itemSubjectRef="_httpStatusCodeItem" name="httpStatusCode">
       <bpmn2:extensionElements>
@@ -377,7 +377,7 @@ kcontext.setVariable("cageStatuses", java.util.Arrays.asList("ACTIVE", "DESIGNED
     </bpmn2:intermediateThrowEvent>
     <bpmn2:task id="_EF0E763E-E967-4F46-B0F6-10DDFFEDC334" drools:taskName="SdcApiCall" name="REST_API_CALL:
 cross/reserveCage">
-      <bpmn2:documentation id="_wGY-nWASEfGRstmrwDP8aA"><![CDATA[Marks cage/transceiver as reserved on the edge equipment and returns the parent edge locality cross id (used by Create Optical Path).]]></bpmn2:documentation>
+      <bpmn2:documentation id="_wGY-nWASEfGRstmrwDP8aA"><![CDATA[Marks cage/transceiver as reserved on the edge equipment and returns the parent edge locality cross id (used by Create Optical Circuit).]]></bpmn2:documentation>
       <bpmn2:extensionElements>
         <drools:metaData name="elementname">
           <drools:metaValue><![CDATA[REST_API_CALL:
@@ -580,8 +580,8 @@ java.util.Map<String, Object> map = new java.util.HashMap<>();
 map.put("version", kcontext.getVariable("version"));
 map.put("status", "COMPLETED");
 map.put("serviceCrossId", kcontext.getVariable("serviceCrossId"));
-map.put("opticalPathCrossId", kcontext.getVariable("opticalPathCrossId"));
-map.put("opticalPathPrmId", kcontext.getVariable("opticalPathPrmId"));
+map.put("opticalCircuitCrossId", kcontext.getVariable("opticalCircuitCrossId"));
+map.put("opticalCircuitPrmId", kcontext.getVariable("opticalCircuitPrmId"));
 map.put("placeCrossId", kcontext.getVariable("placeCrossId"));
 map.put("placeSmwId", kcontext.getVariable("placeSmwId"));
 map.put("projectCrossId", kcontext.getVariable("projectCrossId"));
@@ -766,20 +766,20 @@ throw new UnsupportedOperationException("Not implemented yet: pniDesign - REST_A
       </bpmn2:linkEventDefinition>
     </bpmn2:intermediateCatchEvent>
     <bpmn2:task id="_8D7FF98F-68B2-41E4-A3D5-FC16BA33A194" drools:taskName="SdcApiCall" name="REST_API_CALL:
-cross/createOpticalPath">
-      <bpmn2:documentation id="_wGY-5GASEfGRstmrwDP8aA"><![CDATA[Creates Optical Path between the building and the edge locality; status=Designed.]]></bpmn2:documentation>
+cross/createOpticalCircuit">
+      <bpmn2:documentation id="_wGY-5GASEfGRstmrwDP8aA"><![CDATA[Creates Optical Circuit between the building and the edge locality; status=Designed.]]></bpmn2:documentation>
       <bpmn2:extensionElements>
         <drools:metaData name="elementname">
           <drools:metaValue><![CDATA[REST_API_CALL:
-cross/createOpticalPath]]></drools:metaValue>
+cross/createOpticalCircuit]]></drools:metaValue>
         </drools:metaData>
         <drools:onEntry-script scriptFormat="http://www.java.com/java">
           <drools:script><![CDATA[System.out.println("==========================================================");
-System.out.println("=== pniDesign - REST_API_CALL: cross/createOpticalPath ===");
+System.out.println("=== pniDesign - REST_API_CALL: cross/createOpticalCircuit ===");
 System.out.println("==========================================================");]]></drools:script>
         </drools:onEntry-script>
         <drools:onExit-script scriptFormat="http://www.java.com/java">
-          <drools:script><![CDATA[System.out.println("opticalPathCrossId=" + opticalPathCrossId);]]></drools:script>
+          <drools:script><![CDATA[System.out.println("opticalCircuitCrossId=" + opticalCircuitCrossId);]]></drools:script>
         </drools:onExit-script>
       </bpmn2:extensionElements>
       <bpmn2:incoming>_SF00015-FFFF-FFFF-FFFF-FFFFFFFFFFFF</bpmn2:incoming>
@@ -832,7 +832,7 @@ System.out.println("==========================================================")
       <bpmn2:dataInputAssociation id="_wGY-7WASEfGRstmrwDP8aA">
         <bpmn2:targetRef>_8D7FF98F-68B2-41E4-A3D5-FC16BA33A194_routeMap.sourceInputX</bpmn2:targetRef>
         <bpmn2:assignment id="_wGY-7mASEfGRstmrwDP8aA">
-          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_wGY-72ASEfGRstmrwDP8aA"><![CDATA[cross/createOpticalPath]]></bpmn2:from>
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_wGY-72ASEfGRstmrwDP8aA"><![CDATA[cross/createOpticalCircuit]]></bpmn2:from>
           <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_wGY-8GASEfGRstmrwDP8aA">_8D7FF98F-68B2-41E4-A3D5-FC16BA33A194_routeMap.sourceInputX</bpmn2:to>
         </bpmn2:assignment>
       </bpmn2:dataInputAssociation>
@@ -851,7 +851,7 @@ System.out.println("==========================================================")
       <bpmn2:dataInputAssociation id="_wGY-9GASEfGRstmrwDP8aA">
         <bpmn2:targetRef>_8D7FF98F-68B2-41E4-A3D5-FC16BA33A194_dataMap.nameInputX</bpmn2:targetRef>
         <bpmn2:assignment id="_wGY-9WASEfGRstmrwDP8aA">
-          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_wGY-9mASEfGRstmrwDP8aA"><![CDATA[TODO___OPTICAL_PATH_NAME]]></bpmn2:from>
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_wGY-9mASEfGRstmrwDP8aA"><![CDATA[TODO___OPTICAL_CIRCUIT_NAME]]></bpmn2:from>
           <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_wGY-92ASEfGRstmrwDP8aA">_8D7FF98F-68B2-41E4-A3D5-FC16BA33A194_dataMap.nameInputX</bpmn2:to>
         </bpmn2:assignment>
       </bpmn2:dataInputAssociation>
@@ -865,7 +865,7 @@ System.out.println("==========================================================")
       <bpmn2:dataInputAssociation id="_wGY-_GASEfGRstmrwDP8aA">
         <bpmn2:targetRef>_8D7FF98F-68B2-41E4-A3D5-FC16BA33A194_dataMap.linkTypeInputX</bpmn2:targetRef>
         <bpmn2:assignment id="_wGY-_WASEfGRstmrwDP8aA">
-          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_wGY-_mASEfGRstmrwDP8aA"><![CDATA[OPTICAL_PATH]]></bpmn2:from>
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_wGY-_mASEfGRstmrwDP8aA"><![CDATA[OPTICAL_CIRCUIT]]></bpmn2:from>
           <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_wGY-_2ASEfGRstmrwDP8aA">_8D7FF98F-68B2-41E4-A3D5-FC16BA33A194_dataMap.linkTypeInputX</bpmn2:to>
         </bpmn2:assignment>
       </bpmn2:dataInputAssociation>
@@ -885,7 +885,7 @@ System.out.println("==========================================================")
       </bpmn2:dataInputAssociation>
       <bpmn2:dataOutputAssociation id="_wGY_CGASEfGRstmrwDP8aA">
         <bpmn2:sourceRef>_8D7FF98F-68B2-41E4-A3D5-FC16BA33A194_crossIdOutputX</bpmn2:sourceRef>
-        <bpmn2:targetRef>opticalPathCrossId</bpmn2:targetRef>
+        <bpmn2:targetRef>opticalCircuitCrossId</bpmn2:targetRef>
       </bpmn2:dataOutputAssociation>
       <bpmn2:dataOutputAssociation id="_wGY_CWASEfGRstmrwDP8aA">
         <bpmn2:sourceRef>_8D7FF98F-68B2-41E4-A3D5-FC16BA33A194_httpStatusCodeOutputX</bpmn2:sourceRef>
@@ -1202,13 +1202,13 @@ Access]]></drools:metaValue>
       <bpmn2:ioSpecification id="_wGZlyGASEfGRstmrwDP8aA">
         <bpmn2:dataInput id="_6DF56BBA-D8CB-4D82-B7E7-0759F6EC5F5E_projectNameInputX" drools:dtype="String" itemSubjectRef="__6DF56BBA-D8CB-4D82-B7E7-0759F6EC5F5E_projectNameInputXItem" name="projectName"/>
         <bpmn2:dataInput id="_6DF56BBA-D8CB-4D82-B7E7-0759F6EC5F5E_placeCrossIdInputX" drools:dtype="String" itemSubjectRef="__6DF56BBA-D8CB-4D82-B7E7-0759F6EC5F5E_placeCrossIdInputXItem" name="placeCrossId"/>
-        <bpmn2:dataInput id="_6DF56BBA-D8CB-4D82-B7E7-0759F6EC5F5E_opticalPathCrossIdInputX" drools:dtype="String" itemSubjectRef="__6DF56BBA-D8CB-4D82-B7E7-0759F6EC5F5E_opticalPathCrossIdInputXItem" name="opticalPathCrossId"/>
+        <bpmn2:dataInput id="_6DF56BBA-D8CB-4D82-B7E7-0759F6EC5F5E_opticalCircuitCrossIdInputX" drools:dtype="String" itemSubjectRef="__6DF56BBA-D8CB-4D82-B7E7-0759F6EC5F5E_opticalCircuitCrossIdInputXItem" name="opticalCircuitCrossId"/>
         <bpmn2:dataInput id="_6DF56BBA-D8CB-4D82-B7E7-0759F6EC5F5E_cageCrossIdInputX" drools:dtype="String" itemSubjectRef="__6DF56BBA-D8CB-4D82-B7E7-0759F6EC5F5E_cageCrossIdInputXItem" name="cageCrossId"/>
         <bpmn2:dataOutput id="_6DF56BBA-D8CB-4D82-B7E7-0759F6EC5F5E_serviceCrossIdOutputX" drools:dtype="String" itemSubjectRef="__6DF56BBA-D8CB-4D82-B7E7-0759F6EC5F5E_serviceCrossIdOutputXItem" name="serviceCrossId"/>
         <bpmn2:inputSet id="_wGZlyWASEfGRstmrwDP8aA">
           <bpmn2:dataInputRefs>_6DF56BBA-D8CB-4D82-B7E7-0759F6EC5F5E_projectNameInputX</bpmn2:dataInputRefs>
           <bpmn2:dataInputRefs>_6DF56BBA-D8CB-4D82-B7E7-0759F6EC5F5E_placeCrossIdInputX</bpmn2:dataInputRefs>
-          <bpmn2:dataInputRefs>_6DF56BBA-D8CB-4D82-B7E7-0759F6EC5F5E_opticalPathCrossIdInputX</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>_6DF56BBA-D8CB-4D82-B7E7-0759F6EC5F5E_opticalCircuitCrossIdInputX</bpmn2:dataInputRefs>
           <bpmn2:dataInputRefs>_6DF56BBA-D8CB-4D82-B7E7-0759F6EC5F5E_cageCrossIdInputX</bpmn2:dataInputRefs>
         </bpmn2:inputSet>
         <bpmn2:outputSet id="_wGZlymASEfGRstmrwDP8aA">
@@ -1224,8 +1224,8 @@ Access]]></drools:metaValue>
         <bpmn2:targetRef>_6DF56BBA-D8CB-4D82-B7E7-0759F6EC5F5E_placeCrossIdInputX</bpmn2:targetRef>
       </bpmn2:dataInputAssociation>
       <bpmn2:dataInputAssociation id="_wGZlzWASEfGRstmrwDP8aA">
-        <bpmn2:sourceRef>opticalPathCrossId</bpmn2:sourceRef>
-        <bpmn2:targetRef>_6DF56BBA-D8CB-4D82-B7E7-0759F6EC5F5E_opticalPathCrossIdInputX</bpmn2:targetRef>
+        <bpmn2:sourceRef>opticalCircuitCrossId</bpmn2:sourceRef>
+        <bpmn2:targetRef>_6DF56BBA-D8CB-4D82-B7E7-0759F6EC5F5E_opticalCircuitCrossIdInputX</bpmn2:targetRef>
       </bpmn2:dataInputAssociation>
       <bpmn2:dataInputAssociation id="_wGZlzmASEfGRstmrwDP8aA">
         <bpmn2:sourceRef>cageCrossId</bpmn2:sourceRef>
