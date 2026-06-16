@@ -11,6 +11,15 @@
   <bpmn2:itemDefinition id="_serviceComponentsItem" structureRef="java.util.List"/>
   <bpmn2:itemDefinition id="_servicePhysicalAccessCrossIdItem" structureRef="String"/>
   <bpmn2:itemDefinition id="_servicePhysicalAccessComponentsItem" structureRef="java.util.List"/>
+  <bpmn2:itemDefinition id="_serviceAccessCrossIdItem" structureRef="String"/>
+  <bpmn2:itemDefinition id="_serviceAccessComponentsItem" structureRef="java.util.List"/>
+  <bpmn2:itemDefinition id="__ADD1A004-3333-4333-8333-ADD1A0040004_apiUrlInputXItem" structureRef="String"/>
+  <bpmn2:itemDefinition id="__ADD1A004-3333-4333-8333-ADD1A0040004_routeMap.domainInputXItem" structureRef="String"/>
+  <bpmn2:itemDefinition id="__ADD1A004-3333-4333-8333-ADD1A0040004_routeMap.sourceInputXItem" structureRef="String"/>
+  <bpmn2:itemDefinition id="__ADD1A004-3333-4333-8333-ADD1A0040004_dataMap.serviceCrossIdInputXItem" structureRef="String"/>
+  <bpmn2:itemDefinition id="__ADD1A004-3333-4333-8333-ADD1A0040004_httpStatusCodeOutputXItem" structureRef="Integer"/>
+  <bpmn2:itemDefinition id="__ADD1A004-3333-4333-8333-ADD1A0040004_messageOutputXItem" structureRef="String"/>
+  <bpmn2:itemDefinition id="__ADD1A004-3333-4333-8333-ADD1A0040004_serviceComponentsOutputXItem" structureRef="java.util.List"/>
   <bpmn2:itemDefinition id="_cpeCrossIdItem" structureRef="String"/>
   <bpmn2:itemDefinition id="_cpeNodeTypeDiscriminatorsItem" structureRef="java.util.List"/>
   <bpmn2:itemDefinition id="_cpeNameItem" structureRef="String"/>
@@ -95,6 +104,8 @@
     <bpmn2:property id="serviceComponents" itemSubjectRef="_serviceComponentsItem" name="serviceComponents"/>
     <bpmn2:property id="servicePhysicalAccessCrossId" itemSubjectRef="_servicePhysicalAccessCrossIdItem" name="servicePhysicalAccessCrossId"/>
     <bpmn2:property id="servicePhysicalAccessComponents" itemSubjectRef="_servicePhysicalAccessComponentsItem" name="servicePhysicalAccessComponents"/>
+    <bpmn2:property id="serviceAccessCrossId" itemSubjectRef="_serviceAccessCrossIdItem" name="serviceAccessCrossId"/>
+    <bpmn2:property id="serviceAccessComponents" itemSubjectRef="_serviceAccessComponentsItem" name="serviceAccessComponents"/>
     <bpmn2:property id="cpeCrossId" itemSubjectRef="_cpeCrossIdItem" name="cpeCrossId"/>
     <bpmn2:property id="cpeNodeTypeDiscriminators" itemSubjectRef="_cpeNodeTypeDiscriminatorsItem" name="cpeNodeTypeDiscriminators"/>
     <bpmn2:property id="cpeName" itemSubjectRef="_cpeNameItem" name="cpeName"/>
@@ -109,7 +120,20 @@
     <bpmn2:property id="response" itemSubjectRef="_responseItem" name="response"/>
     <bpmn2:property id="parentCrossIds" itemSubjectRef="_parentCrossIdsItem" name="parentCrossIds"/>
     <bpmn2:sequenceFlow id="flow_findscpa_gwscpa" sourceRef="_ADD0A001-2222-4222-8222-ADD0A0010001" targetRef="_ADD0A002-2222-4222-8222-ADD0A0020002"/>
-    <bpmn2:sequenceFlow id="flow_findservice_findscpa" sourceRef="_D25B668F-EE31-469E-9F12-F75D54EC088E" targetRef="_ADD0A001-2222-4222-8222-ADD0A0010001"/>
+    <bpmn2:sequenceFlow id="flow_findservice_findsacc" sourceRef="_D25B668F-EE31-469E-9F12-F75D54EC088E" targetRef="_ADD1A001-3333-4333-8333-ADD1A0010001"/>
+    <bpmn2:sequenceFlow id="flow_findsacc_gwsacc" sourceRef="_ADD1A001-3333-4333-8333-ADD1A0010001" targetRef="_ADD1A002-3333-4333-8333-ADD1A0020002"/>
+    <bpmn2:sequenceFlow id="flow_gwsacc_fail" name="Error" sourceRef="_ADD1A002-3333-4333-8333-ADD1A0020002" targetRef="_ADD1A003-3333-4333-8333-ADD1A0030003">
+      <bpmn2:extensionElements>
+        <drools:metaData name="elementname">
+          <drools:metaValue><![CDATA[Error]]></drools:metaValue>
+        </drools:metaData>
+      </bpmn2:extensionElements>
+      <bpmn2:conditionExpression xsi:type="bpmn2:tFormalExpression" id="_ADD1D001-3333-4333-8333-ADD1D0010001" language="http://www.java.com/java"><![CDATA[boolean result = errorMessage != null;
+System.out.println("VALIDATION: find serviceAccessCrossId failed=" + result + ", errorMessage=" + errorMessage);
+return result;]]></bpmn2:conditionExpression>
+    </bpmn2:sequenceFlow>
+    <bpmn2:sequenceFlow id="flow_gwsacc_findsvc1" sourceRef="_ADD1A002-3333-4333-8333-ADD1A0020002" targetRef="_ADD1A004-3333-4333-8333-ADD1A0040004"/>
+    <bpmn2:sequenceFlow id="flow_findsvc1_findscpa" sourceRef="_ADD1A004-3333-4333-8333-ADD1A0040004" targetRef="_ADD0A001-2222-4222-8222-ADD0A0010001"/>
     <bpmn2:sequenceFlow id="flow_gwscpa_findsvc2" sourceRef="_ADD0A002-2222-4222-8222-ADD0A0020002" targetRef="_ADD0A004-2222-4222-8222-ADD0A0040004"/>
     <bpmn2:sequenceFlow id="flow_findsvc2_findcpe" sourceRef="_ADD0A004-2222-4222-8222-ADD0A0040004" targetRef="_308AF56D-8B1A-4B9D-81F1-D546F32D9087"/>
     <bpmn2:sequenceFlow id="flow_resultfail_end" sourceRef="_78DA6FC7-FD80-4183-9085-CFD5814B8D36" targetRef="_D0302EDE-27B8-4DE9-8316-DE42314CE329"/>
@@ -179,7 +203,7 @@ System.out.println("================================================");]]></droo
         </drools:onExit-script>
       </bpmn2:extensionElements>
       <bpmn2:incoming>flow_tmf_findservice</bpmn2:incoming>
-      <bpmn2:outgoing>flow_findservice_findscpa</bpmn2:outgoing>
+      <bpmn2:outgoing>flow_findservice_findsacc</bpmn2:outgoing>
       <bpmn2:ioSpecification id="_FGdNtWmEEfGwm_kRKeU4IQ">
         <bpmn2:dataInput id="_D25B668F-EE31-469E-9F12-F75D54EC088E_apiUrlInputX" drools:dtype="String" itemSubjectRef="__D25B668F-EE31-469E-9F12-F75D54EC088E_apiUrlInputXItem" name="apiUrl"/>
         <bpmn2:dataInput id="_D25B668F-EE31-469E-9F12-F75D54EC088E_routeMap.domainInputX" drools:dtype="String" itemSubjectRef="__D25B668F-EE31-469E-9F12-F75D54EC088E_routeMap.domainInputXItem" name="routeMap.domain"/>
@@ -272,21 +296,157 @@ map.put("roomCrossId", kcontext.getVariable("roomCrossId"));
 map.put("smwRoomId", kcontext.getVariable("smwRoomId"));
 kcontext.setVariable("response", map);]]></bpmn2:script>
     </bpmn2:scriptTask>
+    <bpmn2:scriptTask id="_ADD1A001-3333-4333-8333-ADD1A0010001" name="find serviceAccessCrossId" scriptFormat="http://www.java.com/java">
+      <bpmn2:extensionElements>
+        <drools:metaData name="elementname">
+          <drools:metaValue><![CDATA[find serviceAccessCrossId]]></drools:metaValue>
+        </drools:metaData>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>flow_findservice_findsacc</bpmn2:incoming>
+      <bpmn2:outgoing>flow_findsacc_gwsacc</bpmn2:outgoing>
+      <bpmn2:script><![CDATA[System.out.println("================================================");
+System.out.println("updateCustomerRoom - find serviceAccessCrossId");
+System.out.println("================================================");
+
+boolean found = false;
+if ( serviceComponents != null ) {
+    for ( java.util.Map serviceComponent : (java.util.List<java.util.Map>) serviceComponents ) {
+        if ( "SC_ACCESS".equals( serviceComponent.get("componentTypeName") ) ) {
+            java.util.List resources = (java.util.List) serviceComponent.get("resources");
+            if ( resources == null || resources.isEmpty() ) {
+                kcontext.setVariable("errorMessage", "Service component SC_ACCESS has no resources");
+                return;
+            }
+            java.util.Map resource = (java.util.Map) resources.get(0);
+            for ( Object o : resources ) {
+                java.util.Map r = (java.util.Map) o;
+                if ( Boolean.TRUE.equals( r.get("primary") ) ) { resource = r; }
+            }
+            java.util.Map resourceRef = (java.util.Map) resource.get("resourceRef");
+            kcontext.setVariable("serviceAccessCrossId", (String) resourceRef.get("id"));
+            found = true;
+        }
+    }
+}
+if ( !found ) {
+    kcontext.setVariable("errorMessage", "Unable to find the SC_ACCESS service component at the given service");
+}
+System.out.println("Data Outputs: serviceAccessCrossId=" + kcontext.getVariable("serviceAccessCrossId") + ", errorMessage=" + kcontext.getVariable("errorMessage"));]]></bpmn2:script>
+    </bpmn2:scriptTask>
+    <bpmn2:exclusiveGateway id="_ADD1A002-3333-4333-8333-ADD1A0020002" drools:dg="flow_gwsacc_findsvc1" gatewayDirection="Diverging" default="flow_gwsacc_findsvc1">
+      <bpmn2:incoming>flow_findsacc_gwsacc</bpmn2:incoming>
+      <bpmn2:outgoing>flow_gwsacc_fail</bpmn2:outgoing>
+      <bpmn2:outgoing>flow_gwsacc_findsvc1</bpmn2:outgoing>
+    </bpmn2:exclusiveGateway>
+    <bpmn2:intermediateThrowEvent id="_ADD1A003-3333-4333-8333-ADD1A0030003" name="Failed">
+      <bpmn2:extensionElements>
+        <drools:metaData name="elementname">
+          <drools:metaValue><![CDATA[Failed]]></drools:metaValue>
+        </drools:metaData>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>flow_gwsacc_fail</bpmn2:incoming>
+      <bpmn2:linkEventDefinition id="_ADD1B001-3333-4333-8333-ADD1B0010001" name="Failed">
+        <bpmn2:target>_FGd06WmEEfGwm_kRKeU4IQ</bpmn2:target>
+      </bpmn2:linkEventDefinition>
+    </bpmn2:intermediateThrowEvent>
+    <bpmn2:task id="_ADD1A004-3333-4333-8333-ADD1A0040004" drools:taskName="SdcApiCall" name="REST_API_CALL:
+cross/findService/SC_ACCESS">
+      <bpmn2:documentation id="_ADD1E001-3333-4333-8333-ADD1E0010001"><![CDATA[Retrieve the SC_ACCESS sub-service serviceAccessCrossId (resolved from the input service) via CROSS API. (FIND)]]></bpmn2:documentation>
+      <bpmn2:extensionElements>
+        <drools:metaData name="elementname">
+          <drools:metaValue><![CDATA[REST_API_CALL:
+cross/findService/SC_ACCESS]]></drools:metaValue>
+        </drools:metaData>
+        <drools:onEntry-script scriptFormat="http://www.java.com/java">
+          <drools:script><![CDATA[System.out.println("================================================");
+System.out.println("updateCustomerRoom - REST_API_CALL: cross/findService/SC_ACCESS");
+System.out.println("================================================");]]></drools:script>
+        </drools:onEntry-script>
+        <drools:onExit-script scriptFormat="http://www.java.com/java">
+          <drools:script><![CDATA[System.out.println("Data Outputs: httpStatusCode=" + httpStatusCode + ", message=" + message + ", serviceAccessComponents=" + serviceAccessComponents);]]></drools:script>
+        </drools:onExit-script>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>flow_gwsacc_findsvc1</bpmn2:incoming>
+      <bpmn2:outgoing>flow_findsvc1_findscpa</bpmn2:outgoing>
+      <bpmn2:ioSpecification id="_ADD1E002-3333-4333-8333-ADD1E0020002">
+        <bpmn2:dataInput id="_ADD1A004-3333-4333-8333-ADD1A0040004_apiUrlInputX" drools:dtype="String" itemSubjectRef="__ADD1A004-3333-4333-8333-ADD1A0040004_apiUrlInputXItem" name="apiUrl"/>
+        <bpmn2:dataInput id="_ADD1A004-3333-4333-8333-ADD1A0040004_routeMap.domainInputX" drools:dtype="String" itemSubjectRef="__ADD1A004-3333-4333-8333-ADD1A0040004_routeMap.domainInputXItem" name="routeMap.domain"/>
+        <bpmn2:dataInput id="_ADD1A004-3333-4333-8333-ADD1A0040004_routeMap.sourceInputX" drools:dtype="String" itemSubjectRef="__ADD1A004-3333-4333-8333-ADD1A0040004_routeMap.sourceInputXItem" name="routeMap.source"/>
+        <bpmn2:dataInput id="_ADD1A004-3333-4333-8333-ADD1A0040004_dataMap.serviceCrossIdInputX" drools:dtype="String" itemSubjectRef="__ADD1A004-3333-4333-8333-ADD1A0040004_dataMap.serviceCrossIdInputXItem" name="dataMap.serviceCrossId"/>
+        <bpmn2:dataInput id="_ADD1A004-3333-4333-8333-ADD1A0040004_TaskNameInputX" drools:dtype="Object" name="TaskName"/>
+        <bpmn2:dataOutput id="_ADD1A004-3333-4333-8333-ADD1A0040004_httpStatusCodeOutputX" drools:dtype="Integer" itemSubjectRef="__ADD1A004-3333-4333-8333-ADD1A0040004_httpStatusCodeOutputXItem" name="httpStatusCode"/>
+        <bpmn2:dataOutput id="_ADD1A004-3333-4333-8333-ADD1A0040004_messageOutputX" drools:dtype="String" itemSubjectRef="__ADD1A004-3333-4333-8333-ADD1A0040004_messageOutputXItem" name="message"/>
+        <bpmn2:dataOutput id="_ADD1A004-3333-4333-8333-ADD1A0040004_serviceComponentsOutputX" drools:dtype="java.util.List" itemSubjectRef="__ADD1A004-3333-4333-8333-ADD1A0040004_serviceComponentsOutputXItem" name="serviceComponents"/>
+        <bpmn2:inputSet id="_ADD1E003-3333-4333-8333-ADD1E0030003">
+          <bpmn2:dataInputRefs>_ADD1A004-3333-4333-8333-ADD1A0040004_apiUrlInputX</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>_ADD1A004-3333-4333-8333-ADD1A0040004_routeMap.domainInputX</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>_ADD1A004-3333-4333-8333-ADD1A0040004_routeMap.sourceInputX</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>_ADD1A004-3333-4333-8333-ADD1A0040004_dataMap.serviceCrossIdInputX</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>_ADD1A004-3333-4333-8333-ADD1A0040004_TaskNameInputX</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+        <bpmn2:outputSet id="_ADD1E004-3333-4333-8333-ADD1E0040004">
+          <bpmn2:dataOutputRefs>_ADD1A004-3333-4333-8333-ADD1A0040004_httpStatusCodeOutputX</bpmn2:dataOutputRefs>
+          <bpmn2:dataOutputRefs>_ADD1A004-3333-4333-8333-ADD1A0040004_messageOutputX</bpmn2:dataOutputRefs>
+          <bpmn2:dataOutputRefs>_ADD1A004-3333-4333-8333-ADD1A0040004_serviceComponentsOutputX</bpmn2:dataOutputRefs>
+        </bpmn2:outputSet>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation id="_ADD1F001-3333-4333-8333-ADD1F0010001">
+        <bpmn2:sourceRef>_apiCallUrl</bpmn2:sourceRef>
+        <bpmn2:targetRef>_ADD1A004-3333-4333-8333-ADD1A0040004_apiUrlInputX</bpmn2:targetRef>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="_ADD1F002-3333-4333-8333-ADD1F0020002">
+        <bpmn2:targetRef>_ADD1A004-3333-4333-8333-ADD1A0040004_routeMap.domainInputX</bpmn2:targetRef>
+        <bpmn2:assignment id="_ADD1F003-3333-4333-8333-ADD1F0030003">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_ADD1F004-3333-4333-8333-ADD1F0040004"><![CDATA[REST_API_CALL]]></bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_ADD1F005-3333-4333-8333-ADD1F0050005">_ADD1A004-3333-4333-8333-ADD1A0040004_routeMap.domainInputX</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="_ADD1F006-3333-4333-8333-ADD1F0060006">
+        <bpmn2:targetRef>_ADD1A004-3333-4333-8333-ADD1A0040004_routeMap.sourceInputX</bpmn2:targetRef>
+        <bpmn2:assignment id="_ADD1F007-3333-4333-8333-ADD1F0070007">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_ADD1F008-3333-4333-8333-ADD1F0080008"><![CDATA[cross/findService]]></bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_ADD1F009-3333-4333-8333-ADD1F0090009">_ADD1A004-3333-4333-8333-ADD1A0040004_routeMap.sourceInputX</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="_ADD1F010-3333-4333-8333-ADD1F0100010">
+        <bpmn2:sourceRef>serviceAccessCrossId</bpmn2:sourceRef>
+        <bpmn2:targetRef>_ADD1A004-3333-4333-8333-ADD1A0040004_dataMap.serviceCrossIdInputX</bpmn2:targetRef>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="_ADD1F011-3333-4333-8333-ADD1F0110011">
+        <bpmn2:targetRef>_ADD1A004-3333-4333-8333-ADD1A0040004_TaskNameInputX</bpmn2:targetRef>
+        <bpmn2:assignment id="_ADD1F012-3333-4333-8333-ADD1F0120012">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_ADD1F013-3333-4333-8333-ADD1F0130013"><![CDATA[SdcApiCall]]></bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_ADD1F014-3333-4333-8333-ADD1F0140014">_ADD1A004-3333-4333-8333-ADD1A0040004_TaskNameInputX</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataOutputAssociation id="_ADD1F015-3333-4333-8333-ADD1F0150015">
+        <bpmn2:sourceRef>_ADD1A004-3333-4333-8333-ADD1A0040004_httpStatusCodeOutputX</bpmn2:sourceRef>
+        <bpmn2:targetRef>httpStatusCode</bpmn2:targetRef>
+      </bpmn2:dataOutputAssociation>
+      <bpmn2:dataOutputAssociation id="_ADD1F016-3333-4333-8333-ADD1F0160016">
+        <bpmn2:sourceRef>_ADD1A004-3333-4333-8333-ADD1A0040004_messageOutputX</bpmn2:sourceRef>
+        <bpmn2:targetRef>message</bpmn2:targetRef>
+      </bpmn2:dataOutputAssociation>
+      <bpmn2:dataOutputAssociation id="_ADD1F017-3333-4333-8333-ADD1F0170017">
+        <bpmn2:sourceRef>_ADD1A004-3333-4333-8333-ADD1A0040004_serviceComponentsOutputX</bpmn2:sourceRef>
+        <bpmn2:targetRef>serviceAccessComponents</bpmn2:targetRef>
+      </bpmn2:dataOutputAssociation>
+    </bpmn2:task>
     <bpmn2:scriptTask id="_ADD0A001-2222-4222-8222-ADD0A0010001" name="find servicePhysicalAccessCrossId" scriptFormat="http://www.java.com/java">
       <bpmn2:extensionElements>
         <drools:metaData name="elementname">
           <drools:metaValue><![CDATA[find servicePhysicalAccessCrossId]]></drools:metaValue>
         </drools:metaData>
       </bpmn2:extensionElements>
-      <bpmn2:incoming>flow_findservice_findscpa</bpmn2:incoming>
+      <bpmn2:incoming>flow_findsvc1_findscpa</bpmn2:incoming>
       <bpmn2:outgoing>flow_findscpa_gwscpa</bpmn2:outgoing>
       <bpmn2:script><![CDATA[System.out.println("================================================");
 System.out.println("updateCustomerRoom - find servicePhysicalAccessCrossId");
 System.out.println("================================================");
 
 boolean found = false;
-if ( serviceComponents != null ) {
-    for ( java.util.Map serviceComponent : (java.util.List<java.util.Map>) serviceComponents ) {
+if ( serviceAccessComponents != null ) {
+    for ( java.util.Map serviceComponent : (java.util.List<java.util.Map>) serviceAccessComponents ) {
         if ( "SC_PHYSICAL_ACCESS".equals( serviceComponent.get("componentTypeName") ) ) {
             java.util.List resources = (java.util.List) serviceComponent.get("resources");
             if ( resources == null || resources.isEmpty() ) {
@@ -617,6 +777,7 @@ System.out.println("================================================");]]></droo
         <bpmn2:source>_FGeb5mmEEfGwm_kRKeU4IQ</bpmn2:source>
         <bpmn2:source>_FGeb5WmEEfGwm_kRKeU4IQ</bpmn2:source>
         <bpmn2:source>_FGd06GmEEfGwm_kRKeU4IQ</bpmn2:source>
+        <bpmn2:source>_ADD1B001-3333-4333-8333-ADD1B0010001</bpmn2:source>
       </bpmn2:linkEventDefinition>
     </bpmn2:intermediateCatchEvent>
     <bpmn2:intermediateThrowEvent id="_2D7AC52B-18C2-4558-BAA6-4CC538ED387D" name="Failed">
@@ -1079,6 +1240,18 @@ kcontext.setVariable("parentCrossIds", parentCrossIdsList);]]></drools:script>
       <bpmndi:BPMNShape id="shape__ADD0A001-2222-4222-8222-ADD0A0010001" bpmnElement="_ADD0A001-2222-4222-8222-ADD0A0010001">
         <dc:Bounds height="102.0" width="154.0" x="992.0" y="177.0"/>
       </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="shape__ADD1A001-3333-4333-8333-ADD1A0010001" bpmnElement="_ADD1A001-3333-4333-8333-ADD1A0010001">
+        <dc:Bounds height="102.0" width="154.0" x="764.0" y="500.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="shape__ADD1A002-3333-4333-8333-ADD1A0020002" bpmnElement="_ADD1A002-3333-4333-8333-ADD1A0020002">
+        <dc:Bounds height="56.0" width="56.0" x="970.0" y="523.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="shape__ADD1A003-3333-4333-8333-ADD1A0030003" bpmnElement="_ADD1A003-3333-4333-8333-ADD1A0030003">
+        <dc:Bounds height="56.0" width="56.0" x="970.0" y="640.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="shape__ADD1A004-3333-4333-8333-ADD1A0040004" bpmnElement="_ADD1A004-3333-4333-8333-ADD1A0040004">
+        <dc:Bounds height="102.0" width="154.0" x="1100.0" y="500.0"/>
+      </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="shape__ECD39505-5686-4C54-B7B5-65076DBCDA3D" bpmnElement="_ECD39505-5686-4C54-B7B5-65076DBCDA3D">
         <dc:Bounds height="102.0" width="154.0" x="533.0" y="539.0"/>
       </bpmndi:BPMNShape>
@@ -1160,9 +1333,25 @@ kcontext.setVariable("parentCrossIds", parentCrossIdsList);]]></drools:script>
         <di:waypoint xsi:type="dc:Point" x="1073.0" y="108.0"/>
         <di:waypoint xsi:type="dc:Point" x="1290.0" y="227.0"/>
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="edge_shape__D25B668F-EE31-469E-9F12-F75D54EC088E_to_shape__ADD0A001-2222-4222-8222-ADD0A0010001" bpmnElement="flow_findservice_findscpa">
-        <di:waypoint xsi:type="dc:Point" x="841.0" y="228.0"/>
-        <di:waypoint xsi:type="dc:Point" x="1069.0" y="228.0"/>
+      <bpmndi:BPMNEdge id="edge_shape__D25B668F-EE31-469E-9F12-F75D54EC088E_to_shape__ADD1A001-3333-4333-8333-ADD1A0010001" bpmnElement="flow_findservice_findsacc">
+        <di:waypoint xsi:type="dc:Point" x="841.0" y="279.0"/>
+        <di:waypoint xsi:type="dc:Point" x="841.0" y="500.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="edge_shape__ADD1A001-3333-4333-8333-ADD1A0010001_to_shape__ADD1A002-3333-4333-8333-ADD1A0020002" bpmnElement="flow_findsacc_gwsacc">
+        <di:waypoint xsi:type="dc:Point" x="918.0" y="551.0"/>
+        <di:waypoint xsi:type="dc:Point" x="998.0" y="551.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="edge_shape__ADD1A002-3333-4333-8333-ADD1A0020002_to_shape__ADD1A003-3333-4333-8333-ADD1A0030003" bpmnElement="flow_gwsacc_fail">
+        <di:waypoint xsi:type="dc:Point" x="998.0" y="551.0"/>
+        <di:waypoint xsi:type="dc:Point" x="998.0" y="668.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="edge_shape__ADD1A002-3333-4333-8333-ADD1A0020002_to_shape__ADD1A004-3333-4333-8333-ADD1A0040004" bpmnElement="flow_gwsacc_findsvc1">
+        <di:waypoint xsi:type="dc:Point" x="998.0" y="551.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1177.0" y="551.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="edge_shape__ADD1A004-3333-4333-8333-ADD1A0040004_to_shape__ADD0A001-2222-4222-8222-ADD0A0010001" bpmnElement="flow_findsvc1_findscpa">
+        <di:waypoint xsi:type="dc:Point" x="1177.0" y="500.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1069.0" y="279.0"/>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="edge_shape__ADD0A001-2222-4222-8222-ADD0A0010001_to_shape__ADD0A002-2222-4222-8222-ADD0A0020002" bpmnElement="flow_findscpa_gwscpa">
         <di:waypoint xsi:type="dc:Point" x="1069.0" y="228.0"/>
