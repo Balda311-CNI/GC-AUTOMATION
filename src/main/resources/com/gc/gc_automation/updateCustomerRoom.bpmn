@@ -17,7 +17,7 @@
   <bpmn2:itemDefinition id="_cpeNodeTypeDiscriminatorsItem" structureRef="java.util.List"/>
   <bpmn2:itemDefinition id="_cpeNameItem" structureRef="String"/>
   <bpmn2:itemDefinition id="_cpeStatusDiscriminatorItem" structureRef="String"/>
-  <bpmn2:itemDefinition id="_cpeCapacityFullItem" structureRef="Long"/>
+  <bpmn2:itemDefinition id="_cpeCapacityFullItem" structureRef="Integer"/>
   <bpmn2:itemDefinition id="_roomCrossIdItem" structureRef="String"/>
   <bpmn2:itemDefinition id="_roomCriteriaItem" structureRef="String"/>
   <bpmn2:itemDefinition id="_resultListItem" structureRef="java.util.List"/>
@@ -34,7 +34,7 @@
   <bpmn2:itemDefinition id="__2219AC2D-7D00-49DA-B3D2-86FFADE5B45C_dataMap.parentCrossIdsInputXItem" structureRef="java.util.List"/>
   <bpmn2:itemDefinition id="__2219AC2D-7D00-49DA-B3D2-86FFADE5B45C_dataMap.nameInputXItem" structureRef="String"/>
   <bpmn2:itemDefinition id="__2219AC2D-7D00-49DA-B3D2-86FFADE5B45C_dataMap.statusDiscriminatorInputXItem" structureRef="String"/>
-  <bpmn2:itemDefinition id="__2219AC2D-7D00-49DA-B3D2-86FFADE5B45C_dataMap.capacityFullInputXItem" structureRef="Long"/>
+  <bpmn2:itemDefinition id="__2219AC2D-7D00-49DA-B3D2-86FFADE5B45C_dataMap.capacityFullInputXItem" structureRef="Integer"/>
   <bpmn2:itemDefinition id="__2219AC2D-7D00-49DA-B3D2-86FFADE5B45C_dataMap.nodeTypeDiscriminatorsInputXItem" structureRef="java.util.List"/>
   <bpmn2:itemDefinition id="__2219AC2D-7D00-49DA-B3D2-86FFADE5B45C_httpStatusCodeOutputXItem" structureRef="Integer"/>
   <bpmn2:itemDefinition id="__2219AC2D-7D00-49DA-B3D2-86FFADE5B45C_messageOutputXItem" structureRef="String"/>
@@ -66,7 +66,7 @@
   <bpmn2:itemDefinition id="__21E60016-0F71-4539-8824-BD9716CF2C7A_messageOutputXItem" structureRef="String"/>
   <bpmn2:itemDefinition id="__21E60016-0F71-4539-8824-BD9716CF2C7A_nameOutputXItem" structureRef="String"/>
   <bpmn2:itemDefinition id="__21E60016-0F71-4539-8824-BD9716CF2C7A_statusDiscriminatorOutputXItem" structureRef="String"/>
-  <bpmn2:itemDefinition id="__21E60016-0F71-4539-8824-BD9716CF2C7A_capacityFullOutputXItem" structureRef="Long"/>
+  <bpmn2:itemDefinition id="__21E60016-0F71-4539-8824-BD9716CF2C7A_capacityFullOutputXItem" structureRef="Integer"/>
   <bpmn2:itemDefinition id="__21E60016-0F71-4539-8824-BD9716CF2C7A_nodeTypeDiscriminatorsOutputXItem" structureRef="java.util.List"/>
   <bpmn2:itemDefinition id="__ADD1A004-3333-4333-8333-ADD1A0040004_apiUrlInputXItem" structureRef="String"/>
   <bpmn2:itemDefinition id="__ADD1A004-3333-4333-8333-ADD1A0040004_routeMap.domainInputXItem" structureRef="String"/>
@@ -701,7 +701,7 @@ System.out.println("================================================");]]></droo
         <bpmn2:dataOutput id="_21E60016-0F71-4539-8824-BD9716CF2C7A_messageOutputX" drools:dtype="String" itemSubjectRef="__21E60016-0F71-4539-8824-BD9716CF2C7A_messageOutputXItem" name="message"/>
         <bpmn2:dataOutput id="_21E60016-0F71-4539-8824-BD9716CF2C7A_nameOutputX" drools:dtype="String" itemSubjectRef="__21E60016-0F71-4539-8824-BD9716CF2C7A_nameOutputXItem" name="name"/>
         <bpmn2:dataOutput id="_21E60016-0F71-4539-8824-BD9716CF2C7A_statusDiscriminatorOutputX" drools:dtype="String" itemSubjectRef="__21E60016-0F71-4539-8824-BD9716CF2C7A_statusDiscriminatorOutputXItem" name="statusDiscriminator"/>
-        <bpmn2:dataOutput id="_21E60016-0F71-4539-8824-BD9716CF2C7A_capacityFullOutputX" drools:dtype="Long" itemSubjectRef="__21E60016-0F71-4539-8824-BD9716CF2C7A_capacityFullOutputXItem" name="capacityFull"/>
+        <bpmn2:dataOutput id="_21E60016-0F71-4539-8824-BD9716CF2C7A_capacityFullOutputX" drools:dtype="Integer" itemSubjectRef="__21E60016-0F71-4539-8824-BD9716CF2C7A_capacityFullOutputXItem" name="capacityFull"/>
         <bpmn2:dataOutput id="_21E60016-0F71-4539-8824-BD9716CF2C7A_nodeTypeDiscriminatorsOutputX" drools:dtype="java.util.List" itemSubjectRef="__21E60016-0F71-4539-8824-BD9716CF2C7A_nodeTypeDiscriminatorsOutputXItem" name="nodeTypeDiscriminators"/>
         <bpmn2:inputSet id="_MxfCGmm4EfGwm_kRKeU4IQ">
           <bpmn2:dataInputRefs>_21E60016-0F71-4539-8824-BD9716CF2C7A_apiUrlInputX</bpmn2:dataInputRefs>
@@ -1084,7 +1084,7 @@ kcontext.setVariable("parentCrossIds", parentCrossIdsList);]]></drools:script>
         <bpmn2:dataInput id="_2219AC2D-7D00-49DA-B3D2-86FFADE5B45C_dataMap.parentCrossIdsInputX" drools:dtype="java.util.List" itemSubjectRef="__2219AC2D-7D00-49DA-B3D2-86FFADE5B45C_dataMap.parentCrossIdsInputXItem" name="dataMap.parentCrossIds"/>
         <bpmn2:dataInput id="_2219AC2D-7D00-49DA-B3D2-86FFADE5B45C_dataMap.nameInputX" drools:dtype="String" itemSubjectRef="__2219AC2D-7D00-49DA-B3D2-86FFADE5B45C_dataMap.nameInputXItem" name="dataMap.name"/>
         <bpmn2:dataInput id="_2219AC2D-7D00-49DA-B3D2-86FFADE5B45C_dataMap.statusDiscriminatorInputX" drools:dtype="String" itemSubjectRef="__2219AC2D-7D00-49DA-B3D2-86FFADE5B45C_dataMap.statusDiscriminatorInputXItem" name="dataMap.statusDiscriminator"/>
-        <bpmn2:dataInput id="_2219AC2D-7D00-49DA-B3D2-86FFADE5B45C_dataMap.capacityFullInputX" drools:dtype="Long" itemSubjectRef="__2219AC2D-7D00-49DA-B3D2-86FFADE5B45C_dataMap.capacityFullInputXItem" name="dataMap.capacityFull"/>
+        <bpmn2:dataInput id="_2219AC2D-7D00-49DA-B3D2-86FFADE5B45C_dataMap.capacityFullInputX" drools:dtype="Integer" itemSubjectRef="__2219AC2D-7D00-49DA-B3D2-86FFADE5B45C_dataMap.capacityFullInputXItem" name="dataMap.capacityFull"/>
         <bpmn2:dataInput id="_2219AC2D-7D00-49DA-B3D2-86FFADE5B45C_dataMap.nodeTypeDiscriminatorsInputX" drools:dtype="java.util.List" itemSubjectRef="__2219AC2D-7D00-49DA-B3D2-86FFADE5B45C_dataMap.nodeTypeDiscriminatorsInputXItem" name="dataMap.nodeTypeDiscriminators"/>
         <bpmn2:dataInput id="_2219AC2D-7D00-49DA-B3D2-86FFADE5B45C_TaskNameInputX" drools:dtype="Object" name="TaskName"/>
         <bpmn2:dataOutput id="_2219AC2D-7D00-49DA-B3D2-86FFADE5B45C_httpStatusCodeOutputX" drools:dtype="Integer" itemSubjectRef="__2219AC2D-7D00-49DA-B3D2-86FFADE5B45C_httpStatusCodeOutputXItem" name="httpStatusCode"/>
