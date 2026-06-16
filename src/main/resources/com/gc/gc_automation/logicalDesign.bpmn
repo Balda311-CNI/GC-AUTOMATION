@@ -21,7 +21,7 @@
   <bpmn2:itemDefinition id="_servicePhysicalAccessCrossIdItem" structureRef="String"/>
   <bpmn2:itemDefinition id="_servicePhysicalAccessComponentsItem" structureRef="java.util.List"/>
   <bpmn2:itemDefinition id="_serviceComponentCpeCrossIdItem" structureRef="String"/>
-  <bpmn2:itemDefinition id="_cpeResourcesItem" structureRef="java.util.List"/>
+  <bpmn2:itemDefinition id="_serviceComponentCpeResourcesItem" structureRef="java.util.List"/>
   <bpmn2:itemDefinition id="_resultListItem" structureRef="java.util.List"/>
   <bpmn2:itemDefinition id="_httpStatusCodeItem" structureRef="Integer"/>
   <bpmn2:itemDefinition id="_messageItem" structureRef="String"/>
@@ -198,7 +198,7 @@
     <bpmn2:property id="servicePhysicalAccessCrossId" itemSubjectRef="_servicePhysicalAccessCrossIdItem" name="servicePhysicalAccessCrossId"/>
     <bpmn2:property id="servicePhysicalAccessComponents" itemSubjectRef="_servicePhysicalAccessComponentsItem" name="servicePhysicalAccessComponents"/>
     <bpmn2:property id="serviceComponentCpeCrossId" itemSubjectRef="_serviceComponentCpeCrossIdItem" name="serviceComponentCpeCrossId"/>
-    <bpmn2:property id="cpeResources" itemSubjectRef="_cpeResourcesItem" name="cpeResources"/>
+    <bpmn2:property id="serviceComponentCpeResources" itemSubjectRef="_serviceComponentCpeResourcesItem" name="serviceComponentCpeResources"/>
     <bpmn2:property id="resultList" itemSubjectRef="_resultListItem" name="resultList"/>
     <bpmn2:property id="httpStatusCode" itemSubjectRef="_httpStatusCodeItem" name="httpStatusCode"/>
     <bpmn2:property id="message" itemSubjectRef="_messageItem" name="message"/>
@@ -2170,13 +2170,13 @@ cross/addCpeToServiceComponent]]></drools:metaValue>
 System.out.println("logicalDesign - REST_API_CALL: cross/addCpeToServiceComponent");
 System.out.println("================================================");
 
-java.util.List cpeResourcesList = new java.util.ArrayList();
+java.util.List serviceComponentCpeResourcesList = new java.util.ArrayList();
 java.util.Map resource = new java.util.HashMap();
 resource.put("crossId", cpeCrossId);
 resource.put("primary", true);
-cpeResourcesList.add(resource);
-kcontext.setVariable("cpeResources", cpeResourcesList);
-System.out.println("serviceComponentCpeCrossId=" + serviceComponentCpeCrossId + ", cpeResources=" + cpeResourcesList);]]></drools:script>
+serviceComponentCpeResourcesList.add(resource);
+kcontext.setVariable("serviceComponentCpeResources", serviceComponentCpeResourcesList);
+System.out.println("serviceComponentCpeCrossId=" + serviceComponentCpeCrossId + ", serviceComponentCpeResources=" + serviceComponentCpeResourcesList);]]></drools:script>
         </drools:onEntry-script>
       </bpmn2:extensionElements>
       <bpmn2:incoming>_551A3D62-7662-4BA4-8381-FEFE1ECDD088</bpmn2:incoming>
@@ -2232,7 +2232,7 @@ System.out.println("serviceComponentCpeCrossId=" + serviceComponentCpeCrossId + 
         <bpmn2:targetRef>_CFE0A004-1111-4111-8111-CFE0A0040004_dataMap.projectNameInputX</bpmn2:targetRef>
       </bpmn2:dataInputAssociation>
       <bpmn2:dataInputAssociation id="_VSzgnGlfEfGgkJmREj_c5g">
-        <bpmn2:sourceRef>cpeResources</bpmn2:sourceRef>
+        <bpmn2:sourceRef>serviceComponentCpeResources</bpmn2:sourceRef>
         <bpmn2:targetRef>_CFE0A004-1111-4111-8111-CFE0A0040004_dataMap.resourcesInputX</bpmn2:targetRef>
       </bpmn2:dataInputAssociation>
       <bpmn2:dataInputAssociation id="_VSzgnWlfEfGgkJmREj_c5g">
