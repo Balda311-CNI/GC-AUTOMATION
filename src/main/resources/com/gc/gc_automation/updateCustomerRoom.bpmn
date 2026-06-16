@@ -14,10 +14,6 @@
   <bpmn2:itemDefinition id="_serviceAccessCrossIdItem" structureRef="String"/>
   <bpmn2:itemDefinition id="_serviceAccessComponentsItem" structureRef="java.util.List"/>
   <bpmn2:itemDefinition id="_cpeCrossIdItem" structureRef="String"/>
-  <bpmn2:itemDefinition id="_cpeNodeTypeDiscriminatorsItem" structureRef="java.util.List"/>
-  <bpmn2:itemDefinition id="_cpeNameItem" structureRef="String"/>
-  <bpmn2:itemDefinition id="_cpeStatusDiscriminatorItem" structureRef="String"/>
-  <bpmn2:itemDefinition id="_cpeCapacityFullItem" structureRef="Integer"/>
   <bpmn2:itemDefinition id="_roomCrossIdItem" structureRef="String"/>
   <bpmn2:itemDefinition id="_httpStatusCodeItem" structureRef="Integer"/>
   <bpmn2:itemDefinition id="_messageItem" structureRef="String"/>
@@ -30,10 +26,6 @@
   <bpmn2:itemDefinition id="__2219AC2D-7D00-49DA-B3D2-86FFADE5B45C_dataMap.projectNameInputXItem" structureRef="String"/>
   <bpmn2:itemDefinition id="__2219AC2D-7D00-49DA-B3D2-86FFADE5B45C_dataMap.crossIdInputXItem" structureRef="String"/>
   <bpmn2:itemDefinition id="__2219AC2D-7D00-49DA-B3D2-86FFADE5B45C_dataMap.parentCrossIdsInputXItem" structureRef="java.util.List"/>
-  <bpmn2:itemDefinition id="__2219AC2D-7D00-49DA-B3D2-86FFADE5B45C_dataMap.nameInputXItem" structureRef="String"/>
-  <bpmn2:itemDefinition id="__2219AC2D-7D00-49DA-B3D2-86FFADE5B45C_dataMap.statusDiscriminatorInputXItem" structureRef="String"/>
-  <bpmn2:itemDefinition id="__2219AC2D-7D00-49DA-B3D2-86FFADE5B45C_dataMap.capacityFullInputXItem" structureRef="Integer"/>
-  <bpmn2:itemDefinition id="__2219AC2D-7D00-49DA-B3D2-86FFADE5B45C_dataMap.nodeTypeDiscriminatorsInputXItem" structureRef="java.util.List"/>
   <bpmn2:itemDefinition id="__2219AC2D-7D00-49DA-B3D2-86FFADE5B45C_httpStatusCodeOutputXItem" structureRef="Integer"/>
   <bpmn2:itemDefinition id="__2219AC2D-7D00-49DA-B3D2-86FFADE5B45C_messageOutputXItem" structureRef="String"/>
   <bpmn2:itemDefinition id="__A5BE9CA5-73C3-402B-B50E-31739BB0CA5A_apiUrlInputXItem" structureRef="String"/>
@@ -59,16 +51,6 @@
   <bpmn2:itemDefinition id="__DE70A09C-D121-4102-BB26-7C89723EFE89_crossIdOutputXItem" structureRef="String"/>
   <bpmn2:itemDefinition id="__DE70A09C-D121-4102-BB26-7C89723EFE89_httpStatusCodeOutputXItem" structureRef="Integer"/>
   <bpmn2:itemDefinition id="__DE70A09C-D121-4102-BB26-7C89723EFE89_messageOutputXItem" structureRef="String"/>
-  <bpmn2:itemDefinition id="__21E60016-0F71-4539-8824-BD9716CF2C7A_apiUrlInputXItem" structureRef="String"/>
-  <bpmn2:itemDefinition id="__21E60016-0F71-4539-8824-BD9716CF2C7A_routeMap.domainInputXItem" structureRef="String"/>
-  <bpmn2:itemDefinition id="__21E60016-0F71-4539-8824-BD9716CF2C7A_routeMap.sourceInputXItem" structureRef="String"/>
-  <bpmn2:itemDefinition id="__21E60016-0F71-4539-8824-BD9716CF2C7A_dataMap.crossIdInputXItem" structureRef="String"/>
-  <bpmn2:itemDefinition id="__21E60016-0F71-4539-8824-BD9716CF2C7A_httpStatusCodeOutputXItem" structureRef="Integer"/>
-  <bpmn2:itemDefinition id="__21E60016-0F71-4539-8824-BD9716CF2C7A_messageOutputXItem" structureRef="String"/>
-  <bpmn2:itemDefinition id="__21E60016-0F71-4539-8824-BD9716CF2C7A_nameOutputXItem" structureRef="String"/>
-  <bpmn2:itemDefinition id="__21E60016-0F71-4539-8824-BD9716CF2C7A_statusDiscriminatorOutputXItem" structureRef="String"/>
-  <bpmn2:itemDefinition id="__21E60016-0F71-4539-8824-BD9716CF2C7A_capacityFullOutputXItem" structureRef="Integer"/>
-  <bpmn2:itemDefinition id="__21E60016-0F71-4539-8824-BD9716CF2C7A_nodeTypeDiscriminatorsOutputXItem" structureRef="java.util.List"/>
   <bpmn2:itemDefinition id="__ADD1A004-3333-4333-8333-ADD1A0040004_apiUrlInputXItem" structureRef="String"/>
   <bpmn2:itemDefinition id="__ADD1A004-3333-4333-8333-ADD1A0040004_routeMap.domainInputXItem" structureRef="String"/>
   <bpmn2:itemDefinition id="__ADD1A004-3333-4333-8333-ADD1A0040004_routeMap.sourceInputXItem" structureRef="String"/>
@@ -108,10 +90,6 @@
     <bpmn2:property id="serviceAccessCrossId" itemSubjectRef="_serviceAccessCrossIdItem" name="serviceAccessCrossId"/>
     <bpmn2:property id="serviceAccessComponents" itemSubjectRef="_serviceAccessComponentsItem" name="serviceAccessComponents"/>
     <bpmn2:property id="cpeCrossId" itemSubjectRef="_cpeCrossIdItem" name="cpeCrossId"/>
-    <bpmn2:property id="cpeNodeTypeDiscriminators" itemSubjectRef="_cpeNodeTypeDiscriminatorsItem" name="cpeNodeTypeDiscriminators"/>
-    <bpmn2:property id="cpeName" itemSubjectRef="_cpeNameItem" name="cpeName"/>
-    <bpmn2:property id="cpeStatusDiscriminator" itemSubjectRef="_cpeStatusDiscriminatorItem" name="cpeStatusDiscriminator"/>
-    <bpmn2:property id="cpeCapacityFull" itemSubjectRef="_cpeCapacityFullItem" name="cpeCapacityFull"/>
     <bpmn2:property id="roomCrossId" itemSubjectRef="_roomCrossIdItem" name="roomCrossId"/>
     <bpmn2:property id="httpStatusCode" itemSubjectRef="_httpStatusCodeItem" name="httpStatusCode"/>
     <bpmn2:property id="message" itemSubjectRef="_messageItem" name="message"/>
@@ -142,7 +120,7 @@ return result;]]></bpmn2:conditionExpression>
     </bpmn2:sequenceFlow>
     <bpmn2:sequenceFlow id="flow_findsvc2_findcpe" sourceRef="_ADD0A004-2222-4222-8222-ADD0A0040004" targetRef="_308AF56D-8B1A-4B9D-81F1-D546F32D9087"/>
     <bpmn2:sequenceFlow id="flow_resultfail_end" sourceRef="_78DA6FC7-FD80-4183-9085-CFD5814B8D36" targetRef="_D0302EDE-27B8-4DE9-8316-DE42314CE329"/>
-    <bpmn2:sequenceFlow id="flow_gw1_findnode" sourceRef="_C2586953-D211-4AEF-A761-82289F7B6FC6" targetRef="_21E60016-0F71-4539-8824-BD9716CF2C7A"/>
+    <bpmn2:sequenceFlow id="flow_gw1_findnode" sourceRef="_C2586953-D211-4AEF-A761-82289F7B6FC6" targetRef="_DE70A09C-D121-4102-BB26-7C89723EFE89"/>
     <bpmn2:sequenceFlow id="flow_gwscpa_fail" name="Error" sourceRef="_ADD0A002-2222-4222-8222-ADD0A0020002" targetRef="_ADD0A003-2222-4222-8222-ADD0A0030003">
       <bpmn2:extensionElements>
         <drools:metaData name="elementname">
@@ -165,7 +143,6 @@ return result;]]></bpmn2:conditionExpression>
     </bpmn2:sequenceFlow>
     <bpmn2:sequenceFlow id="flow_resultok_end" sourceRef="_ECD39505-5686-4C54-B7B5-65076DBCDA3D" targetRef="_E2349E36-92BB-4A64-9495-1F8F71D24903"/>
     <bpmn2:sequenceFlow id="flow_findroom_gw2" sourceRef="_DE70A09C-D121-4102-BB26-7C89723EFE89" targetRef="_B3621A74-EE43-47B3-81BD-697E1F6D9B24"/>
-    <bpmn2:sequenceFlow id="flow_findnode_findroom" sourceRef="_21E60016-0F71-4539-8824-BD9716CF2C7A" targetRef="_DE70A09C-D121-4102-BB26-7C89723EFE89"/>
     <bpmn2:sequenceFlow id="flow_gwsacc_findsvc1" sourceRef="_ADD1A002-3333-4333-8333-ADD1A0020002" targetRef="_ADD1A004-3333-4333-8333-ADD1A0040004"/>
     <bpmn2:sequenceFlow id="flow_gwsacc_fail" name="Error" sourceRef="_ADD1A002-3333-4333-8333-ADD1A0020002" targetRef="_ADD1A003-3333-4333-8333-ADD1A0030003">
       <bpmn2:extensionElements>
@@ -671,107 +648,6 @@ System.out.println("Data Outputs: cpeCrossId=" + kcontext.getVariable("cpeCrossI
     <bpmn2:endEvent id="_D0302EDE-27B8-4DE9-8316-DE42314CE329">
       <bpmn2:incoming>flow_resultfail_end</bpmn2:incoming>
     </bpmn2:endEvent>
-    <bpmn2:task id="_21E60016-0F71-4539-8824-BD9716CF2C7A" drools:taskName="SdcApiCall" name="REST_API_CALL:
-cross/findNode/CPE">
-      <bpmn2:documentation id="_MxfCGGm4EfGwm_kRKeU4IQ"><![CDATA[Retrieve CPE node attributes (name, status, capacity, node types) via CROSS API. (FIND)]]></bpmn2:documentation>
-      <bpmn2:extensionElements>
-        <drools:metaData name="elementname">
-          <drools:metaValue><![CDATA[REST_API_CALL:
-cross/findNode/CPE]]></drools:metaValue>
-        </drools:metaData>
-        <drools:onEntry-script scriptFormat="http://www.java.com/java">
-          <drools:script><![CDATA[System.out.println("================================================");
-System.out.println("updateCustomerRoom - REST_API_CALL: cross/findNode/CPE");
-System.out.println("================================================");]]></drools:script>
-        </drools:onEntry-script>
-        <drools:onExit-script scriptFormat="http://www.java.com/java">
-          <drools:script><![CDATA[System.out.println("Data Outputs: cpeName=" + cpeName + ", cpeStatusDiscriminator=" + cpeStatusDiscriminator + ", cpeCapacityFull=" + cpeCapacityFull + ", cpeNodeTypeDiscriminators=" + cpeNodeTypeDiscriminators + ", httpStatusCode=" + httpStatusCode + ", message=" + message);]]></drools:script>
-        </drools:onExit-script>
-      </bpmn2:extensionElements>
-      <bpmn2:incoming>flow_gw1_findnode</bpmn2:incoming>
-      <bpmn2:outgoing>flow_findnode_findroom</bpmn2:outgoing>
-      <bpmn2:ioSpecification id="_MxfCGWm4EfGwm_kRKeU4IQ">
-        <bpmn2:dataInput id="_21E60016-0F71-4539-8824-BD9716CF2C7A_apiUrlInputX" drools:dtype="String" itemSubjectRef="__21E60016-0F71-4539-8824-BD9716CF2C7A_apiUrlInputXItem" name="apiUrl"/>
-        <bpmn2:dataInput id="_21E60016-0F71-4539-8824-BD9716CF2C7A_routeMap.domainInputX" drools:dtype="String" itemSubjectRef="__21E60016-0F71-4539-8824-BD9716CF2C7A_routeMap.domainInputXItem" name="routeMap.domain"/>
-        <bpmn2:dataInput id="_21E60016-0F71-4539-8824-BD9716CF2C7A_routeMap.sourceInputX" drools:dtype="String" itemSubjectRef="__21E60016-0F71-4539-8824-BD9716CF2C7A_routeMap.sourceInputXItem" name="routeMap.source"/>
-        <bpmn2:dataInput id="_21E60016-0F71-4539-8824-BD9716CF2C7A_dataMap.crossIdInputX" drools:dtype="String" itemSubjectRef="__21E60016-0F71-4539-8824-BD9716CF2C7A_dataMap.crossIdInputXItem" name="dataMap.crossId"/>
-        <bpmn2:dataInput id="_21E60016-0F71-4539-8824-BD9716CF2C7A_TaskNameInputX" drools:dtype="Object" name="TaskName"/>
-        <bpmn2:dataOutput id="_21E60016-0F71-4539-8824-BD9716CF2C7A_httpStatusCodeOutputX" drools:dtype="Integer" itemSubjectRef="__21E60016-0F71-4539-8824-BD9716CF2C7A_httpStatusCodeOutputXItem" name="httpStatusCode"/>
-        <bpmn2:dataOutput id="_21E60016-0F71-4539-8824-BD9716CF2C7A_messageOutputX" drools:dtype="String" itemSubjectRef="__21E60016-0F71-4539-8824-BD9716CF2C7A_messageOutputXItem" name="message"/>
-        <bpmn2:dataOutput id="_21E60016-0F71-4539-8824-BD9716CF2C7A_nameOutputX" drools:dtype="String" itemSubjectRef="__21E60016-0F71-4539-8824-BD9716CF2C7A_nameOutputXItem" name="name"/>
-        <bpmn2:dataOutput id="_21E60016-0F71-4539-8824-BD9716CF2C7A_statusDiscriminatorOutputX" drools:dtype="String" itemSubjectRef="__21E60016-0F71-4539-8824-BD9716CF2C7A_statusDiscriminatorOutputXItem" name="statusDiscriminator"/>
-        <bpmn2:dataOutput id="_21E60016-0F71-4539-8824-BD9716CF2C7A_capacityFullOutputX" drools:dtype="Integer" itemSubjectRef="__21E60016-0F71-4539-8824-BD9716CF2C7A_capacityFullOutputXItem" name="capacityFull"/>
-        <bpmn2:dataOutput id="_21E60016-0F71-4539-8824-BD9716CF2C7A_nodeTypeDiscriminatorsOutputX" drools:dtype="java.util.List" itemSubjectRef="__21E60016-0F71-4539-8824-BD9716CF2C7A_nodeTypeDiscriminatorsOutputXItem" name="nodeTypeDiscriminators"/>
-        <bpmn2:inputSet id="_MxfCGmm4EfGwm_kRKeU4IQ">
-          <bpmn2:dataInputRefs>_21E60016-0F71-4539-8824-BD9716CF2C7A_apiUrlInputX</bpmn2:dataInputRefs>
-          <bpmn2:dataInputRefs>_21E60016-0F71-4539-8824-BD9716CF2C7A_routeMap.domainInputX</bpmn2:dataInputRefs>
-          <bpmn2:dataInputRefs>_21E60016-0F71-4539-8824-BD9716CF2C7A_routeMap.sourceInputX</bpmn2:dataInputRefs>
-          <bpmn2:dataInputRefs>_21E60016-0F71-4539-8824-BD9716CF2C7A_dataMap.crossIdInputX</bpmn2:dataInputRefs>
-          <bpmn2:dataInputRefs>_21E60016-0F71-4539-8824-BD9716CF2C7A_TaskNameInputX</bpmn2:dataInputRefs>
-        </bpmn2:inputSet>
-        <bpmn2:outputSet id="_MxfCG2m4EfGwm_kRKeU4IQ">
-          <bpmn2:dataOutputRefs>_21E60016-0F71-4539-8824-BD9716CF2C7A_httpStatusCodeOutputX</bpmn2:dataOutputRefs>
-          <bpmn2:dataOutputRefs>_21E60016-0F71-4539-8824-BD9716CF2C7A_messageOutputX</bpmn2:dataOutputRefs>
-          <bpmn2:dataOutputRefs>_21E60016-0F71-4539-8824-BD9716CF2C7A_nameOutputX</bpmn2:dataOutputRefs>
-          <bpmn2:dataOutputRefs>_21E60016-0F71-4539-8824-BD9716CF2C7A_statusDiscriminatorOutputX</bpmn2:dataOutputRefs>
-          <bpmn2:dataOutputRefs>_21E60016-0F71-4539-8824-BD9716CF2C7A_capacityFullOutputX</bpmn2:dataOutputRefs>
-          <bpmn2:dataOutputRefs>_21E60016-0F71-4539-8824-BD9716CF2C7A_nodeTypeDiscriminatorsOutputX</bpmn2:dataOutputRefs>
-        </bpmn2:outputSet>
-      </bpmn2:ioSpecification>
-      <bpmn2:dataInputAssociation id="_MxfCHGm4EfGwm_kRKeU4IQ">
-        <bpmn2:sourceRef>_apiCallUrl</bpmn2:sourceRef>
-        <bpmn2:targetRef>_21E60016-0F71-4539-8824-BD9716CF2C7A_apiUrlInputX</bpmn2:targetRef>
-      </bpmn2:dataInputAssociation>
-      <bpmn2:dataInputAssociation id="_MxfCHWm4EfGwm_kRKeU4IQ">
-        <bpmn2:targetRef>_21E60016-0F71-4539-8824-BD9716CF2C7A_routeMap.domainInputX</bpmn2:targetRef>
-        <bpmn2:assignment id="_MxfCHmm4EfGwm_kRKeU4IQ">
-          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_MxfCH2m4EfGwm_kRKeU4IQ"><![CDATA[REST_API_CALL]]></bpmn2:from>
-          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_MxfCIGm4EfGwm_kRKeU4IQ">_21E60016-0F71-4539-8824-BD9716CF2C7A_routeMap.domainInputX</bpmn2:to>
-        </bpmn2:assignment>
-      </bpmn2:dataInputAssociation>
-      <bpmn2:dataInputAssociation id="_MxfCIWm4EfGwm_kRKeU4IQ">
-        <bpmn2:targetRef>_21E60016-0F71-4539-8824-BD9716CF2C7A_routeMap.sourceInputX</bpmn2:targetRef>
-        <bpmn2:assignment id="_MxfCImm4EfGwm_kRKeU4IQ">
-          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_MxfCI2m4EfGwm_kRKeU4IQ"><![CDATA[cross/findNode]]></bpmn2:from>
-          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_MxfCJGm4EfGwm_kRKeU4IQ">_21E60016-0F71-4539-8824-BD9716CF2C7A_routeMap.sourceInputX</bpmn2:to>
-        </bpmn2:assignment>
-      </bpmn2:dataInputAssociation>
-      <bpmn2:dataInputAssociation id="_MxfCJWm4EfGwm_kRKeU4IQ">
-        <bpmn2:sourceRef>cpeCrossId</bpmn2:sourceRef>
-        <bpmn2:targetRef>_21E60016-0F71-4539-8824-BD9716CF2C7A_dataMap.crossIdInputX</bpmn2:targetRef>
-      </bpmn2:dataInputAssociation>
-      <bpmn2:dataInputAssociation id="_MxfCJmm4EfGwm_kRKeU4IQ">
-        <bpmn2:targetRef>_21E60016-0F71-4539-8824-BD9716CF2C7A_TaskNameInputX</bpmn2:targetRef>
-        <bpmn2:assignment id="_MxfCJ2m4EfGwm_kRKeU4IQ">
-          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_MxfCKGm4EfGwm_kRKeU4IQ"><![CDATA[SdcApiCall]]></bpmn2:from>
-          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_MxfCKWm4EfGwm_kRKeU4IQ">_21E60016-0F71-4539-8824-BD9716CF2C7A_TaskNameInputX</bpmn2:to>
-        </bpmn2:assignment>
-      </bpmn2:dataInputAssociation>
-      <bpmn2:dataOutputAssociation id="_MxfCKmm4EfGwm_kRKeU4IQ">
-        <bpmn2:sourceRef>_21E60016-0F71-4539-8824-BD9716CF2C7A_httpStatusCodeOutputX</bpmn2:sourceRef>
-        <bpmn2:targetRef>httpStatusCode</bpmn2:targetRef>
-      </bpmn2:dataOutputAssociation>
-      <bpmn2:dataOutputAssociation id="_MxfCK2m4EfGwm_kRKeU4IQ">
-        <bpmn2:sourceRef>_21E60016-0F71-4539-8824-BD9716CF2C7A_messageOutputX</bpmn2:sourceRef>
-        <bpmn2:targetRef>message</bpmn2:targetRef>
-      </bpmn2:dataOutputAssociation>
-      <bpmn2:dataOutputAssociation id="_MxfCLGm4EfGwm_kRKeU4IQ">
-        <bpmn2:sourceRef>_21E60016-0F71-4539-8824-BD9716CF2C7A_nameOutputX</bpmn2:sourceRef>
-        <bpmn2:targetRef>cpeName</bpmn2:targetRef>
-      </bpmn2:dataOutputAssociation>
-      <bpmn2:dataOutputAssociation id="_MxfCLWm4EfGwm_kRKeU4IQ">
-        <bpmn2:sourceRef>_21E60016-0F71-4539-8824-BD9716CF2C7A_statusDiscriminatorOutputX</bpmn2:sourceRef>
-        <bpmn2:targetRef>cpeStatusDiscriminator</bpmn2:targetRef>
-      </bpmn2:dataOutputAssociation>
-      <bpmn2:dataOutputAssociation id="_MxfCLmm4EfGwm_kRKeU4IQ">
-        <bpmn2:sourceRef>_21E60016-0F71-4539-8824-BD9716CF2C7A_capacityFullOutputX</bpmn2:sourceRef>
-        <bpmn2:targetRef>cpeCapacityFull</bpmn2:targetRef>
-      </bpmn2:dataOutputAssociation>
-      <bpmn2:dataOutputAssociation id="_MxfCL2m4EfGwm_kRKeU4IQ">
-        <bpmn2:sourceRef>_21E60016-0F71-4539-8824-BD9716CF2C7A_nodeTypeDiscriminatorsOutputX</bpmn2:sourceRef>
-        <bpmn2:targetRef>cpeNodeTypeDiscriminators</bpmn2:targetRef>
-      </bpmn2:dataOutputAssociation>
-    </bpmn2:task>
     <bpmn2:intermediateThrowEvent id="_ADD0A003-2222-4222-8222-ADD0A0030003" name="Failed">
       <bpmn2:extensionElements>
         <drools:metaData name="elementname">
@@ -813,7 +689,7 @@ if ( roomCrossId == null ) {
 }]]></drools:script>
         </drools:onExit-script>
       </bpmn2:extensionElements>
-      <bpmn2:incoming>flow_findnode_findroom</bpmn2:incoming>
+      <bpmn2:incoming>flow_gw1_findnode</bpmn2:incoming>
       <bpmn2:outgoing>flow_findroom_gw2</bpmn2:outgoing>
       <bpmn2:ioSpecification id="_MxfCMWm4EfGwm_kRKeU4IQ">
         <bpmn2:dataInput id="_DE70A09C-D121-4102-BB26-7C89723EFE89_apiUrlInputX" drools:dtype="String" itemSubjectRef="__DE70A09C-D121-4102-BB26-7C89723EFE89_apiUrlInputXItem" name="apiUrl"/>
@@ -1092,10 +968,6 @@ kcontext.setVariable("parentCrossIds", parentCrossIdsList);]]></drools:script>
         <bpmn2:dataInput id="_2219AC2D-7D00-49DA-B3D2-86FFADE5B45C_dataMap.projectNameInputX" drools:dtype="String" itemSubjectRef="__2219AC2D-7D00-49DA-B3D2-86FFADE5B45C_dataMap.projectNameInputXItem" name="dataMap.projectName"/>
         <bpmn2:dataInput id="_2219AC2D-7D00-49DA-B3D2-86FFADE5B45C_dataMap.crossIdInputX" drools:dtype="String" itemSubjectRef="__2219AC2D-7D00-49DA-B3D2-86FFADE5B45C_dataMap.crossIdInputXItem" name="dataMap.crossId"/>
         <bpmn2:dataInput id="_2219AC2D-7D00-49DA-B3D2-86FFADE5B45C_dataMap.parentCrossIdsInputX" drools:dtype="java.util.List" itemSubjectRef="__2219AC2D-7D00-49DA-B3D2-86FFADE5B45C_dataMap.parentCrossIdsInputXItem" name="dataMap.parentCrossIds"/>
-        <bpmn2:dataInput id="_2219AC2D-7D00-49DA-B3D2-86FFADE5B45C_dataMap.nameInputX" drools:dtype="String" itemSubjectRef="__2219AC2D-7D00-49DA-B3D2-86FFADE5B45C_dataMap.nameInputXItem" name="dataMap.name"/>
-        <bpmn2:dataInput id="_2219AC2D-7D00-49DA-B3D2-86FFADE5B45C_dataMap.statusDiscriminatorInputX" drools:dtype="String" itemSubjectRef="__2219AC2D-7D00-49DA-B3D2-86FFADE5B45C_dataMap.statusDiscriminatorInputXItem" name="dataMap.statusDiscriminator"/>
-        <bpmn2:dataInput id="_2219AC2D-7D00-49DA-B3D2-86FFADE5B45C_dataMap.capacityFullInputX" drools:dtype="Integer" itemSubjectRef="__2219AC2D-7D00-49DA-B3D2-86FFADE5B45C_dataMap.capacityFullInputXItem" name="dataMap.capacityFull"/>
-        <bpmn2:dataInput id="_2219AC2D-7D00-49DA-B3D2-86FFADE5B45C_dataMap.nodeTypeDiscriminatorsInputX" drools:dtype="java.util.List" itemSubjectRef="__2219AC2D-7D00-49DA-B3D2-86FFADE5B45C_dataMap.nodeTypeDiscriminatorsInputXItem" name="dataMap.nodeTypeDiscriminators"/>
         <bpmn2:dataInput id="_2219AC2D-7D00-49DA-B3D2-86FFADE5B45C_TaskNameInputX" drools:dtype="Object" name="TaskName"/>
         <bpmn2:dataOutput id="_2219AC2D-7D00-49DA-B3D2-86FFADE5B45C_httpStatusCodeOutputX" drools:dtype="Integer" itemSubjectRef="__2219AC2D-7D00-49DA-B3D2-86FFADE5B45C_httpStatusCodeOutputXItem" name="httpStatusCode"/>
         <bpmn2:dataOutput id="_2219AC2D-7D00-49DA-B3D2-86FFADE5B45C_messageOutputX" drools:dtype="String" itemSubjectRef="__2219AC2D-7D00-49DA-B3D2-86FFADE5B45C_messageOutputXItem" name="message"/>
@@ -1106,10 +978,6 @@ kcontext.setVariable("parentCrossIds", parentCrossIdsList);]]></drools:script>
           <bpmn2:dataInputRefs>_2219AC2D-7D00-49DA-B3D2-86FFADE5B45C_dataMap.projectNameInputX</bpmn2:dataInputRefs>
           <bpmn2:dataInputRefs>_2219AC2D-7D00-49DA-B3D2-86FFADE5B45C_dataMap.crossIdInputX</bpmn2:dataInputRefs>
           <bpmn2:dataInputRefs>_2219AC2D-7D00-49DA-B3D2-86FFADE5B45C_dataMap.parentCrossIdsInputX</bpmn2:dataInputRefs>
-          <bpmn2:dataInputRefs>_2219AC2D-7D00-49DA-B3D2-86FFADE5B45C_dataMap.nameInputX</bpmn2:dataInputRefs>
-          <bpmn2:dataInputRefs>_2219AC2D-7D00-49DA-B3D2-86FFADE5B45C_dataMap.statusDiscriminatorInputX</bpmn2:dataInputRefs>
-          <bpmn2:dataInputRefs>_2219AC2D-7D00-49DA-B3D2-86FFADE5B45C_dataMap.capacityFullInputX</bpmn2:dataInputRefs>
-          <bpmn2:dataInputRefs>_2219AC2D-7D00-49DA-B3D2-86FFADE5B45C_dataMap.nodeTypeDiscriminatorsInputX</bpmn2:dataInputRefs>
           <bpmn2:dataInputRefs>_2219AC2D-7D00-49DA-B3D2-86FFADE5B45C_TaskNameInputX</bpmn2:dataInputRefs>
         </bpmn2:inputSet>
         <bpmn2:outputSet id="_MxfpY2m4EfGwm_kRKeU4IQ">
@@ -1146,22 +1014,6 @@ kcontext.setVariable("parentCrossIds", parentCrossIdsList);]]></drools:script>
       <bpmn2:dataInputAssociation id="_Mxfpb2m4EfGwm_kRKeU4IQ">
         <bpmn2:sourceRef>parentCrossIds</bpmn2:sourceRef>
         <bpmn2:targetRef>_2219AC2D-7D00-49DA-B3D2-86FFADE5B45C_dataMap.parentCrossIdsInputX</bpmn2:targetRef>
-      </bpmn2:dataInputAssociation>
-      <bpmn2:dataInputAssociation id="_MxfpcGm4EfGwm_kRKeU4IQ">
-        <bpmn2:sourceRef>cpeName</bpmn2:sourceRef>
-        <bpmn2:targetRef>_2219AC2D-7D00-49DA-B3D2-86FFADE5B45C_dataMap.nameInputX</bpmn2:targetRef>
-      </bpmn2:dataInputAssociation>
-      <bpmn2:dataInputAssociation id="_MxfpcWm4EfGwm_kRKeU4IQ">
-        <bpmn2:sourceRef>cpeStatusDiscriminator</bpmn2:sourceRef>
-        <bpmn2:targetRef>_2219AC2D-7D00-49DA-B3D2-86FFADE5B45C_dataMap.statusDiscriminatorInputX</bpmn2:targetRef>
-      </bpmn2:dataInputAssociation>
-      <bpmn2:dataInputAssociation id="_Mxfpcmm4EfGwm_kRKeU4IQ">
-        <bpmn2:sourceRef>cpeCapacityFull</bpmn2:sourceRef>
-        <bpmn2:targetRef>_2219AC2D-7D00-49DA-B3D2-86FFADE5B45C_dataMap.capacityFullInputX</bpmn2:targetRef>
-      </bpmn2:dataInputAssociation>
-      <bpmn2:dataInputAssociation id="_Mxfpc2m4EfGwm_kRKeU4IQ">
-        <bpmn2:sourceRef>cpeNodeTypeDiscriminators</bpmn2:sourceRef>
-        <bpmn2:targetRef>_2219AC2D-7D00-49DA-B3D2-86FFADE5B45C_dataMap.nodeTypeDiscriminatorsInputX</bpmn2:targetRef>
       </bpmn2:dataInputAssociation>
       <bpmn2:dataInputAssociation id="_MxfpdGm4EfGwm_kRKeU4IQ">
         <bpmn2:targetRef>_2219AC2D-7D00-49DA-B3D2-86FFADE5B45C_TaskNameInputX</bpmn2:targetRef>
@@ -1222,9 +1074,6 @@ kcontext.setVariable("parentCrossIds", parentCrossIdsList);]]></drools:script>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="shape__ADD0A003-2222-4222-8222-ADD0A0030003" bpmnElement="_ADD0A003-2222-4222-8222-ADD0A0030003">
         <dc:Bounds height="56.0" width="56.0" x="1374.0" y="87.0"/>
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="shape__21E60016-0F71-4539-8824-BD9716CF2C7A" bpmnElement="_21E60016-0F71-4539-8824-BD9716CF2C7A">
-        <dc:Bounds height="102.0" width="154.0" x="2114.0" y="177.0"/>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="shape__D0302EDE-27B8-4DE9-8316-DE42314CE329" bpmnElement="_D0302EDE-27B8-4DE9-8316-DE42314CE329">
         <dc:Bounds height="56.0" width="56.0" x="1220.0" y="562.0"/>
@@ -1312,10 +1161,6 @@ kcontext.setVariable("parentCrossIds", parentCrossIdsList);]]></drools:script>
       <bpmndi:BPMNEdge id="edge_shape__ADD1A002-3333-4333-8333-ADD1A0020002_to_shape__ADD1A004-3333-4333-8333-ADD1A0040004" bpmnElement="flow_gwsacc_findsvc1">
         <di:waypoint xsi:type="dc:Point" x="1073.0" y="115.0"/>
         <di:waypoint xsi:type="dc:Point" x="1293.0" y="228.0"/>
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="edge_shape__21E60016-0F71-4539-8824-BD9716CF2C7A_to_shape__DE70A09C-D121-4102-BB26-7C89723EFE89" bpmnElement="flow_findnode_findroom">
-        <di:waypoint xsi:type="dc:Point" x="2191.0" y="228.0"/>
-        <di:waypoint xsi:type="dc:Point" x="2417.0" y="228.0"/>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="edge_shape__DE70A09C-D121-4102-BB26-7C89723EFE89_to_shape__B3621A74-EE43-47B3-81BD-697E1F6D9B24" bpmnElement="flow_findroom_gw2">
         <di:waypoint xsi:type="dc:Point" x="2417.0" y="228.0"/>
@@ -1439,33 +1284,6 @@ kcontext.setVariable("parentCrossIds", parentCrossIdsList);]]></drools:script>
                 <bpsim:FloatingParameter value="0.0"/>
               </bpsim:UnitCost>
             </bpsim:CostParameters>
-          </bpsim:ElementParameters>
-          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_21E60016-0F71-4539-8824-BD9716CF2C7A" id="_MxgQNGm4EfGwm_kRKeU4IQ">
-            <bpsim:TimeParameters xsi:type="bpsim:TimeParameters">
-              <bpsim:ProcessingTime xsi:type="bpsim:Parameter">
-                <bpsim:NormalDistribution mean="0.0" standardDeviation="0.0"/>
-              </bpsim:ProcessingTime>
-            </bpsim:TimeParameters>
-            <bpsim:ResourceParameters xsi:type="bpsim:ResourceParameters">
-              <bpsim:Availability xsi:type="bpsim:Parameter">
-                <bpsim:FloatingParameter value="0.0"/>
-              </bpsim:Availability>
-              <bpsim:Quantity xsi:type="bpsim:Parameter">
-                <bpsim:FloatingParameter value="0.0"/>
-              </bpsim:Quantity>
-            </bpsim:ResourceParameters>
-            <bpsim:CostParameters xsi:type="bpsim:CostParameters">
-              <bpsim:UnitCost xsi:type="bpsim:Parameter">
-                <bpsim:FloatingParameter value="0.0"/>
-              </bpsim:UnitCost>
-            </bpsim:CostParameters>
-          </bpsim:ElementParameters>
-          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_C10F678B-1D88-4E6F-BB83-EF2E45529103" id="_MxgQNWm4EfGwm_kRKeU4IQ">
-            <bpsim:TimeParameters xsi:type="bpsim:TimeParameters">
-              <bpsim:ProcessingTime xsi:type="bpsim:Parameter">
-                <bpsim:NormalDistribution mean="0.0" standardDeviation="0.0"/>
-              </bpsim:ProcessingTime>
-            </bpsim:TimeParameters>
           </bpsim:ElementParameters>
           <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_308AF56D-8B1A-4B9D-81F1-D546F32D9087" id="_MxgQNmm4EfGwm_kRKeU4IQ">
             <bpsim:TimeParameters xsi:type="bpsim:TimeParameters">
