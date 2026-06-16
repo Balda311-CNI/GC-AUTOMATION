@@ -19,8 +19,6 @@
   <bpmn2:itemDefinition id="_cpeStatusDiscriminatorItem" structureRef="String"/>
   <bpmn2:itemDefinition id="_cpeCapacityFullItem" structureRef="Integer"/>
   <bpmn2:itemDefinition id="_roomCrossIdItem" structureRef="String"/>
-  <bpmn2:itemDefinition id="_roomCriteriaItem" structureRef="String"/>
-  <bpmn2:itemDefinition id="_resultListItem" structureRef="java.util.List"/>
   <bpmn2:itemDefinition id="_httpStatusCodeItem" structureRef="Integer"/>
   <bpmn2:itemDefinition id="_messageItem" structureRef="String"/>
   <bpmn2:itemDefinition id="_errorMessageItem" structureRef="String"/>
@@ -56,8 +54,11 @@
   <bpmn2:itemDefinition id="__DE70A09C-D121-4102-BB26-7C89723EFE89_apiUrlInputXItem" structureRef="String"/>
   <bpmn2:itemDefinition id="__DE70A09C-D121-4102-BB26-7C89723EFE89_routeMap.domainInputXItem" structureRef="String"/>
   <bpmn2:itemDefinition id="__DE70A09C-D121-4102-BB26-7C89723EFE89_routeMap.sourceInputXItem" structureRef="String"/>
-  <bpmn2:itemDefinition id="__DE70A09C-D121-4102-BB26-7C89723EFE89_dataMap.criteriaInputXItem" structureRef="String"/>
-  <bpmn2:itemDefinition id="__DE70A09C-D121-4102-BB26-7C89723EFE89_resultListOutputXItem" structureRef="java.util.List"/>
+  <bpmn2:itemDefinition id="__DE70A09C-D121-4102-BB26-7C89723EFE89_dataMap.externalIdInputXItem" structureRef="String"/>
+  <bpmn2:itemDefinition id="__DE70A09C-D121-4102-BB26-7C89723EFE89_dataMap.systemIdInputXItem" structureRef="String"/>
+  <bpmn2:itemDefinition id="__DE70A09C-D121-4102-BB26-7C89723EFE89_crossIdOutputXItem" structureRef="String"/>
+  <bpmn2:itemDefinition id="__DE70A09C-D121-4102-BB26-7C89723EFE89_httpStatusCodeOutputXItem" structureRef="Integer"/>
+  <bpmn2:itemDefinition id="__DE70A09C-D121-4102-BB26-7C89723EFE89_messageOutputXItem" structureRef="String"/>
   <bpmn2:itemDefinition id="__21E60016-0F71-4539-8824-BD9716CF2C7A_apiUrlInputXItem" structureRef="String"/>
   <bpmn2:itemDefinition id="__21E60016-0F71-4539-8824-BD9716CF2C7A_routeMap.domainInputXItem" structureRef="String"/>
   <bpmn2:itemDefinition id="__21E60016-0F71-4539-8824-BD9716CF2C7A_routeMap.sourceInputXItem" structureRef="String"/>
@@ -112,8 +113,6 @@
     <bpmn2:property id="cpeStatusDiscriminator" itemSubjectRef="_cpeStatusDiscriminatorItem" name="cpeStatusDiscriminator"/>
     <bpmn2:property id="cpeCapacityFull" itemSubjectRef="_cpeCapacityFullItem" name="cpeCapacityFull"/>
     <bpmn2:property id="roomCrossId" itemSubjectRef="_roomCrossIdItem" name="roomCrossId"/>
-    <bpmn2:property id="roomCriteria" itemSubjectRef="_roomCriteriaItem" name="roomCriteria"/>
-    <bpmn2:property id="resultList" itemSubjectRef="_resultListItem" name="resultList"/>
     <bpmn2:property id="httpStatusCode" itemSubjectRef="_httpStatusCodeItem" name="httpStatusCode"/>
     <bpmn2:property id="message" itemSubjectRef="_messageItem" name="message"/>
     <bpmn2:property id="errorMessage" itemSubjectRef="_errorMessageItem" name="errorMessage"/>
@@ -794,7 +793,7 @@ System.out.println("================================================");]]></droo
     </bpmn2:endEvent>
     <bpmn2:task id="_DE70A09C-D121-4102-BB26-7C89723EFE89" drools:taskName="SdcApiCall" name="REST_API_CALL:
 cross/findRoom">
-      <bpmn2:documentation id="_MxfCMGm4EfGwm_kRKeU4IQ"><![CDATA[Find the target room (TECHNICAL_AREA) by systemId + externalId via CROSS API. (FIND)]]></bpmn2:documentation>
+      <bpmn2:documentation id="_MxfCMGm4EfGwm_kRKeU4IQ"><![CDATA[Find the target room by externalId (smwRoomId) + systemId via CROSS API direct node lookup (returns a single crossId). (FIND)]]></bpmn2:documentation>
       <bpmn2:extensionElements>
         <drools:metaData name="elementname">
           <drools:metaValue><![CDATA[REST_API_CALL:
@@ -804,20 +803,13 @@ cross/findRoom]]></drools:metaValue>
           <drools:script><![CDATA[System.out.println("================================================");
 System.out.println("updateCustomerRoom - REST_API_CALL: cross/findRoom");
 System.out.println("================================================");
-kcontext.setVariable("resultList", null);
-kcontext.setVariable("roomCriteria", "systemId==" + smwSystemId + ";externalId==" + smwRoomId + ";nodeTypeDiscriminator==TECHNICAL_AREA");
-System.out.println("roomCriteria=" + kcontext.getVariable("roomCriteria"));]]></drools:script>
+kcontext.setVariable("roomCrossId", null);
+System.out.println("externalId=" + smwRoomId + ", systemId=" + smwSystemId);]]></drools:script>
         </drools:onEntry-script>
         <drools:onExit-script scriptFormat="http://www.java.com/java">
-          <drools:script><![CDATA[System.out.println("Data Outputs: resultList=" + resultList);
-if ( resultList == null || ((java.util.List) resultList).isEmpty() ) {
+          <drools:script><![CDATA[System.out.println("Data Outputs: roomCrossId=" + roomCrossId + ", httpStatusCode=" + httpStatusCode + ", message=" + message);
+if ( roomCrossId == null ) {
     kcontext.setVariable("errorMessage", "Room not found for smwRoomId '" + smwRoomId + "' (systemId " + smwSystemId + ")");
-} else if ( ((java.util.List) resultList).size() > 1 ) {
-    kcontext.setVariable("errorMessage", "Room not unique for smwRoomId '" + smwRoomId + "' (systemId " + smwSystemId + ")");
-} else {
-    java.util.Map firstRow = (java.util.Map) ((java.util.List) resultList).get(0);
-    kcontext.setVariable("roomCrossId", (String) firstRow.get("crossId"));
-    System.out.println("roomCrossId=" + kcontext.getVariable("roomCrossId"));
 }]]></drools:script>
         </drools:onExit-script>
       </bpmn2:extensionElements>
@@ -827,18 +819,24 @@ if ( resultList == null || ((java.util.List) resultList).isEmpty() ) {
         <bpmn2:dataInput id="_DE70A09C-D121-4102-BB26-7C89723EFE89_apiUrlInputX" drools:dtype="String" itemSubjectRef="__DE70A09C-D121-4102-BB26-7C89723EFE89_apiUrlInputXItem" name="apiUrl"/>
         <bpmn2:dataInput id="_DE70A09C-D121-4102-BB26-7C89723EFE89_routeMap.domainInputX" drools:dtype="String" itemSubjectRef="__DE70A09C-D121-4102-BB26-7C89723EFE89_routeMap.domainInputXItem" name="routeMap.domain"/>
         <bpmn2:dataInput id="_DE70A09C-D121-4102-BB26-7C89723EFE89_routeMap.sourceInputX" drools:dtype="String" itemSubjectRef="__DE70A09C-D121-4102-BB26-7C89723EFE89_routeMap.sourceInputXItem" name="routeMap.source"/>
-        <bpmn2:dataInput id="_DE70A09C-D121-4102-BB26-7C89723EFE89_dataMap.criteriaInputX" drools:dtype="String" itemSubjectRef="__DE70A09C-D121-4102-BB26-7C89723EFE89_dataMap.criteriaInputXItem" name="dataMap.criteria"/>
+        <bpmn2:dataInput id="_DE70A09C-D121-4102-BB26-7C89723EFE89_dataMap.externalIdInputX" drools:dtype="String" itemSubjectRef="__DE70A09C-D121-4102-BB26-7C89723EFE89_dataMap.externalIdInputXItem" name="dataMap.externalId"/>
+        <bpmn2:dataInput id="_DE70A09C-D121-4102-BB26-7C89723EFE89_dataMap.systemIdInputX" drools:dtype="String" itemSubjectRef="__DE70A09C-D121-4102-BB26-7C89723EFE89_dataMap.systemIdInputXItem" name="dataMap.systemId"/>
         <bpmn2:dataInput id="_DE70A09C-D121-4102-BB26-7C89723EFE89_TaskNameInputX" drools:dtype="Object" name="TaskName"/>
-        <bpmn2:dataOutput id="_DE70A09C-D121-4102-BB26-7C89723EFE89_resultListOutputX" drools:dtype="java.util.List" itemSubjectRef="__DE70A09C-D121-4102-BB26-7C89723EFE89_resultListOutputXItem" name="resultList"/>
+        <bpmn2:dataOutput id="_DE70A09C-D121-4102-BB26-7C89723EFE89_crossIdOutputX" drools:dtype="String" itemSubjectRef="__DE70A09C-D121-4102-BB26-7C89723EFE89_crossIdOutputXItem" name="crossId"/>
+        <bpmn2:dataOutput id="_DE70A09C-D121-4102-BB26-7C89723EFE89_httpStatusCodeOutputX" drools:dtype="Integer" itemSubjectRef="__DE70A09C-D121-4102-BB26-7C89723EFE89_httpStatusCodeOutputXItem" name="httpStatusCode"/>
+        <bpmn2:dataOutput id="_DE70A09C-D121-4102-BB26-7C89723EFE89_messageOutputX" drools:dtype="String" itemSubjectRef="__DE70A09C-D121-4102-BB26-7C89723EFE89_messageOutputXItem" name="message"/>
         <bpmn2:inputSet id="_MxfCMmm4EfGwm_kRKeU4IQ">
           <bpmn2:dataInputRefs>_DE70A09C-D121-4102-BB26-7C89723EFE89_apiUrlInputX</bpmn2:dataInputRefs>
           <bpmn2:dataInputRefs>_DE70A09C-D121-4102-BB26-7C89723EFE89_routeMap.domainInputX</bpmn2:dataInputRefs>
           <bpmn2:dataInputRefs>_DE70A09C-D121-4102-BB26-7C89723EFE89_routeMap.sourceInputX</bpmn2:dataInputRefs>
-          <bpmn2:dataInputRefs>_DE70A09C-D121-4102-BB26-7C89723EFE89_dataMap.criteriaInputX</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>_DE70A09C-D121-4102-BB26-7C89723EFE89_dataMap.externalIdInputX</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>_DE70A09C-D121-4102-BB26-7C89723EFE89_dataMap.systemIdInputX</bpmn2:dataInputRefs>
           <bpmn2:dataInputRefs>_DE70A09C-D121-4102-BB26-7C89723EFE89_TaskNameInputX</bpmn2:dataInputRefs>
         </bpmn2:inputSet>
         <bpmn2:outputSet id="_MxfCM2m4EfGwm_kRKeU4IQ">
-          <bpmn2:dataOutputRefs>_DE70A09C-D121-4102-BB26-7C89723EFE89_resultListOutputX</bpmn2:dataOutputRefs>
+          <bpmn2:dataOutputRefs>_DE70A09C-D121-4102-BB26-7C89723EFE89_crossIdOutputX</bpmn2:dataOutputRefs>
+          <bpmn2:dataOutputRefs>_DE70A09C-D121-4102-BB26-7C89723EFE89_httpStatusCodeOutputX</bpmn2:dataOutputRefs>
+          <bpmn2:dataOutputRefs>_DE70A09C-D121-4102-BB26-7C89723EFE89_messageOutputX</bpmn2:dataOutputRefs>
         </bpmn2:outputSet>
       </bpmn2:ioSpecification>
       <bpmn2:dataInputAssociation id="_MxfpIGm4EfGwm_kRKeU4IQ">
@@ -860,8 +858,12 @@ if ( resultList == null || ((java.util.List) resultList).isEmpty() ) {
         </bpmn2:assignment>
       </bpmn2:dataInputAssociation>
       <bpmn2:dataInputAssociation id="_MxfpKWm4EfGwm_kRKeU4IQ">
-        <bpmn2:sourceRef>roomCriteria</bpmn2:sourceRef>
-        <bpmn2:targetRef>_DE70A09C-D121-4102-BB26-7C89723EFE89_dataMap.criteriaInputX</bpmn2:targetRef>
+        <bpmn2:sourceRef>smwRoomId</bpmn2:sourceRef>
+        <bpmn2:targetRef>_DE70A09C-D121-4102-BB26-7C89723EFE89_dataMap.externalIdInputX</bpmn2:targetRef>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="_MxfpKWm4EfGwm_kRKeU4IQ2">
+        <bpmn2:sourceRef>smwSystemId</bpmn2:sourceRef>
+        <bpmn2:targetRef>_DE70A09C-D121-4102-BB26-7C89723EFE89_dataMap.systemIdInputX</bpmn2:targetRef>
       </bpmn2:dataInputAssociation>
       <bpmn2:dataInputAssociation id="_MxfpKmm4EfGwm_kRKeU4IQ">
         <bpmn2:targetRef>_DE70A09C-D121-4102-BB26-7C89723EFE89_TaskNameInputX</bpmn2:targetRef>
@@ -871,8 +873,16 @@ if ( resultList == null || ((java.util.List) resultList).isEmpty() ) {
         </bpmn2:assignment>
       </bpmn2:dataInputAssociation>
       <bpmn2:dataOutputAssociation id="_MxfpLmm4EfGwm_kRKeU4IQ">
-        <bpmn2:sourceRef>_DE70A09C-D121-4102-BB26-7C89723EFE89_resultListOutputX</bpmn2:sourceRef>
-        <bpmn2:targetRef>resultList</bpmn2:targetRef>
+        <bpmn2:sourceRef>_DE70A09C-D121-4102-BB26-7C89723EFE89_crossIdOutputX</bpmn2:sourceRef>
+        <bpmn2:targetRef>roomCrossId</bpmn2:targetRef>
+      </bpmn2:dataOutputAssociation>
+      <bpmn2:dataOutputAssociation id="_MxfpLmm4EfGwm_kRKeU4IQ2">
+        <bpmn2:sourceRef>_DE70A09C-D121-4102-BB26-7C89723EFE89_httpStatusCodeOutputX</bpmn2:sourceRef>
+        <bpmn2:targetRef>httpStatusCode</bpmn2:targetRef>
+      </bpmn2:dataOutputAssociation>
+      <bpmn2:dataOutputAssociation id="_MxfpLmm4EfGwm_kRKeU4IQ3">
+        <bpmn2:sourceRef>_DE70A09C-D121-4102-BB26-7C89723EFE89_messageOutputX</bpmn2:sourceRef>
+        <bpmn2:targetRef>message</bpmn2:targetRef>
       </bpmn2:dataOutputAssociation>
     </bpmn2:task>
     <bpmn2:exclusiveGateway id="_ADD1A002-3333-4333-8333-ADD1A0020002" drools:dg="flow_gwsacc_findsvc1" gatewayDirection="Diverging" default="flow_gwsacc_findsvc1">
